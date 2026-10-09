@@ -298,5 +298,105 @@
     "excerpt": "SとO、OとAの境目で迷ったら。架空例でS/O/A/Pの振り分けと、AIへの指示のコツを紹介します。",
     "url": "blog/soap-example-ai/",
     "eyecatch": "blog/soap-example-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "handwritten-memo-ai",
+    "title": "手書きメモを写真でAIに読ませる方法｜読めない字は「1行ずつ聞いて」",
+    "date": "2026-09-09",
+    "updated": "2026-09-09",
+    "category": "看護記録・申し送り",
+    "excerpt": "走り書き・略語まじりでもOK。ただし万能ではありません。読み取りのコツと、写真を撮るときの注意点。",
+    "url": "blog/handwritten-memo-ai/",
+    "eyecatch": "blog/handwritten-memo-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "nursing-record-privacy",
+    "title": "看護記録にAIを使うとき、個人情報はどうする？匿名化と「空の様式を貼る」ルール",
+    "date": "2026-09-08",
+    "updated": "2026-09-08",
+    "category": "看護記録・申し送り",
+    "excerpt": "入れない・匿名化する・空の様式だけ貼る・AIに見張らせる。記録にAIを使う前に決めておきたいルールです。",
+    "url": "blog/nursing-record-privacy/",
+    "eyecatch": "blog/nursing-record-privacy/eyecatch.jpg"
+  },
+  {
+    "slug": "incident-cause-countermeasure",
+    "title": "インシデントレポートの「原因」「対策」が書けない人へ｜人を責めない書き方をAIと",
+    "date": "2026-09-07",
+    "updated": "2026-09-07",
+    "category": "インシデント・医療安全",
+    "excerpt": "「確認不足でした」「今後注意します」から抜け出す。人を責めない原因と、明日からできる対策の下書き方法。",
+    "url": "blog/incident-cause-countermeasure/",
+    "eyecatch": "blog/incident-cause-countermeasure/eyecatch.jpg"
+  },
+  {
+    "slug": "near-miss-report-ai",
+    "title": "ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える",
+    "date": "2026-09-06",
+    "updated": "2026-09-06",
+    "category": "インシデント・医療安全",
+    "excerpt": "何回出しても書き直しになる…を減らす。時系列・主語述語・事実と推定、の3点を整えるプロンプトです。",
+    "url": "blog/near-miss-report-ai/",
+    "eyecatch": "blog/near-miss-report-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "incident-to-manual",
+    "title": "インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）",
+    "date": "2026-09-05",
+    "updated": "2026-09-05",
+    "category": "インシデント・医療安全",
+    "excerpt": "レポートで終わらせず、教育につなげる。同じ会話の続きで、新人にも分かる防止マニュアルを作った実演です。",
+    "url": "blog/incident-to-manual/",
+    "eyecatch": "blog/incident-to-manual/eyecatch.jpg"
+  },
+  {
+    "slug": "nursing-manual-ai",
+    "title": "看護手順書・マニュアルをAIで作る｜Word5枚・図解多め・写真の指示まで",
+    "date": "2026-09-04",
+    "updated": "2026-09-04",
+    "category": "勉強会・マニュアル",
+    "excerpt": "対象・分量・形式・締め方を決めて頼む。後から直せるWordで、写真の差し込み位置まで指示させるコツ。",
+    "url": "blog/nursing-manual-ai/",
+    "eyecatch": "blog/nursing-manual-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "claude-projects-incident-ai",
+    "title": "Claudeのプロジェクト機能で「インシデントAI」を作る手順",
+    "date": "2026-09-03",
+    "updated": "2026-09-03",
+    "category": "自分専用AI",
+    "excerpt": "指示ゼロ、メモだけで完成。Claudeのプロジェクトで「インシデントAI」を作る手順と設定文の例です。",
+    "url": "blog/claude-projects-incident-ai/",
+    "eyecatch": "blog/claude-projects-incident-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "gemini-gem-how-to",
+    "title": "GeminiのGemで医療職の専用AIを作る｜やることはプロジェクトと同じ",
+    "date": "2026-09-02",
+    "updated": "2026-09-02",
+    "category": "自分専用AI",
+    "excerpt": "Gemは、Gemini版の「自分専用AI」。呼び名が違うだけで、設定文を作って保存し、その中で話す流れは同じです。",
+    "url": "blog/gemini-gem-how-to/",
+    "eyecatch": "blog/gemini-gem-how-to/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-hospital-format",
+    "title": "AIに病院の様式を覚えさせる3つのルール｜見出し順守・項目を増減しない・空欄は「記載なし」",
+    "date": "2026-09-01",
+    "updated": "2026-09-01",
+    "category": "自分専用AI",
+    "excerpt": "AIは親切心で項目を足し、空欄を想像で埋めがち。様式を守らせる3つのルールと、ずれたときの直し方。",
+    "url": "blog/ai-hospital-format/",
+    "eyecatch": "blog/ai-hospital-format/eyecatch.jpg"
+  },
+  {
+    "slug": "chat-vs-project",
+    "title": "チャットとプロジェクトの使い分け｜遊びの友達から、仕事の秘書へ",
+    "date": "2026-08-31",
+    "updated": "2026-08-31",
+    "category": "自分専用AI",
+    "excerpt": "初めての作業はチャットで試し、形が決まったらプロジェクトへ引っ越す。チャットが、あなたの秘書に変わる流れ。",
+    "url": "blog/chat-vs-project/",
+    "eyecatch": "blog/chat-vs-project/eyecatch.jpg"
   }
 ]

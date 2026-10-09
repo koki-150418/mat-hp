@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claudeのプロジェクト機能で「インシデントAI」を作る手順｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="Claudeのプロジェクト機能を使って、メモを渡すだけでインシデントレポートの文章部分が返ってくる「インシデントAI」を作る手順を紹介。設定文の例と、医療職が守りたい注意点を解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/claude-projects-incident-ai/">
+<meta property="og:title" content="Claudeのプロジェクト機能で「インシデントAI」を作る手順｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="Claudeのプロジェクト機能を使って、メモを渡すだけでインシデントレポートの文章部分が返ってくる「インシデントAI」を作る手順を紹介。設定文の例と、医療職が守りたい注意点を解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/claude-projects-incident-ai/">
+<meta property="og:image" content="https://mediaiteam.com/blog/claude-projects-incident-ai/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-03">
+<meta property="article:modified_time" content="2026-09-03">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claudeのプロジェクト機能で「インシデントAI」を作る手順", "description": "Claudeのプロジェクト機能を使って、メモを渡すだけでインシデントレポートの文章部分が返ってくる「インシデントAI」を作る手順を紹介。設定文の例と、医療職が守りたい注意点を解説します。", "image": ["https://mediaiteam.com/blog/claude-projects-incident-ai/eyecatch.jpg"], "datePublished": "2026-09-03", "dateModified": "2026-09-03", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/claude-projects-incident-ai/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Claudeのプロジェクト機能で「インシデントAI」を作る手順", "item": "https://mediaiteam.com/blog/claude-projects-incident-ai/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">Claudeのプロジェクト機能で「インシデントAI」を作る手順</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=自分専用AI">自分専用AI</a><span>公開日 <time datetime="2026-09-03">2026.09.03</time></span></p>
+      <h1 class="article-title">Claudeのプロジェクト機能で「インシデントAI」を作る手順</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/claude-projects-incident-ai/eyecatch.jpg" alt="Claudeのプロジェクト機能で「インシデントAI」を作る手順"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">プロジェクトとは</a></li><li class="toc-h2"><a href="#sec-2">手順</a></li><li class="toc-h2"><a href="#sec-3">設定文の例</a></li><li class="toc-h2"><a href="#sec-4">使うときは「メモを渡すだけ」</a></li><li class="toc-h2"><a href="#sec-5">近道：うまくいった会話から作る</a></li><li class="toc-h2"><a href="#sec-6">育てていく</a></li><li class="toc-h2"><a href="#sec-7">ChatGPTやGeminiでも同じ</a></li><li class="toc-h2"><a href="#sec-8">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>インシデントレポートを書くたびに、同じプロンプトを打ち直していませんか。Claudeの<strong>プロジェクト機能</strong>を使えば、ルールを一度だけ覚えさせて、あとはメモを渡すだけで文章の下書きが返ってくる「インシデントAI」を作れます。</p>
+<p>MAT主催の谷口は、普段Claudeをメインに使っています。この記事では、第2回勉強会で紹介した内容をもとに、Claudeでの作り方を紹介します。</p>
+<p>※画面や機能の名前は2026年7〜8月時点のものです。</p>
+
+<h2 id="sec-1">プロジェクトとは</h2>
+<p>普通の会話は、新しいチャットを開くたびにまっさらです。プロジェクトは、役割やルールを"箱"に保存しておき、その中で話すだけで毎回その設定が効くしくみです。考え方の全体は<a href="../personal-ai-how-to-make/">自分専用AIの作り方</a>で紹介しています。</p>
+
+<h2 id="sec-2">手順</h2>
+<ol>
+  <li>Claudeの画面で「プロジェクト」を開き、新しいプロジェクトを作る</li>
+  <li>名前をつける（例：「インシデントAI」）</li>
+  <li>プロジェクトの指示欄に、設定文を貼って保存する</li>
+  <li>プロジェクトの中で新しいチャットを開き、メモを渡す</li>
+</ol>
+
+<h2 id="sec-3">設定文の例</h2>
+<p>第2回勉強会で紹介したインシデントレポートのプロンプトと、「専用AI設計テンプレ」の考え方を組み合わせた例です。</p>
+<blockquote><p>あなたは病棟の医療安全の視点を持った、インシデントレポートの文章を整える担当です。<br>私が渡すメモから、レポートの"文章部分"だけを作ってください。<br>■出力の様式<br>【発生内容】時系列で主語・述語を明確に／5〜8行／事実のみ<br>【原因】なぜ起きたか／2〜3行／人を責めない<br>【対策】再発防止／2〜3行／明日からできる<br>■守ること<br>・チェック項目（種類・要因・レベル）は出力しない。判定は人が決める<br>・推測と事実を混ぜない。メモにない情報は「記載なし」<br>・氏名や個人が特定できる情報が含まれていたら、出力する前に指摘する</p></blockquote>
+<p>勉強会のテンプレートでは、インシデント報告用の設定に「医療安全の視点」「個人を責めない」「推測と事実を混ぜない」を入れることをおすすめしています。</p>
+
+<h2 id="sec-4">使うときは「メモを渡すだけ」</h2>
+<p>プロジェクトができたら、その中で新しいチャットを開き、メモを貼るだけです。勉強会のスライドでは、この状態を「指示ゼロ。メモだけで、完成」と表現しました。</p>
+<div class="point-box"><p class="pb-head">POINT</p><p>メモには、患者さんや職員の氏名・ID・病室番号などを書かないでください。設定文に「指摘する」と書いておくのは、うっかりに備えるための見張り役です。入れないことが常に先です。</p></div>
+
+<h2 id="sec-5">近道：うまくいった会話から作る</h2>
+<p>設定文を一から書かなくても大丈夫です。普通のチャットで何度かやり取りをして、思いどおりの文章が出るようになったら、こう頼みます。</p>
+<blockquote><p>今のやり取りを、プロジェクトの指示欄に貼る指示文にまとめて。役割・様式・禁止事項・トーン・文字数の5項目で</p></blockquote>
+<p>谷口は勉強会で「プロジェクトにして、って一言言うだけです」と話しています。AIにまとめてもらった指示文を確認して、プロジェクトに貼れば完成です。</p>
+
+<h2 id="sec-6">育てていく</h2>
+<p>使っているうちに「原因が長くなりがち」「対策が抽象的」といった癖が見えてきたら、その部分だけ指示文を直します。最初から完璧を目指さず、2〜3回使って直していけば、あなたの職場に合ったインシデントAIになります。</p>
+
+<h2 id="sec-7">ChatGPTやGeminiでも同じ</h2>
+<p>ChatGPTにもプロジェクト機能があり、Geminiでは「Gem」という名前で同じことができます。呼び名が違うだけで、設定文を作る→保存→その中で話す、という流れは共通です。ChatGPT版は<a href="../chatgpt-projects-how-to/">ChatGPTのプロジェクトの記事</a>、Gemini版は<a href="../gemini-gem-how-to/">Gemの記事</a>で紹介しています。</p>
+
+<h2 id="sec-8">まとめ</h2>
+<ul>
+  <li>Claudeのプロジェクトに設定文を保存して「インシデントAI」を作る</li>
+  <li>文章部分だけ・人を責めない・判定は人、を設定文に入れる</li>
+  <li>うまくいった会話から指示文をまとめてもらうのが近道</li>
+  <li>メモに個人情報を入れない</li>
+</ul>
+<p>インシデントAIのような専用AIは、職場の様式に合わせて少しずつ形が違います。MATでは、メンバー同士で設定文を見せ合いながら、一緒に磨いています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/personal-ai-how-to-make/" data-cat="自分専用AI">
+      <div class="pc-thumb"><img src="../../blog/personal-ai-how-to-make/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">自分専用AI</span><time datetime="2026-10-01">2026.10.01</time></p>
+        <h3 class="pc-title">自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法</h3>
+        <p class="pc-ex">毎回の説明をやめて、一度だけ覚えさせる。役割・様式・禁止事項・トーン・自部署ルールで作る自分専用AI。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/chatgpt-projects-how-to/" data-cat="自分専用AI">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-projects-how-to/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">自分専用AI</span><time datetime="2026-09-28">2026.09.28</time></p>
+        <h3 class="pc-title">ChatGPTのプロジェクト機能の使い方｜医療職は「これプロジェクトにして」の一言でいい</h3>
+        <p class="pc-ex">設定を「箱」に保存して、中で話すだけで毎回効く。作り方の3ステップと、一言で済ませる近道を紹介します。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/gemini-gem-how-to/" data-cat="自分専用AI">
+      <div class="pc-thumb"><img src="../../blog/gemini-gem-how-to/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">自分専用AI</span><time datetime="2026-09-02">2026.09.02</time></p>
+        <h3 class="pc-title">GeminiのGemで医療職の専用AIを作る｜やることはプロジェクトと同じ</h3>
+        <p class="pc-ex">Gemは、Gemini版の「自分専用AI」。呼び名が違うだけで、設定文を作って保存し、その中で話す流れは同じです。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "Claudeのプロジェクト機能で「インシデントAI」を作る手順",
+  "description": "Claudeのプロジェクト機能を使って、メモを渡すだけでインシデントレポートの文章部分が返ってくる「インシデントAI」を作る手順を紹介。設定文の例と、医療職が守りたい注意点を解説します。",
+  "excerpt": "指示ゼロ、メモだけで完成。Claudeのプロジェクトで「インシデントAI」を作る手順と設定文の例です。",
+  "date": "2026-09-03",
+  "updated": "2026-09-03",
+  "category": "自分専用AI",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "Claudeのプロジェクト機能で「インシデントAI」を作る手順",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

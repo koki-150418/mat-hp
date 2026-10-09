@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="インシデントの振り返りを、病棟の教育マニュアルにつなげる方法を紹介。MAT第2回勉強会で実演した、同じ会話の続きでマニュアルの構成案からWordまで作るプロンプトと、使う前の確認ポイントを解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/incident-to-manual/">
+<meta property="og:title" content="インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="インシデントの振り返りを、病棟の教育マニュアルにつなげる方法を紹介。MAT第2回勉強会で実演した、同じ会話の続きでマニュアルの構成案からWordまで作るプロンプトと、使う前の確認ポイントを解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/incident-to-manual/">
+<meta property="og:image" content="https://mediaiteam.com/blog/incident-to-manual/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-05">
+<meta property="article:modified_time" content="2026-09-05">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）", "description": "インシデントの振り返りを、病棟の教育マニュアルにつなげる方法を紹介。MAT第2回勉強会で実演した、同じ会話の続きでマニュアルの構成案からWordまで作るプロンプトと、使う前の確認ポイントを解説します。", "image": ["https://mediaiteam.com/blog/incident-to-manual/eyecatch.jpg"], "datePublished": "2026-09-05", "dateModified": "2026-09-05", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/incident-to-manual/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）", "item": "https://mediaiteam.com/blog/incident-to-manual/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=インシデント・医療安全">インシデント・医療安全</a><span>公開日 <time datetime="2026-09-05">2026.09.05</time></span></p>
+      <h1 class="article-title">インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/incident-to-manual/eyecatch.jpg" alt="インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">ステップ1：インシデントレポートの文章を作る</a></li><li class="toc-h2"><a href="#sec-2">ステップ2：同じ会話の続きで、マニュアルを頼む</a></li><li class="toc-h2"><a href="#sec-3">プロンプトのポイント</a></li><li class="toc-h3"><a href="#sec-4">「まずは構成案を」</a></li><li class="toc-h3"><a href="#sec-5">「病院機能評価でも出せるレベルで」</a></li><li class="toc-h3"><a href="#sec-6">「どのような写真が必要か明示」</a></li><li class="toc-h3"><a href="#sec-7">「わからないところは聞いて」</a></li><li class="toc-h2"><a href="#sec-8">後で直すならWordで</a></li><li class="toc-h2"><a href="#sec-9">マニュアルから、さらに広げる</a></li><li class="toc-h2"><a href="#sec-10">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>インシデントレポートを書いて、それで終わりになっていませんか。本当は、そこから得た学びを病棟のみんなで共有したい。でも、マニュアルや資料を作る時間がない…。</p>
+<p>MATの第2回勉強会では、<strong>インシデントレポートを書いた同じ会話の続きで、病棟向けの防止マニュアルを作る</strong>実演を行いました。この記事では、その流れを紹介します。</p>
+<p>※実演で使ったのは、勉強会用に作った架空の配薬エラーの事例です。</p>
+
+<h2 id="sec-1">ステップ1：インシデントレポートの文章を作る</h2>
+<p>まず、架空のメモ（配薬時に別の患者さんの薬だと気づき、リストバンドの確認で中止、実害なし）から、レポートの文章部分を作りました。この手順は<a href="../incident-report-ai/">インシデントレポートの記事</a>で紹介しています。</p>
+
+<h2 id="sec-2">ステップ2：同じ会話の続きで、マニュアルを頼む</h2>
+<p>レポートができたら、新しいチャットを開かずに、そのまま次のように頼みました。</p>
+<blockquote><p>上記の内容から病棟看護師向け「配薬エラー防止対策」のマニュアルを作ります。まずはPDFの構成案を出してください。<br>・新人にも分かる優しい言葉で書く<br>・A4のWordで5枚程度<br>・図解多め<br>・最後のページには「明日からできる行動3つ」で締める<br>・病院機能評価でも出せるレベルで<br>・写真を後で入れるので、どのような写真が必要かWordに明示<br>・わからないところは聞いて</p></blockquote>
+<p>同じ会話の続きなので、AIはすでにインシデントの内容を分かっています。説明し直す手間がかかりません。</p>
+
+<h2 id="sec-3">プロンプトのポイント</h2>
+<h3 id="sec-4">「まずは構成案を」</h3>
+<p>いきなり本文を書かせず、まず構成案を出してもらいます。構成を確認して直してから本文に進むので、大きなずれを防げます。</p>
+<h3 id="sec-5">「病院機能評価でも出せるレベルで」</h3>
+<p>この一言で、AIはより詳しく丁寧な内容を考え、確認のための質問もしてきました。</p>
+<h3 id="sec-6">「どのような写真が必要か明示」</h3>
+<p>実演では、Wordの中に写真を差し込む位置と、「どんな写真が必要か」の指示まで入りました。あとは自分で写真を撮って入れるだけです。</p>
+<h3 id="sec-7">「わからないところは聞いて」</h3>
+<p>谷口はこのプロンプトについて「適当に…頭に浮かんだものを直接打った」と話しています。整った文章でなくても、思いついた条件を並べて、最後に逆質問の一言を添えれば、AIが足りない部分を確認してくれます。</p>
+
+<h2 id="sec-8">後で直すならWordで</h2>
+<p>実演では、後から編集しやすいようにWordで作りました。PDFだと修正が難しいので、病棟で手を加える予定があるならWordやPowerPointで出してもらいましょう。</p>
+
+<div class="point-box"><p class="pb-head">POINT</p><p>AIが作ったマニュアルは、必ず部署や医療安全の担当者と内容を確認してから使ってください。院内の手順や薬剤の取り扱いのルールと違う内容が入っていないか、特に注意が必要です。写真を撮るときも、患者さんや個人情報が写らないようにしましょう。</p></div>
+
+<h2 id="sec-9">マニュアルから、さらに広げる</h2>
+<ul>
+  <li><strong>勉強会スライド</strong>：「このマニュアルの内容で、10分の勉強会スライドを作って」（<a href="../study-session-slides-ai/">スライドの記事</a>）</li>
+  <li><strong>新人用チェックリスト</strong>：「このマニュアルから、配薬手順のチェックリストを作って」（<a href="../manual-pdf-to-checklist/">チェックリストの記事</a>）</li>
+  <li><strong>掲示物</strong>：「病棟に貼る注意喚起の文面を、短く3行で」</li>
+</ul>
+<p>1つのインシデントから、レポート→マニュアル→勉強会→掲示物と、教育の流れを作ることができます。</p>
+
+<h2 id="sec-10">まとめ</h2>
+<ul>
+  <li>インシデントレポートと同じ会話の続きで、マニュアルを頼む</li>
+  <li>まず構成案→確認→本文、の順で進める</li>
+  <li>「新人にも分かる言葉」「明日からできる行動3つ」「写真の指示」を入れる</li>
+  <li>内容は部署・医療安全の担当者と必ず確認</li>
+</ul>
+<p>インシデントは、病棟全体の学びの機会でもあります。MATでは、振り返りを教育につなげる工夫を、メンバー同士で共有しています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/incident-report-ai/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-report-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-10-06">2026.10.06</time></p>
+        <h3 class="pc-title">インシデントレポートをAIで書く｜「文章3つだけ」任せて判断は自分で握る方法</h3>
+        <p class="pc-ex">チェック項目は10秒、時間がかかるのは文章3つ。そこだけAIに任せて、判断は自分で握るプロンプトを全文紹介。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/incident-cause-countermeasure/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-cause-countermeasure/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-09-07">2026.09.07</time></p>
+        <h3 class="pc-title">インシデントレポートの「原因」「対策」が書けない人へ｜人を責めない書き方をAIと</h3>
+        <p class="pc-ex">「確認不足でした」「今後注意します」から抜け出す。人を責めない原因と、明日からできる対策の下書き方法。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/near-miss-report-ai/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/near-miss-report-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-09-06">2026.09.06</time></p>
+        <h3 class="pc-title">ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える</h3>
+        <p class="pc-ex">何回出しても書き直しになる…を減らす。時系列・主語述語・事実と推定、の3点を整えるプロンプトです。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）",
+  "description": "インシデントの振り返りを、病棟の教育マニュアルにつなげる方法を紹介。MAT第2回勉強会で実演した、同じ会話の続きでマニュアルの構成案からWordまで作るプロンプトと、使う前の確認ポイントを解説します。",
+  "excerpt": "レポートで終わらせず、教育につなげる。同じ会話の続きで、新人にも分かる防止マニュアルを作った実演です。",
+  "date": "2026-09-05",
+  "updated": "2026-09-05",
+  "category": "インシデント・医療安全",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="ヒヤリハット報告を書く負担をAIで減らす方法を紹介。時系列に並べる、主語と述語をはっきりさせる、事実と推定を分けるなど、MATのスキル文例をもとに、報告書を整えるプロンプトと注意点を解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/near-miss-report-ai/">
+<meta property="og:title" content="ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="ヒヤリハット報告を書く負担をAIで減らす方法を紹介。時系列に並べる、主語と述語をはっきりさせる、事実と推定を分けるなど、MATのスキル文例をもとに、報告書を整えるプロンプトと注意点を解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/near-miss-report-ai/">
+<meta property="og:image" content="https://mediaiteam.com/blog/near-miss-report-ai/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-06">
+<meta property="article:modified_time" content="2026-09-06">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える", "description": "ヒヤリハット報告を書く負担をAIで減らす方法を紹介。時系列に並べる、主語と述語をはっきりさせる、事実と推定を分けるなど、MATのスキル文例をもとに、報告書を整えるプロンプトと注意点を解説します。", "image": ["https://mediaiteam.com/blog/near-miss-report-ai/eyecatch.jpg"], "datePublished": "2026-09-06", "dateModified": "2026-09-06", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/near-miss-report-ai/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える", "item": "https://mediaiteam.com/blog/near-miss-report-ai/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=インシデント・医療安全">インシデント・医療安全</a><span>公開日 <time datetime="2026-09-06">2026.09.06</time></span></p>
+      <h1 class="article-title">ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/near-miss-report-ai/eyecatch.jpg" alt="ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">報告書で求められる3つのポイント</a></li><li class="toc-h2"><a href="#sec-2">MATのスキル文例：インシデントレポート整え</a></li><li class="toc-h2"><a href="#sec-3">そのまま使えるプロンプト例</a></li><li class="toc-h2"><a href="#sec-4">AIが整えた文章で確認すること</a></li><li class="toc-h2"><a href="#sec-5">毎回のことなら「スキル」や「専用AI」に</a></li><li class="toc-h2"><a href="#sec-6">報告のハードルが下がると</a></li><li class="toc-h2"><a href="#sec-7">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>ヒヤリハットに気づいたら報告する。大切だと分かっていても、「書くのが面倒」「何度も書き直しになる」と感じて、つい後回しにしてしまうこともあるかもしれません。</p>
+<p>報告書が書き直しになる理由の多くは、<strong>時系列がばらばら、主語が分からない、事実と推測が混ざっている</strong>といった「文章の整え方」の問題です。この記事では、その部分をAIに手伝わせる方法を紹介します。</p>
+
+<h2 id="sec-1">報告書で求められる3つのポイント</h2>
+<ol>
+  <li><strong>時系列</strong>：何が、どの順番で起きたか</li>
+  <li><strong>主語と述語</strong>：誰が、何をしたか</li>
+  <li><strong>事実と推定の区別</strong>：実際に起きたことと、考えたことを分ける</li>
+</ol>
+<p>これらは、文章を書くことに慣れていないと難しいところですが、AIが得意な作業でもあります。</p>
+
+<h2 id="sec-2">MATのスキル文例：インシデントレポート整え</h2>
+<p>第3回勉強会で配布した「スキル設計テンプレ」には、インシデントレポートを整えるための文例が入っています。ポイントは次のとおりです。</p>
+<ul>
+  <li>時系列に並べる</li>
+  <li>事実と推定を分ける</li>
+  <li>個人を責めない</li>
+  <li><strong>要因分析とレベル判定は「私が決める」</strong></li>
+</ul>
+<p>最後の一文が大切です。AIには文章を整える作業だけを任せ、判断の部分ははっきり人に残しておきます。</p>
+
+<h2 id="sec-3">そのまま使えるプロンプト例</h2>
+<blockquote><p>ヒヤリハット報告の下書きを整えてください。<br>・下のメモを、時系列に並べ直してください<br>・各文の主語と述語をはっきりさせてください<br>・事実と、推定・考えたことを分けて書いてください<br>・個人を責める表現は使わないでください<br>・メモにない情報は足さず、分からないところは「要確認」と書いてください<br>・要因分析とレベル判定は私が決めるので、書かないでください</p></blockquote>
+<p>「分からないところは要確認」という指示で、AIが推測で埋めるのを防ぎます。</p>
+
+<div class="point-box"><p class="pb-head">POINT</p><p>メモには、患者さんや職員の氏名・ID・病室番号などを書かないでください。「患者A」「看護師B」のような書き方で十分です。AIに渡す前に、必ず確認しましょう。</p></div>
+
+<h2 id="sec-4">AIが整えた文章で確認すること</h2>
+<ul>
+  <li>時系列の順番が、実際の出来事と合っているか</li>
+  <li>主語が正しいか（誰が何をしたか、取り違えていないか）</li>
+  <li>「要確認」になった部分を、事実で埋められるか</li>
+  <li>推定として書かれた部分が、本当に推定か（事実として書かれていないか）</li>
+</ul>
+<p>AIは、メモの書き方によっては主語を取り違えることがあります。整った文章ほど正しく見えてしまうので、内容は必ず自分の記憶と照らし合わせてください。</p>
+
+<h2 id="sec-5">毎回のことなら「スキル」や「専用AI」に</h2>
+<p>ヒヤリハット報告のように、形が決まっていて何度も書くものは、AIに手順を覚えさせておくと便利です。</p>
+<ul>
+  <li><strong>自分専用AI（プロジェクト）</strong>：様式とルールを一度だけ覚えさせる（<a href="../personal-ai-how-to-make/">作り方</a>）</li>
+  <li><strong>スキル</strong>：作業の手順書として保存する（<a href="../ai-skills-explained/">スキルとは</a>）</li>
+</ul>
+<p>一度覚えさせれば、次からはメモを渡すだけで、整った下書きが返ってきます。</p>
+
+<h2 id="sec-6">報告のハードルが下がると</h2>
+<p>報告書を書く負担が重いと、どうしても報告を後回しにしたくなります。第2回勉強会では、谷口がこんな現場の声にも触れています。</p>
+<blockquote><p>「インシデントレポートってめんどくさいんですよ」</p></blockquote>
+<p>だからこそ、文章を整える負担はAIで軽くして、何が起きたのか、どうすれば防げるのかを考えることに時間を使いたいものです。</p>
+
+<h2 id="sec-7">まとめ</h2>
+<ul>
+  <li>書き直しの原因は、時系列・主語述語・事実と推定の混在が多い</li>
+  <li>この3点を整える作業はAIに任せられる</li>
+  <li>メモにないことは足さず「要確認」に。要因分析とレベル判定は自分で</li>
+  <li>個人情報は入れない</li>
+</ul>
+<p>原因や対策の書き方は<a href="../incident-cause-countermeasure/">原因・対策の記事</a>で紹介しています。MATでは、報告書の様式や頼み方の工夫を、メンバー同士で共有しています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/incident-report-ai/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-report-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-10-06">2026.10.06</time></p>
+        <h3 class="pc-title">インシデントレポートをAIで書く｜「文章3つだけ」任せて判断は自分で握る方法</h3>
+        <p class="pc-ex">チェック項目は10秒、時間がかかるのは文章3つ。そこだけAIに任せて、判断は自分で握るプロンプトを全文紹介。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/incident-cause-countermeasure/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-cause-countermeasure/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-09-07">2026.09.07</time></p>
+        <h3 class="pc-title">インシデントレポートの「原因」「対策」が書けない人へ｜人を責めない書き方をAIと</h3>
+        <p class="pc-ex">「確認不足でした」「今後注意します」から抜け出す。人を責めない原因と、明日からできる対策の下書き方法。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/incident-to-manual/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-to-manual/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-09-05">2026.09.05</time></p>
+        <h3 class="pc-title">インシデントから「配薬エラー防止マニュアル」をAIで作るまで（架空事例）</h3>
+        <p class="pc-ex">レポートで終わらせず、教育につなげる。同じ会話の続きで、新人にも分かる防止マニュアルを作った実演です。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える",
+  "description": "ヒヤリハット報告を書く負担をAIで減らす方法を紹介。時系列に並べる、主語と述語をはっきりさせる、事実と推定を分けるなど、MATのスキル文例をもとに、報告書を整えるプロンプトと注意点を解説します。",
+  "excerpt": "何回出しても書き直しになる…を減らす。時系列・主語述語・事実と推定、の3点を整えるプロンプトです。",
+  "date": "2026-09-06",
+  "updated": "2026-09-06",
+  "category": "インシデント・医療安全",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "ヒヤリハット報告書が面倒…を減らすAI活用｜時系列・主語述語を整える",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>
