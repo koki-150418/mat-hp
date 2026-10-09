@@ -398,5 +398,105 @@
     "excerpt": "初めての作業はチャットで試し、形が決まったらプロジェクトへ引っ越す。チャットが、あなたの秘書に変わる流れ。",
     "url": "blog/chat-vs-project/",
     "eyecatch": "blog/chat-vs-project/eyecatch.jpg"
+  },
+  {
+    "slug": "monthly-documents-automation",
+    "title": "毎月・毎年おなじ書類を二度と作らない｜AIのスキルにできる業務の見つけ方",
+    "date": "2026-08-30",
+    "updated": "2026-08-30",
+    "category": "スキル・自動化",
+    "excerpt": "判定は「毎日・毎月・毎年おなじものを作っているか」。スキルにできる業務を、職種別の例で見つけましょう。",
+    "url": "blog/monthly-documents-automation/",
+    "eyecatch": "blog/monthly-documents-automation/eyecatch.jpg"
+  },
+  {
+    "slug": "claude-skill-how-to",
+    "title": "Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ",
+    "date": "2026-08-29",
+    "updated": "2026-08-29",
+    "category": "スキル・自動化",
+    "excerpt": "スキルは自分で書かなくていい。「これをスキルにして」と頼み、5項目で点検し、別の資料でテストするだけ。",
+    "url": "blog/claude-skill-how-to/",
+    "eyecatch": "blog/claude-skill-how-to/eyecatch.jpg"
+  },
+  {
+    "slug": "claude-cowork-demo",
+    "title": "Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演",
+    "date": "2026-08-28",
+    "updated": "2026-08-28",
+    "category": "スキル・自動化",
+    "excerpt": "フォルダを指定して、指示文を1つ。読む・作る・保存するまでAIが動きました。Coworkの使い方と注意点。",
+    "url": "blog/claude-cowork-demo/",
+    "eyecatch": "blog/claude-cowork-demo/eyecatch.jpg"
+  },
+  {
+    "slug": "excel-transcription-ai",
+    "title": "「コピーして貼る」が消える｜AIがExcelへの転記までやる時代の働き方",
+    "date": "2026-08-27",
+    "updated": "2026-08-27",
+    "category": "スキル・自動化",
+    "excerpt": "いちばん時間がかかるのに、何も生まない「運ぶ」作業。AIがExcelへの転記まで行う実演と注意点です。",
+    "url": "blog/excel-transcription-ai/",
+    "eyecatch": "blog/excel-transcription-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "meeting-minutes-skill",
+    "title": "委員会議事録を毎回ゼロから作らない｜議事録スキルの文例",
+    "date": "2026-08-26",
+    "updated": "2026-08-26",
+    "category": "スキル・自動化",
+    "excerpt": "決定事項・保留事項・宿題に分け、誤変換を直した箇所は報告させる。MATの議事録スキル文例を紹介します。",
+    "url": "blog/meeting-minutes-skill/",
+    "eyecatch": "blog/meeting-minutes-skill/eyecatch.jpg"
+  },
+  {
+    "slug": "no-code-app-ai",
+    "title": "プログラミング経験ゼロでアプリは作れる？日本語で頼むだけで35分",
+    "date": "2026-08-25",
+    "updated": "2026-08-25",
+    "category": "スキル・自動化",
+    "excerpt": "英会話アプリは35分、黒い画面を開いた回数は0。やったことは日本語で頼むことだけ。作る前に考えたいこと。",
+    "url": "blog/no-code-app-ai/",
+    "eyecatch": "blog/no-code-app-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-two-factor-auth",
+    "title": "ChatGPTの多要素認証（二段階認証）設定とつまずきポイント",
+    "date": "2026-08-24",
+    "updated": "2026-08-24",
+    "category": "安全設定・個人情報",
+    "excerpt": "乗っ取られると過去のやり取りが全部見られる。多要素認証の設定と、つまずきやすいポイントをまとめました。",
+    "url": "blog/chatgpt-two-factor-auth/",
+    "eyecatch": "blog/chatgpt-two-factor-auth/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-full-access-danger",
+    "title": "ChatGPTの「フルアクセス」は押さない｜医療職が触らない設定4つ",
+    "date": "2026-08-23",
+    "updated": "2026-08-23",
+    "category": "安全設定・個人情報",
+    "excerpt": "大事な書類を消すこともある。フルアクセス、Cookieのインポートなど、医療職が触らない4つの設定。",
+    "url": "blog/chatgpt-full-access-danger/",
+    "eyecatch": "blog/chatgpt-full-access-danger/eyecatch.jpg"
+  },
+  {
+    "slug": "medical-ai-four-rules",
+    "title": "医療職がAIを使うときの4つの鉄則｜個人情報・匿名化・最終判断・ハルシネーション",
+    "date": "2026-08-22",
+    "updated": "2026-08-22",
+    "category": "安全設定・個人情報",
+    "excerpt": "どのAIでも、どんな使い方でも変わらない約束ごと。MATで毎回確認している4つの鉄則とその理由。",
+    "url": "blog/medical-ai-four-rules/",
+    "eyecatch": "blog/medical-ai-four-rules/eyecatch.jpg"
+  },
+  {
+    "slug": "hospital-ai-ask-it-dept",
+    "title": "職場でAIを使いたくなったら｜情報システム部門に確認したい4つのこと",
+    "date": "2026-08-21",
+    "updated": "2026-08-21",
+    "category": "安全設定・個人情報",
+    "excerpt": "誰が使えるか・患者情報を入れていいか・会議の記録機能・病院と個人のアカウント。相談前に整理したい4つの質問。",
+    "url": "blog/hospital-ai-ask-it-dept/",
+    "eyecatch": "blog/hospital-ai-ask-it-dept/eyecatch.jpg"
   }
 ]

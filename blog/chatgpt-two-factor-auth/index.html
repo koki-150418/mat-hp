@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPTの多要素認証（二段階認証）設定とつまずきポイント｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="ChatGPTのアカウントが乗っ取られると、過去のやり取りがすべて見られてしまいます。多要素認証（MFA）の場所と設定の流れ、認証アプリを使うときのつまずきポイント、バックアップコードの保存までを医療職向けに解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/chatgpt-two-factor-auth/">
+<meta property="og:title" content="ChatGPTの多要素認証（二段階認証）設定とつまずきポイント｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="ChatGPTのアカウントが乗っ取られると、過去のやり取りがすべて見られてしまいます。多要素認証（MFA）の場所と設定の流れ、認証アプリを使うときのつまずきポイント、バックアップコードの保存までを医療職向けに解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/chatgpt-two-factor-auth/">
+<meta property="og:image" content="https://mediaiteam.com/blog/chatgpt-two-factor-auth/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-08-24">
+<meta property="article:modified_time" content="2026-08-24">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ChatGPTの多要素認証（二段階認証）設定とつまずきポイント", "description": "ChatGPTのアカウントが乗っ取られると、過去のやり取りがすべて見られてしまいます。多要素認証（MFA）の場所と設定の流れ、認証アプリを使うときのつまずきポイント、バックアップコードの保存までを医療職向けに解説します。", "image": ["https://mediaiteam.com/blog/chatgpt-two-factor-auth/eyecatch.jpg"], "datePublished": "2026-08-24", "dateModified": "2026-08-24", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/chatgpt-two-factor-auth/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPTの多要素認証（二段階認証）設定とつまずきポイント", "item": "https://mediaiteam.com/blog/chatgpt-two-factor-auth/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">ChatGPTの多要素認証（二段階認証）設定とつまずきポイント</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=安全設定・個人情報">安全設定・個人情報</a><span>公開日 <time datetime="2026-08-24">2026.08.24</time></span></p>
+      <h1 class="article-title">ChatGPTの多要素認証（二段階認証）設定とつまずきポイント</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/chatgpt-two-factor-auth/eyecatch.jpg" alt="ChatGPTの多要素認証（二段階認証）設定とつまずきポイント"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">多要素認証とは</a></li><li class="toc-h2"><a href="#sec-2">設定の場所</a></li><li class="toc-h2"><a href="#sec-3">つまずきポイント（講座のシートより）</a></li><li class="toc-h3"><a href="#sec-4">①認証アプリを用意する</a></li><li class="toc-h3"><a href="#sec-5">②QRコードはカメラアプリではなく認証アプリで読む</a></li><li class="toc-h3"><a href="#sec-6">③6桁の数字は、アプリの項目を開くと出る</a></li><li class="toc-h3"><a href="#sec-7">④途中で閉じてしまったら</a></li><li class="toc-h3"><a href="#sec-8">⑤バックアップコードを必ず保存</a></li><li class="toc-h2"><a href="#sec-9">SMS（ショートメッセージ）での認証は？</a></li><li class="toc-h2"><a href="#sec-10">あわせて確認したいこと</a></li><li class="toc-h2"><a href="#sec-11">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>ChatGPTに相談した内容、作った資料の下書き、仕事の悩み。過去のやり取りには、思っている以上にたくさんの情報が残っています。もしアカウントが乗っ取られたら…。</p>
+<p>MATの初期設定講座で、谷口はこう話しました。</p>
+<blockquote><p>「乗っ取られてしまうと過去のやりとり全部さらけ出るんで」</p></blockquote>
+<p>それを防ぐのが<strong>多要素認証（MFA）</strong>です。この記事では、設定の場所と流れ、つまずきやすいポイントを紹介します。</p>
+<p>※画面の名前や場所は2026年9月時点のものです。</p>
+
+<h2 id="sec-1">多要素認証とは</h2>
+<p>パスワードに加えて、もう一つの確認（スマホの認証アプリに表示される6桁の数字など）を求めるしくみです。パスワードが漏れても、もう一つの確認ができなければログインされません。</p>
+<p>講座では、ログインがあったときにスマホに通知が来るので、「触ってないのにログインがあった」ときに気づける、という点も紹介しました。</p>
+
+<h2 id="sec-2">設定の場所</h2>
+<ol>
+  <li>画面左下の自分の名前から「設定」を開く</li>
+  <li>「セキュリティ」（セキュリティとログイン）を選ぶ</li>
+  <li>「多要素認証（MFA）」の項目で、認証アプリをオンにする</li>
+</ol>
+<p>講座では、まず「場所を知っておく」ことを大切なポイントとして挙げました。今すぐ設定できなくても、どこにあるかを知っておくだけで、いざというときに慌てずに済みます。</p>
+
+<h2 id="sec-3">つまずきポイント（講座のシートより）</h2>
+<p>初期設定講座の資料では、実際に設定するときにつまずきやすい点をまとめました。</p>
+<h3 id="sec-4">①認証アプリを用意する</h3>
+<p>スマホに認証アプリ（Google Authenticatorなど）を入れておきます。講座の資料では、Google Authenticatorが確実と紹介しました。</p>
+<h3 id="sec-5">②QRコードはカメラアプリではなく認証アプリで読む</h3>
+<p>画面に表示されたQRコードを、スマホの普通のカメラで読み取っても登録されません。<strong>認証アプリの中から</strong>読み取ってください。</p>
+<h3 id="sec-6">③6桁の数字は、アプリの項目を開くと出る</h3>
+<p>認証アプリに追加された項目をタップすると、6桁の数字が表示されます。これをChatGPTの画面に入力します。</p>
+<h3 id="sec-7">④途中で閉じてしまったら</h3>
+<p>設定を途中でやめてしまった場合は、認証アプリ側に残った登録を消してから、最初からやり直します。</p>
+<h3 id="sec-8">⑤バックアップコードを必ず保存</h3>
+<p>スマホをなくしたり、機種変更したりしたときに使う「バックアップコード」が表示されます。<strong>必ず保存</strong>しておきましょう。これがないと、自分もログインできなくなるおそれがあります。</p>
+
+<div class="point-box"><p class="pb-head">POINT</p><p>パスワードや認証コードを、AIのチャットに書き込まないでください。初期設定講座の資料でも「やってはいけないこと」のひとつとして挙げています。</p></div>
+
+<h2 id="sec-9">SMS（ショートメッセージ）での認証は？</h2>
+<p>電話番号のショートメッセージで確認コードを受け取る方法もあります。講座の資料では、電話番号の乗っ取りのリスクがあることから、SMSよりも認証アプリを使う方法をおすすめしました。どの方法を使うかは、ご自身のスマホの使い方に合わせて選んでください。</p>
+
+<h2 id="sec-10">あわせて確認したいこと</h2>
+<ul>
+  <li><strong>パソコンとスマホは同じアカウントで</strong>使う（違うアカウントだと通知や連携が分かれてしまいます）</li>
+  <li><strong>職場のメールアドレスで登録しない</strong></li>
+  <li><strong>モデル改善をオフ</strong>にしておく（<a href="../chatgpt-model-improvement-off/">学習させない設定の記事</a>）</li>
+</ul>
+<p>初期設定の全体像は<a href="../chatgpt-initial-settings-medical/">医療職のためのChatGPT初期設定</a>にまとめています。</p>
+
+<h2 id="sec-11">まとめ</h2>
+<ul>
+  <li>乗っ取られると、過去のやり取りがすべて見られてしまう</li>
+  <li>設定→セキュリティ→多要素認証で、認証アプリをオンにする</li>
+  <li>QRコードは認証アプリから読む。バックアップコードは必ず保存</li>
+  <li>パスワードや認証コードをチャットに書かない</li>
+</ul>
+<p>セキュリティの設定は、一人でやると途中でつまずきがちです。MATでは、設定でつまずいたところをメンバー同士で教え合っています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/chatgpt-initial-settings-medical/" data-cat="安全設定・個人情報">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-initial-settings-medical/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">安全設定・個人情報</span><time datetime="2026-10-05">2026.10.05</time></p>
+        <h3 class="pc-title">医療職のためのChatGPT初期設定｜今日やる7つ・触らない4つ・便利にする7つ</h3>
+        <p class="pc-ex">情報漏洩が心配な医療職のためのChatGPT初期設定。今日やる7つ・触らない4つ・便利にする7つで整理しました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/chatgpt-patient-info-delete/" data-cat="安全設定・個人情報">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-patient-info-delete/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">安全設定・個人情報</span><time datetime="2026-10-04">2026.10.04</time></p>
+        <h3 class="pc-title">ChatGPTに患者情報をうっかり入れてしまったら｜消す場所4か所＋共有リンク</h3>
+        <p class="pc-ex">アーカイブは「隠すだけ」。会話・メモリ・ローカルメモリ・共有リンク、消す場所をあらかじめ知っておきましょう。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/chatgpt-model-improvement-off/" data-cat="安全設定・個人情報">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-model-improvement-off/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">安全設定・個人情報</span><time datetime="2026-09-29">2026.09.29</time></p>
+        <h3 class="pc-title">ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由</h3>
+        <p class="pc-ex">初期設定講座で「今日一番重要なところ」と強調した設定。オフにしても不具合はなく、履歴削除とは別のしくみです。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "ChatGPTの多要素認証（二段階認証）設定とつまずきポイント",
+  "description": "ChatGPTのアカウントが乗っ取られると、過去のやり取りがすべて見られてしまいます。多要素認証（MFA）の場所と設定の流れ、認証アプリを使うときのつまずきポイント、バックアップコードの保存までを医療職向けに解説します。",
+  "excerpt": "乗っ取られると過去のやり取りが全部見られる。多要素認証の設定と、つまずきやすいポイントをまとめました。",
+  "date": "2026-08-24",
+  "updated": "2026-08-24",
+  "category": "安全設定・個人情報",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "ChatGPTの多要素認証（二段階認証）設定とつまずきポイント",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>
