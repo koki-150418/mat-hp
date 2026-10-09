@@ -198,5 +198,105 @@
     "excerpt": "医療職が慎重なのは当たり前。不安の正体を整理して、4つの鉄則と小さな一歩から始めましょう。",
     "url": "blog/afraid-of-ai-medical/",
     "eyecatch": "blog/afraid-of-ai-medical/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-leave-on-time",
+    "title": "「AIで、定時に帰る。」は本当にできる？医療職の雑務を減らす考え方と実例",
+    "date": "2026-09-19",
+    "updated": "2026-09-19",
+    "category": "AI入門",
+    "excerpt": "1日30分の雑務は年120時間、まる5日分。勉強会で実演した時短の実例と、取り戻した時間の使い方を考えます。",
+    "url": "blog/ai-leave-on-time/",
+    "eyecatch": "blog/ai-leave-on-time/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-free-vs-paid",
+    "title": "AIは無料版で十分？有料版に切り替えるべき医療職・まだいい医療職",
+    "date": "2026-09-18",
+    "updated": "2026-09-18",
+    "category": "AI入門",
+    "excerpt": "会話・文章・PDF読み取り・専用AIまでは無料でも。有料で増えるのはPC操作とスキル。「元が取れるなら」で考えます。",
+    "url": "blog/ai-free-vs-paid/",
+    "eyecatch": "blog/ai-free-vs-paid/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-app-vs-web",
+    "title": "AIのアプリ版とWeb版、何が違う？「アプリ版も入れて」と言われる理由",
+    "date": "2026-09-17",
+    "updated": "2026-09-17",
+    "category": "AI入門",
+    "excerpt": "Web版はサーバーの上、アプリ版はあなたのパソコンの中。できることの違いと、スマホの位置づけを整理します。",
+    "url": "blog/ai-app-vs-web/",
+    "eyecatch": "blog/ai-app-vs-web/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-for-chores-list",
+    "title": "医療現場の「雑務」でAIが得意なことリスト｜議事録・メール・マニュアル・資料づくり",
+    "date": "2026-09-16",
+    "updated": "2026-09-16",
+    "category": "AI入門",
+    "excerpt": "議事録・メール・資料・マニュアル・データ整理…AIが得意な雑務を一覧に。任せないことの線引きもあわせて。",
+    "url": "blog/ai-for-chores-list/",
+    "eyecatch": "blog/ai-for-chores-list/eyecatch.jpg"
+  },
+  {
+    "slug": "patient-explanation-prompt",
+    "title": "患者さんへの説明文をAIで作る｜70代の高血圧の方に「減塩」を伝えるプロンプト例",
+    "date": "2026-09-15",
+    "updated": "2026-09-15",
+    "category": "プロンプト",
+    "excerpt": "「減塩について教えて」では一般論。読み手を「70代の高血圧の患者さん」にすると、今日から試せる工夫が返ってきます。",
+    "url": "blog/patient-explanation-prompt/",
+    "eyecatch": "blog/patient-explanation-prompt/eyecatch.jpg"
+  },
+  {
+    "slug": "new-nurse-explanation-ai",
+    "title": "新人に「心房細動」を説明する資料をAIで｜結論3行→注意点3つの頼み方",
+    "date": "2026-09-14",
+    "updated": "2026-09-14",
+    "category": "プロンプト",
+    "excerpt": "「まず結論を3行→注意点を箇条書き3つ」。出力形式を決めると、新人がすぐ理解できる構成になります。",
+    "url": "blog/new-nurse-explanation-ai/",
+    "eyecatch": "blog/new-nurse-explanation-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "grow-the-conversation",
+    "title": "AIは一回で終わらせない｜「もっと短く」「専門用語を減らして」で会話を育てる方法",
+    "date": "2026-09-13",
+    "updated": "2026-09-13",
+    "category": "プロンプト",
+    "excerpt": "初心者がやりがちなのは、最初の答えで止めてしまうこと。追加の一言で、答えはどんどん良くなります。",
+    "url": "blog/grow-the-conversation/",
+    "eyecatch": "blog/grow-the-conversation/eyecatch.jpg"
+  },
+  {
+    "slug": "give-ai-materials",
+    "title": "AIにはゼロから書かせない｜メモ・PDF・過去資料を「材料」として渡すコツ",
+    "date": "2026-09-12",
+    "updated": "2026-09-12",
+    "category": "プロンプト",
+    "excerpt": "たたき台があるほど精度が上がる。メモ・写真・PDF・過去資料の渡し方と、渡す前の個人情報チェック。",
+    "url": "blog/give-ai-materials/",
+    "eyecatch": "blog/give-ai-materials/eyecatch.jpg"
+  },
+  {
+    "slug": "dont-copy-ai-text",
+    "title": "AIの文章をそのまま使わない｜「AIが8割、最後の2割があなたの仕事」",
+    "date": "2026-09-11",
+    "updated": "2026-09-11",
+    "category": "プロンプト",
+    "excerpt": "声に出して読み、自分の言葉に直す。みんながAIで書く時代ほど、最後の2割が効いてきます。",
+    "url": "blog/dont-copy-ai-text/",
+    "eyecatch": "blog/dont-copy-ai-text/eyecatch.jpg"
+  },
+  {
+    "slug": "soap-example-ai",
+    "title": "SOAP記録の書き方をAIに手伝わせる｜架空例で見るS/O/A/Pの振り分け",
+    "date": "2026-09-10",
+    "updated": "2026-09-10",
+    "category": "看護記録・申し送り",
+    "excerpt": "SとO、OとAの境目で迷ったら。架空例でS/O/A/Pの振り分けと、AIへの指示のコツを紹介します。",
+    "url": "blog/soap-example-ai/",
+    "eyecatch": "blog/soap-example-ai/eyecatch.jpg"
   }
 ]
