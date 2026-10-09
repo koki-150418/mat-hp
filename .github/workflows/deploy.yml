@@ -1,0 +1,60 @@
+# push のたびに tools/build_blog.py でサイトを組み立てて GitHub Pages に公開する
+# プルリクエスト（管理画面の「レビュー待ち」記事など）ではビルドだけ行い、エラーがないか確認する
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # 記事の公開日を git の履歴から決めるため
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r tools/requirements.txt
+      - name: Build blog
+        run: python tools/build_blog.py
+      - name: Assemble site (公開しないファイルを除く)
+        run: |
+          mkdir _site
+          tar -cf - \
+            --exclude=./.git --exclude=./.github --exclude=./_site \
+            --exclude=./content --exclude=./tools --exclude=./cms-auth \
+            --exclude='*.md' --exclude='.gitignore' --exclude='.gitkeep' \
+            . | tar -xf - -C _site
+          test -f _site/index.html && test -f _site/blog/index.html && test -f _site/CNAME
+          echo "pages: $(find _site -name index.html | wc -l)"
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

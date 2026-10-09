@@ -1,0 +1,137 @@
+# MATブログ 管理画面（Decap CMS）設定
+# 詳しい説明: README-cms.md（ローカル）
+locale: ja
+
+# ===== ログイン方式: DecapBridge（メール招待・Googleログイン・パスワード。無料枠: 3サイト / 1サイト10人まで） =====
+# DecapBridge でサイト登録後、表示される「Site ID」で下の2か所の DECAPBRIDGE_SITE_ID を置き換える
+backend:
+  name: git-gateway
+  repo: koki-150418/mat-hp
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/DECAPBRIDGE_SITE_ID/pkce
+  auth_token_endpoint: /sites/DECAPBRIDGE_SITE_ID/token
+  gateway_url: https://gateway.decapbridge.com
+  squash_merges: true
+  commit_messages:
+    create: "記事作成: {{slug}} - {{author-name}} <{{author-login}}> via DecapBridge"
+    update: "記事更新: {{slug}} - {{author-name}} <{{author-login}}> via DecapBridge"
+    delete: "記事削除: {{slug}} - {{author-name}} <{{author-login}}> via DecapBridge"
+    uploadMedia: "画像追加: {{path}} - {{author-name}} <{{author-login}}> via DecapBridge"
+    deleteMedia: "画像削除: {{path}} - {{author-name}} <{{author-login}}> via DecapBridge"
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# ===== 予備: GitHub アカウントでログインする場合（cms-auth/ の Cloudflare Worker を使用） =====
+# backend:
+#   name: github
+#   repo: koki-150418/mat-hp
+#   branch: main
+#   base_url: https://mat-cms-auth.あなたのサブドメイン.workers.dev
+#   auth_endpoint: auth
+#   squash_merges: true
+
+# 記事は「下書き → レビュー待ち → 公開」。公開（承認）は管理者だけが行う運用
+publish_mode: editorial_workflow
+
+# ローカル確認用（npx decap-server を起動して http://localhost:8080/admin/ を開いたときだけ有効）
+local_backend: true
+
+site_url: https://mediaiteam.com
+display_url: https://mediaiteam.com
+
+# 著者写真など共通画像の置き場所
+media_folder: img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: posts
+    label: ブログ記事
+    label_singular: ブログ記事
+    description: >-
+      右の「＋ ブログ記事」ボタンから書き始めます。書き終えたら「保存」→ 上の「ステータス」で「レビュー中」を選べば提出完了です。
+      管理者が確認してから mediaiteam.com に公開されます。
+    folder: content/posts
+    path: "{{slug}}/index"
+    # URL（スラッグ）は作成日時から自動で作る（例: /blog/20261009-1724/）
+    slug: "{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    delete: true
+    media_folder: ""
+    public_folder: ""
+    identifier_field: title
+    summary: "{{title}}（{{category}}）"
+    sortable_fields: [title, category]
+    preview_path: "blog/{{slug}}/"
+    fields:
+      - label: タイトル
+        name: title
+        widget: string
+        hint: 記事のタイトルです。30〜40文字くらいが読みやすい長さです。例「看護記録をAIで時短する3つのコツ」
+      - label: カテゴリ
+        name: category
+        widget: select
+        hint: 記事の内容にいちばん近いものを1つ選んでください。迷ったら「AI入門」でOKです。
+        options:
+          - AI入門
+          - プロンプト
+          - スキル・自動化
+          - 安全設定・個人情報
+          - 自分専用AI
+          - 看護記録・申し送り
+          - インシデント・医療安全
+          - 勉強会・マニュアル
+          - MATについて
+      - label: 書いた人
+        name: author
+        widget: relation
+        collection: authors
+        value_field: "{{slug}}"
+        search_fields: [name]
+        display_fields: [name]
+        hint: 自分の名前を選んでください（入力欄をクリックすると一覧が出ます）。名前が無いときは、管理者に連絡してください。
+      - label: アイキャッチ画像
+        name: eyecatch
+        widget: image
+        required: false
+        choose_url: false
+        hint: 記事の一番上と一覧に出る画像です。無くてもOK（共通の画像が使われます）。横長の写真（横1200×縦630くらい）がきれいに表示されます。
+      - label: 概要
+        name: description
+        widget: text
+        required: false
+        hint: 記事の内容を1〜2文で（80〜120文字くらい）。検索結果や記事一覧に表示されます。空欄なら本文の最初の部分が自動で使われます。
+      - label: 本文
+        name: body
+        widget: markdown
+        modes: [rich_text]
+        buttons: [bold, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: [image]
+        hint: >-
+          普通の文章のように書けます。大きな区切りには上のボタン「見出し2」、その中の小さな区切りには「見出し3」を使うと、目次が自動で作られます。
+          写真は「＋」ボタン →「画像」で入れられます。患者さんの個人情報は書かないでください。
+      # 公開日は自動（管理者が承認して公開した日。tools/build_blog.py が git の履歴から決める）
+
+  - name: authors
+    label: 書いた人（プロフィール）
+    label_singular: 書いた人
+    description: 記事の下に表示される「この記事を書いた人」の情報です。新しく書く人を追加するのは管理者です。
+    folder: content/authors
+    extension: json
+    format: json
+    create: true
+    delete: false
+    identifier_field: name
+    slug: "author-{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
+    fields:
+      - {label: 名前, name: name, widget: string, hint: "記事に表示される名前です。例: 山田 花子"}
+      - {label: 肩書き, name: title, widget: string, required: false, hint: "例: 看護師／MATメンバー"}
+      - {label: 写真, name: photo, widget: image, required: false, choose_url: false, hint: 顔がわかる正方形に近い写真がおすすめです。無くてもOKです。}
+      - {label: 自己紹介, name: bio, widget: text, required: false, hint: 100〜150文字くらいで、経歴や得意なことを書いてください。}
+      - {label: プロフィールのリンク, name: link, widget: string, required: false, hint: "任意。SNSやホームページのURL（https:// から）。"}

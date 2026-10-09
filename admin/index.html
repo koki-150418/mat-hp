@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>MATブログ 管理画面</title>
+<link rel="icon" href="data:,">
+<script>
+// 書き手モード（既定）: 「公開」ボタンを隠し、書き手は「レビュー中」にして提出するだけにする。
+// 管理者は一度だけ https://mediaiteam.com/admin/?owner=1 を開くと、そのブラウザで「公開」ボタンが出る（?owner=0 で戻す）。
+// ※ 画面上の制限です（悪意のある操作を完全に防ぐものではありません）。変更はすべて git に履歴が残り、元に戻せます。
+(function () {
+  var q = new URLSearchParams(location.search);
+  if (q.has("owner")) localStorage.setItem("matCmsOwner", q.get("owner") === "1" ? "1" : "0");
+  document.documentElement.classList.add(localStorage.getItem("matCmsOwner") === "1" ? "mat-owner" : "mat-writer");
+})();
+</script>
+<style>
+.mat-writer [class*="PublishButton"], .mat-writer [class*="PublishDropdown"],
+.mat-writer [class*="RefreshPreviewButton"], .mat-writer [class*="PreviewLink"] { display: none !important; }
+.mat-owner body::after { content: "管理者モード（公開できます）"; position: fixed; left: 12px; bottom: 12px; z-index: 9999;
+  background: #b3121c; color: #fff; font: 12px/1 sans-serif; padding: 6px 10px; border-radius: 3px; pointer-events: none; }
+</style>
+</head>
+<body>
+<!-- Decap CMS（設定は同じフォルダの config.yml） -->
+<script src="https://unpkg.com/decap-cms@^3.10.0/dist/decap-cms.js"></script>
+<script>
+// プレビュー：サイトと同じ style.css で記事ページ風に表示
+CMS.registerPreviewStyle("/style.css");
+CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+CMS.registerPreviewStyle(".article{margin:24px auto}.prev-note{max-width:860px;margin:16px auto 0;font-size:12px;color:#777;text-align:center}", { raw: true });
+
+var PostPreview = createClass({
+  render: function () {
+    var e = this.props.entry, d = function (k) { return e.getIn(["data", k]); };
+    var img = d("eyecatch") ? this.props.getAsset(d("eyecatch")) : null;
+    var date = (d("date") || "").toString().slice(0, 10).replace(/-/g, ".") || "管理者の承認後に決まります";
+    return h("div", { className: "article-wrap" },
+      h("p", { className: "prev-note" }, "※ プレビューです。目次・著者欄・関連記事は公開時に自動で付きます。"),
+      h("article", { className: "article" },
+        h("header", { className: "article-head" },
+          h("p", { className: "ah-meta" },
+            h("span", { className: "pc-cat" }, d("category") || "カテゴリー未選択"),
+            h("span", {}, "公開日 " + date)),
+          h("h1", { className: "article-title" }, d("title") || "（タイトル未入力）")),
+        img ? h("figure", { className: "eyecatch" }, h("img", { src: img.toString(), alt: "" })) : null,
+        h("div", { className: "article-body" }, this.props.widgetFor("body"))));
+  }
+});
+CMS.registerPreviewTemplate("posts", PostPreview);
+</script>
+</body>
+</html>

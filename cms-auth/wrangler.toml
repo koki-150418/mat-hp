@@ -1,0 +1,10 @@
+# wrangler を使ってデプロイする場合の設定（ダッシュボードに貼り付ける場合は不要）
+#   npx wrangler deploy
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
+name = "mat-cms-auth"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://mediaiteam.com,https://www.mediaiteam.com"

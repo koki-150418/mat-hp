@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MATブログ ビルドスクリプト（Python 3 標準ライブラリのみ・追加インストール不要）
+MATブログ ビルドスクリプト
+
+  HTML記事だけなら Python 3 標準ライブラリのみで動きます。
+  Markdown記事（content/posts/。管理画面 /admin/ で書いた記事）がある場合は
+  追加ライブラリが必要です:  pip install -r tools/requirements.txt
+  （本番は GitHub Actions が push のたびに自動で実行します）
 
 使い方:  サイトのフォルダで  python3 tools/build_blog.py
 
 やること:
-  1. blog/<slug>/index.html を全部読み、記事情報（post-meta）と本文（BODY）を取り出す
+  1. 記事を集める
+     - HTML記事: blog/<slug>/index.html の記事情報（post-meta）と本文（BODY）
+     - Markdown記事: content/posts/<slug>/index.md（管理画面で書いた記事）
+       → blog/<slug>/index.html を生成し、同じフォルダの画像を blog/<slug>/ にコピー
+     - 著者: content/authors/<id>.json（記事の "author" で指定。省略時は taniguchi）
   2. 各記事ページを最新のテンプレート（ヘッダー・目次・著者・関連記事・フッター等）で作り直す
   3. blog/index.html（記事一覧）と blog/posts.json を作り直す
   4. トップページ index.html の「ブログ」欄（最新記事カード）を更新する
@@ -15,8 +24,8 @@ MATブログ ビルドスクリプト（Python 3 標準ライブラリのみ・�
 
   ※ "draft": true の記事は一覧・トップ・関連記事・sitemap に出ず、ページに noindex が付きます。
 """
-import html, json, os, re, sys
-from datetime import date
+import html, json, os, re, shutil, sys
+from datetime import date, datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,10 +37,13 @@ NOINDEX    = False                         # True にすると全ブログペー
 TOKUSHOHO_LINK = ""  # 特商法ページ公開時は ' / <a href="{root}tokushoho.html">特定商取引法に基づく表記</a>' を入れる
 TOP_CARDS  = 3                             # トップページに出す最新記事の数
 DEFAULT_EYECATCH = "img/blog-default.jpg"  # アイキャッチ未設定時の画像（サイトルートからのパス）
+DEFAULT_AUTHOR_ID = "taniguchi"   # 記事に author が無いときの著者（content/authors/<id>.json）
+# content/authors/taniguchi.json が無い場合の予備
 AUTHOR = {
     "name": "谷口 総志",
     "role": "MEDI-AI TEAM 主催",
     "photo": "img/portrait-sitting.jpg",
+    "link": "/#host",
     "bio": "元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。"
            "出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、"
            "医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。",
@@ -133,7 +145,122 @@ def head(title, desc, canonical, og_image, og_type, root, extra="", noindex=Fals
 META_RE = re.compile(r'<script type="application/json" id="post-meta">(.*?)</script>', re.S)
 BODY_RE = re.compile(r"<!-- BODY:START -->(.*?)<!-- BODY:END -->", re.S)
 
+SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+MD_DIR = os.path.join(ROOT, "content", "posts")
+AUTHORS_DIR = os.path.join(ROOT, "content", "authors")
+
+def site_path(v):
+    """管理画面の画像パス（/img/x.jpg など）をサイトルートからのパス（img/x.jpg）にする"""
+    v = (v or "").strip()
+    return v[1:] if v.startswith("/") else v
+
+def load_authors():
+    authors = {}
+    if os.path.isdir(AUTHORS_DIR):
+        for fn in sorted(os.listdir(AUTHORS_DIR)):
+            if not fn.endswith(".json"): continue
+            aid = fn[:-5]
+            try: a = json.loads(read(os.path.join(AUTHORS_DIR, fn)))
+            except json.JSONDecodeError as e: sys.exit(f"content/authors/{fn} のJSONが壊れています: {e}")
+            if not a.get("name"): sys.exit(f"content/authors/{fn} に name がありません")
+            authors[aid] = {"name": a["name"], "role": a.get("title", ""), "photo": site_path(a.get("photo")),
+                            "bio": a.get("bio", ""), "link": (a.get("link") or "").strip()}
+    authors.setdefault(DEFAULT_AUTHOR_ID, AUTHOR)
+    return authors
+
+# Markdown本文から危険なタグ・属性を取り除く（外部ライター原稿の保険。レビューと併用）
+def sanitize(h):
+    h = re.sub(r"<(script|style|iframe|object|embed|form)\b.*?</\1\s*>", "", h, flags=re.S | re.I)
+    h = re.sub(r"<(script|style|iframe|object|embed|form|input|button|link|meta)\b[^>]*>", "", h, flags=re.I)
+    h = re.sub(r"""\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)""", "", h, flags=re.I)
+    h = re.sub(r"""(href|src)\s*=\s*(["']?)\s*(javascript|vbscript|data):""", r"\1=\2#blocked:", h, flags=re.I)
+    return h
+
+JST = timezone(timedelta(hours=9))
+
+def to_date_str(v, field, where):
+    """日付を YYYY-MM-DD（日本時間）にする。管理画面の作成日時（UTC）は日本時間に直す"""
+    if isinstance(v, str) and "T" in v:
+        try: v = datetime.fromisoformat(v.strip().replace("Z", "+00:00"))
+        except ValueError: pass
+    if isinstance(v, datetime):
+        if v.tzinfo is None: v = v.replace(tzinfo=timezone.utc)
+        return v.astimezone(JST).date().isoformat()
+    if isinstance(v, date): return v.isoformat()
+    v = str(v or "").strip()[:10]
+    if v and not re.match(r"^\d{4}-\d{2}-\d{2}$", v): sys.exit(f"{where} の {field} は YYYY-MM-DD 形式にしてください: {v}")
+    return v
+
+def git_first_date(path):
+    """そのファイルが最初に main に入ったコミットの日付（日本時間）。git が無ければ None"""
+    import subprocess
+    try:
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%cI", "--", os.path.relpath(path, ROOT)],
+                             cwd=ROOT, capture_output=True, text=True, timeout=20).stdout.split()
+    except Exception:
+        return None
+    return to_date_str(out[-1], "date", path) if out else None
+
+def load_md_posts():
+    posts = []
+    if not os.path.isdir(MD_DIR): return posts
+    try:
+        import markdown, yaml
+    except ImportError:
+        sys.exit("Markdown記事のビルドには追加ライブラリが必要です:  pip install -r tools/requirements.txt")
+    for slug in sorted(os.listdir(MD_DIR)):
+        d = os.path.join(MD_DIR, slug); p = os.path.join(d, "index.md")
+        if not os.path.isfile(p): continue
+        where = f"content/posts/{slug}/index.md"
+        if not SLUG_RE.match(slug): sys.exit(f"{where}: フォルダ名（スラッグ）は半角英小文字・数字・ハイフンのみにしてください")
+        src = read(p).lstrip("\ufeff")
+        m = re.match(r"^---\s*\n(.*?)\n---\s*(?:\n|$)(.*)$", src, re.S)
+        if not m: sys.exit(f"{where}: 先頭の --- で囲まれた記事情報が見つかりません")
+        try: fm = yaml.safe_load(m.group(1)) or {}
+        except yaml.YAMLError as e: sys.exit(f"{where}: 記事情報の書式エラー: {e}")
+        meta = {}
+        for k in ("title", "description", "excerpt", "category", "eyecatch_alt", "author"):
+            if fm.get(k) not in (None, ""): meta[k] = str(fm[k]).strip()
+        meta["date"] = to_date_str(fm.get("date"), "date", where)
+        if not meta["date"]: meta["date"] = git_first_date(p) or ""  # 公開日 = main に入った日（承認日）
+        if not meta["date"] and re.match(r"^\d{8}", slug):  # それも無ければスラッグ（20261009-...）から
+            meta["date"] = f"{slug[:4]}-{slug[4:6]}-{slug[6:8]}"
+        if not meta["date"]: meta["date"] = datetime.now(JST).date().isoformat()
+        if fm.get("updated"): meta["updated"] = to_date_str(fm.get("updated"), "updated", where)
+        if fm.get("eyecatch"): meta["eyecatch"] = os.path.basename(site_path(str(fm["eyecatch"])))
+        meta["sample"] = bool(fm.get("sample", False)); meta["draft"] = bool(fm.get("draft", False))
+        meta["source"] = "markdown"
+        for k in ("title", "date", "category"):
+            if not meta.get(k): sys.exit(f"{where} に \"{k}\" がありません")
+        if meta.get("eyecatch") and not os.path.isfile(os.path.join(d, meta["eyecatch"])):
+            sys.exit(f"{where}: アイキャッチ画像 {meta['eyecatch']} が同じフォルダにありません")
+        body = markdown.markdown(m.group(2), extensions=["extra", "sane_lists"], output_format="html")
+        body = re.sub(r"<h1(\b[^>]*)>(.*?)</h1>", r"<h2\1>\2</h2>", body, flags=re.S)  # 本文の h1 は h2 扱い
+        meta["body"] = sanitize(body)
+        if not meta.get("description"):  # 概要が空なら本文の冒頭から作る
+            text = re.sub(r"</(p|h[1-6]|li|blockquote|td|th)>", " ", meta["body"])
+            text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", text))).strip()
+            meta["description"] = text[:110] + ("…" if len(text) > 110 else "")
+        meta["md_dir"] = d
+        posts.append(_finish(meta, slug))
+    return posts
+
+def _finish(meta, slug):
+    meta.setdefault("updated", meta["date"])
+    meta.setdefault("excerpt", meta["description"])
+    meta.setdefault("draft", False)
+    meta["slug"] = slug
+    if "meta_json" not in meta:
+        keep = {k: meta[k] for k in ("title", "description", "excerpt", "date", "updated", "category", "eyecatch",
+                                     "eyecatch_alt", "author", "sample", "draft", "source") if k in meta}
+        meta["meta_json"] = json.dumps(keep, ensure_ascii=False, indent=2)
+    ey = meta.get("eyecatch")
+    meta["eyecatch_site"] = f"blog/{slug}/{ey}" if ey else DEFAULT_EYECATCH  # サイトルートからのパス
+    return meta
+
 def load_posts():
+    md_posts = load_md_posts()
+    md_slugs = {p["slug"] for p in md_posts}
     posts = []
     bdir = os.path.join(ROOT, "blog")
     for slug in sorted(os.listdir(bdir)):
@@ -145,17 +272,19 @@ def load_posts():
             print(f"  ! スキップ（post-meta か BODY が見つかりません）: blog/{slug}/"); continue
         try: meta = json.loads(m.group(1))
         except json.JSONDecodeError as e: sys.exit(f"blog/{slug}/ の post-meta のJSONが壊れています: {e}")
+        if meta.get("source") == "markdown":
+            # Markdown記事から生成したページ（原稿は content/posts/）。原稿が消えていれば生成物も消す
+            if slug not in md_slugs:
+                shutil.rmtree(os.path.join(bdir, slug)); print(f"  - 削除（原稿なし）: blog/{slug}/")
+            continue
+        if slug in md_slugs:
+            sys.exit(f"スラッグ \"{slug}\" が HTML記事（blog/{slug}/）と Markdown記事（content/posts/{slug}/）で重複しています")
         for k in ("title", "date", "category", "description"):
             if not meta.get(k): sys.exit(f"blog/{slug}/ の post-meta に \"{k}\" がありません")
-        meta.setdefault("updated", meta["date"])
-        meta.setdefault("excerpt", meta["description"])
-        meta.setdefault("draft", False)
-        meta["slug"] = slug
         meta["meta_json"] = m.group(1).strip()
         meta["body"] = b.group(1).strip("\n")
-        ey = meta.get("eyecatch")
-        meta["eyecatch_site"] = f"blog/{slug}/{ey}" if ey else DEFAULT_EYECATCH  # サイトルートからのパス
-        posts.append(meta)
+        posts.append(_finish(meta, slug))
+    posts += md_posts
     posts.sort(key=lambda x: (x["date"], x["slug"]), reverse=True)
     return posts
 
@@ -201,17 +330,39 @@ def add_ids_and_toc(body):
     return body, f'<nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol>{items}</ol></nav>'
 
 # ---------- 記事ページ ----------
+AUTHORS = {}
+
+def author_box_inner(au, root, link_rel):
+    img = f'      <img src="{root}{E(au["photo"])}" alt="{E(au["name"])}" loading="lazy">\n' if au.get("photo") else ""
+    role = f'<span>{E(au["role"])}</span>' if au.get("role") else ""
+    lk = ""
+    if link_rel:
+        ext = ' target="_blank" rel="noopener"' if link_rel.startswith("http") else ""
+        lk = f'<a href="{E(link_rel)}" class="ab-link"{ext}>プロフィールを見る</a>'
+    return f'{img}      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">{E(au["name"])}{role}</p><p class="ab-bio">{E(au.get("bio", ""))}</p>{lk}</div>'
+
 def build_article(p, posts):
     root = "../../"
     url = f'{SITE_URL}/blog/{p["slug"]}/'
     img_abs = f'{SITE_URL}/{p["eyecatch_site"]}'
     title = f'{p["title"]}｜MATブログ｜{SITE_NAME}'
     body, toc = add_ids_and_toc(p["body"])
+    aid = p.get("author") or DEFAULT_AUTHOR_ID
+    if aid not in AUTHORS:  # 著者データがまだ公開されていない場合などは既定の著者で表示（ビルドは止めない）
+        print(f"  ! 警告: blog/{p['slug']}/ の著者 \"{aid}\" が content/authors/ にありません → {DEFAULT_AUTHOR_ID} で表示")
+        aid = DEFAULT_AUTHOR_ID
+    au = AUTHORS[aid]
+    link = au.get("link") or ""
+    if link.startswith("/"): link_rel, link_abs = root + link[1:], SITE_URL + link
+    elif link.startswith("http"): link_rel = link_abs = link
+    else: link_rel = link_abs = ""
+    person = {"@type": "Person", "name": au["name"].replace(" ", "")}
+    if link_abs: person["url"] = link_abs
     ld = {
         "@context": "https://schema.org", "@type": "Article",
         "headline": p["title"], "description": p["description"], "image": [img_abs],
         "datePublished": p["date"], "dateModified": p["updated"],
-        "author": {"@type": "Person", "name": AUTHOR["name"].replace(" ", ""), "url": f"{SITE_URL}/#host"},
+        "author": person,
         "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/"},
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
     }
@@ -252,8 +403,7 @@ def build_article(p, posts):
 <!-- BODY:END -->
     </div>
     <aside class="author-box">
-      <img src="{root}{AUTHOR["photo"]}" alt="{AUTHOR["name"]}" loading="lazy">
-      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">{AUTHOR["name"]}<span>{AUTHOR["role"]}</span></p><p class="ab-bio">{AUTHOR["bio"]}</p><a href="{root}#host" class="ab-link">プロフィールを見る</a></div>
+{author_box_inner(au, root, link_rel)}
     </aside>
   </article>
   {line_cta(root)}
@@ -328,11 +478,22 @@ def build_list(posts):
 '''
 
 def main():
+    AUTHORS.update(load_authors())
     posts = load_posts()
     print(f"記事数: {len(posts)}")
     for p in posts:
-        write(os.path.join(ROOT, "blog", p["slug"], "index.html"), build_article(p, posts))
+        out_dir = os.path.join(ROOT, "blog", p["slug"])
+        if p.get("md_dir"):  # Markdown記事: 画像などを blog/<slug>/ にコピー
+            os.makedirs(out_dir, exist_ok=True)
+            for fn in os.listdir(p["md_dir"]):
+                src = os.path.join(p["md_dir"], fn)
+                if fn != "index.md" and os.path.isfile(src): shutil.copy2(src, os.path.join(out_dir, fn))
+        write(os.path.join(out_dir, "index.html"), build_article(p, posts))
         print(f"  ✓ blog/{p['slug']}/  {p['date']}  {p['title']}" + ("（下書き：一覧に出ません）" if p["draft"] else ""))
+    # Markdown記事から生成したフォルダは git に入れない（原稿は content/posts/。本番は Actions が生成）
+    md = sorted(p["slug"] for p in posts if p.get("md_dir"))
+    write(os.path.join(ROOT, "blog", ".gitignore"),
+          "# 自動生成（tools/build_blog.py）: Markdown記事から作ったページ\n" + "".join(f"/{x}/\n" for x in md))
     write(os.path.join(ROOT, "blog", "index.html"), build_list(posts))
     pub = [{k: p[k] for k in ("slug", "title", "date", "updated", "category", "excerpt")} | {"url": f"blog/{p['slug']}/", "eyecatch": p["eyecatch_site"]}
            for p in posts if not p["draft"]]
