@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="ChatGPTの「モデル改善に協力する」をオフにする設定は、医療職がいちばん最初にやるべき初期設定です。オフにすると何が変わり何が変わらないのか、履歴削除との違いまで、MATの初期設定講座の内容から解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/chatgpt-model-improvement-off/">
+<meta property="og:title" content="ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="ChatGPTの「モデル改善に協力する」をオフにする設定は、医療職がいちばん最初にやるべき初期設定です。オフにすると何が変わり何が変わらないのか、履歴削除との違いまで、MATの初期設定講座の内容から解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/chatgpt-model-improvement-off/">
+<meta property="og:image" content="https://mediaiteam.com/blog/chatgpt-model-improvement-off/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-29">
+<meta property="article:modified_time" content="2026-09-29">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由", "description": "ChatGPTの「モデル改善に協力する」をオフにする設定は、医療職がいちばん最初にやるべき初期設定です。オフにすると何が変わり何が変わらないのか、履歴削除との違いまで、MATの初期設定講座の内容から解説します。", "image": ["https://mediaiteam.com/blog/chatgpt-model-improvement-off/eyecatch.jpg"], "datePublished": "2026-09-29", "dateModified": "2026-09-29", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/chatgpt-model-improvement-off/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由", "item": "https://mediaiteam.com/blog/chatgpt-model-improvement-off/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=安全設定・個人情報">安全設定・個人情報</a><span>公開日 <time datetime="2026-09-29">2026.09.29</time></span></p>
+      <h1 class="article-title">ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/chatgpt-model-improvement-off/eyecatch.jpg" alt="ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">「モデル改善に協力する」とは</a></li><li class="toc-h2"><a href="#sec-2">設定の場所</a></li><li class="toc-h2"><a href="#sec-3">オフにしても困ることはない</a></li><li class="toc-h2"><a href="#sec-4">勘違いしやすい3つのポイント</a></li><li class="toc-h3"><a href="#sec-5">①オフ＝「保存されない」ではない</a></li><li class="toc-h3"><a href="#sec-6">②履歴を消してもオフにはならない</a></li><li class="toc-h3"><a href="#sec-7">③すでに学習に使われた分は取り消せない</a></li><li class="toc-h2"><a href="#sec-8">あわせてやっておきたい設定</a></li><li class="toc-h2"><a href="#sec-9">ほかのAIでも同じ考え方</a></li><li class="toc-h2"><a href="#sec-10">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>ChatGPTの設定の中に、「モデル改善に協力する」という項目があるのをご存じですか。MATの初期設定講座で、谷口がいちばん時間をかけて説明したのがこの設定です。</p>
+<blockquote><p>「今日一番重要なところはここです」</p></blockquote>
+<p>この記事では、なぜこの設定が医療職にとって大切なのか、オフにすると何が変わり、何が変わらないのかを整理します。</p>
+<p>※画面の名前や場所は2026年9月時点のChatGPTのものです。見つからない場合は、ChatGPT自身に「モデル改善の設定はどこ？」と聞いてみてください。</p>
+
+<h2 id="sec-1">「モデル改善に協力する」とは</h2>
+<p>ChatGPTに入力した内容を、AIを作っている会社がAIの改善（学習）に使ってよいかどうか、という設定です。講座では、こう説明しました。</p>
+<blockquote><p>「オープンAIのところに自動的に僕たちの情報が飛んでいく…何らかの状態で患者情報が乗った場合も飛んでいきます」</p></blockquote>
+<p>患者情報は入れないのが大原則です。それでも、人間がやることなので、うっかり入ってしまう可能性はゼロではありません。そのとき、入った情報が学習に使われないようにしておくのがこの設定です。</p>
+
+<h2 id="sec-2">設定の場所</h2>
+<ol>
+  <li>画面左下の自分の名前（アイコン）をクリック</li>
+  <li>「設定」を開く</li>
+  <li>「データコントロール」を選ぶ</li>
+  <li>「モデル改善に協力する」（すべての人のためにモデルを改善する、などの表記の場合もあります）を<strong>オフ</strong>にする</li>
+</ol>
+<p>講座の時点では、この設定は初期状態でオンになっていることが多い、と説明しました。ご自身の設定を、今すぐ確認してみてください。ブラウザ版とアプリ版の両方を使っている場合は、どちらでも表示を確認しておくと安心です。</p>
+
+<h2 id="sec-3">オフにしても困ることはない</h2>
+<p>「オフにすると使いにくくなるのでは？」と心配する方もいますが、講座ではこう伝えています。</p>
+<blockquote><p>「これをオフにしたところで何ら不具合はありません」</p></blockquote>
+<p>会話の機能、メモリ、プロジェクトなど、普段使う機能はそのまま使えます。だからこそ、最初にやっておく価値がある設定です。</p>
+
+<h2 id="sec-4">勘違いしやすい3つのポイント</h2>
+<h3 id="sec-5">①オフ＝「保存されない」ではない</h3>
+<p>モデル改善をオフにしても、会話の履歴が保存されなくなるわけではありません。あくまで「今後、学習に使われない」という設定です。残したくない会話は、別に削除する必要があります。</p>
+<h3 id="sec-6">②履歴を消してもオフにはならない</h3>
+<p>逆に、会話の履歴を削除しても、モデル改善の設定は変わりません。履歴の削除と、学習に使われるかどうかは<strong>別のしくみ</strong>です。</p>
+<h3 id="sec-7">③すでに学習に使われた分は取り消せない</h3>
+<p>講座のシートには「消しても、すでに学習に使われた分までは取り消せない。だから最初にモデル改善をオフにする」と書きました。<strong>後からではなく、最初に</strong>が大切です。</p>
+<div class="point-box"><p class="pb-head">POINT</p><p>この設定は、うっかりに備える「最後の砦」です。オフにしたからといって、患者情報を入れてよいことにはなりません。入れない・匿名化する、が常に先です。</p></div>
+
+<h2 id="sec-8">あわせてやっておきたい設定</h2>
+<ul>
+  <li><strong>消す場所を知っておく</strong>：会話の削除（アーカイブではなく削除）、メモリ、共有リンクなど。<a href="../chatgpt-patient-info-delete/">患者情報を入れてしまったときの記事</a>で解説しています。</li>
+  <li><strong>多要素認証</strong>：アカウントが乗っ取られると、履歴がすべて見られてしまいます。<a href="../chatgpt-two-factor-auth/">多要素認証の記事</a>へ。</li>
+  <li><strong>カスタム指示で見張り役を</strong>：「個人が特定できる内容を私が書いてしまったら、答える前に指摘する」と入れておくと、AIが気づかせてくれます。</li>
+</ul>
+<p>初期設定の全体像は<a href="../chatgpt-initial-settings-medical/">医療職のためのChatGPT初期設定</a>にまとめています。</p>
+
+<h2 id="sec-9">ほかのAIでも同じ考え方</h2>
+<p>この記事ではChatGPTを例にしましたが、ClaudeやGeminiなど、ほかのAIにも「入力内容を改善に使うかどうか」に関わる設定があります。名前や場所はサービスごとに違うので、使っているAIに「入力内容を学習に使わない設定はどこ？」と聞いて確認しておきましょう。</p>
+
+<h2 id="sec-10">まとめ</h2>
+<ul>
+  <li>「モデル改善に協力する」は、医療職がいちばん最初にオフにする設定</li>
+  <li>オフにしても普段の機能に不具合はない</li>
+  <li>オフ＝保存されない、ではない。履歴の削除とは別のしくみ</li>
+  <li>すでに学習に使われた分は取り消せないので、最初にやる</li>
+</ul>
+<p>設定画面は、アップデートで場所や名前が変わることがあります。MATでは、変更に気づいたメンバーが情報を共有し合っています。一人で不安を抱えず、一緒に安全な使い方を続けていきましょう。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/chatgpt-initial-settings-medical/" data-cat="安全設定・個人情報">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-initial-settings-medical/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">安全設定・個人情報</span><time datetime="2026-10-05">2026.10.05</time></p>
+        <h3 class="pc-title">医療職のためのChatGPT初期設定｜今日やる7つ・触らない4つ・便利にする7つ</h3>
+        <p class="pc-ex">情報漏洩が心配な医療職のためのChatGPT初期設定。今日やる7つ・触らない4つ・便利にする7つで整理しました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/chatgpt-patient-info-delete/" data-cat="安全設定・個人情報">
+      <div class="pc-thumb"><img src="../../blog/chatgpt-patient-info-delete/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">安全設定・個人情報</span><time datetime="2026-10-04">2026.10.04</time></p>
+        <h3 class="pc-title">ChatGPTに患者情報をうっかり入れてしまったら｜消す場所4か所＋共有リンク</h3>
+        <p class="pc-ex">アーカイブは「隠すだけ」。会話・メモリ・ローカルメモリ・共有リンク、消す場所をあらかじめ知っておきましょう。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由",
+  "description": "ChatGPTの「モデル改善に協力する」をオフにする設定は、医療職がいちばん最初にやるべき初期設定です。オフにすると何が変わり何が変わらないのか、履歴削除との違いまで、MATの初期設定講座の内容から解説します。",
+  "excerpt": "初期設定講座で「今日一番重要なところ」と強調した設定。オフにしても不具合はなく、履歴削除とは別のしくみです。",
+  "date": "2026-09-29",
+  "updated": "2026-09-29",
+  "category": "安全設定・個人情報",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

@@ -98,5 +98,105 @@
     "excerpt": "メモだけ渡すとAIも迷う。書き手・読み手・SBARを指定すると、抜け漏れのない申し送りの形になります。",
     "url": "blog/sbar-handoff-prompt/",
     "eyecatch": "blog/sbar-handoff-prompt/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-model-improvement-off",
+    "title": "ChatGPTに学習させない設定（モデル改善をオフ）｜医療職が最初にやるべき理由",
+    "date": "2026-09-29",
+    "updated": "2026-09-29",
+    "category": "安全設定・個人情報",
+    "excerpt": "初期設定講座で「今日一番重要なところ」と強調した設定。オフにしても不具合はなく、履歴削除とは別のしくみです。",
+    "url": "blog/chatgpt-model-improvement-off/",
+    "eyecatch": "blog/chatgpt-model-improvement-off/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-projects-how-to",
+    "title": "ChatGPTのプロジェクト機能の使い方｜医療職は「これプロジェクトにして」の一言でいい",
+    "date": "2026-09-28",
+    "updated": "2026-09-28",
+    "category": "自分専用AI",
+    "excerpt": "設定を「箱」に保存して、中で話すだけで毎回効く。作り方の3ステップと、一言で済ませる近道を紹介します。",
+    "url": "blog/chatgpt-projects-how-to/",
+    "eyecatch": "blog/chatgpt-projects-how-to/eyecatch.jpg"
+  },
+  {
+    "slug": "manual-pdf-to-checklist",
+    "title": "院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演",
+    "date": "2026-09-27",
+    "updated": "2026-09-27",
+    "category": "勉強会・マニュアル",
+    "excerpt": "PDF3ページから、チェックリスト・スライド・Excelまで。実演の指示文と、使うときの注意点をまとめました。",
+    "url": "blog/manual-pdf-to-checklist/",
+    "eyecatch": "blog/manual-pdf-to-checklist/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-skills-explained",
+    "title": "AIの「スキル」とは？医療職のための作業手順書の作り方（プロジェクトとの違い）",
+    "date": "2026-09-26",
+    "updated": "2026-09-26",
+    "category": "スキル・自動化",
+    "excerpt": "常設ルール・スキル・記憶、AIに覚えさせる3つの置き場所。スキルに書く5つの項目と安全ルールを解説します。",
+    "url": "blog/ai-skills-explained/",
+    "eyecatch": "blog/ai-skills-explained/eyecatch.jpg"
+  },
+  {
+    "slug": "ai-agent-explained",
+    "title": "AIエージェントとは？「頼む相手」から「任せる相手」へ｜医療職向けにやさしく解説",
+    "date": "2026-09-25",
+    "updated": "2026-09-25",
+    "category": "スキル・自動化",
+    "excerpt": "答えを返すAIから、手足を持って作業するAIへ。人に残るのは「決めること」と「確認すること」です。",
+    "url": "blog/ai-agent-explained/",
+    "eyecatch": "blog/ai-agent-explained/eyecatch.jpg"
+  },
+  {
+    "slug": "ask-me-questions-prompt",
+    "title": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する",
+    "date": "2026-09-24",
+    "updated": "2026-09-24",
+    "category": "プロンプト",
+    "excerpt": "ほとんどの人が知らないコツ。一言添えるだけで、AIが確認してから作業するようになります。",
+    "url": "blog/ask-me-questions-prompt/",
+    "eyecatch": "blog/ask-me-questions-prompt/eyecatch.jpg"
+  },
+  {
+    "slug": "medi-ai-team-community",
+    "title": "医療職のためのAIコミュニティ「MEDI-AI TEAM」とは｜教わる場所ではなく、一緒に使うチーム",
+    "date": "2026-09-23",
+    "updated": "2026-09-23",
+    "category": "MATについて",
+    "excerpt": "一人でやると、だいたい挫折する。だからチームを作りました。MATの考え方と、学ぶ・支える・教える3つのステージ。",
+    "url": "blog/medi-ai-team-community/",
+    "eyecatch": "blog/medi-ai-team-community/eyecatch.jpg"
+  },
+  {
+    "slug": "what-is-generative-ai",
+    "title": "生成AIとは？医療職が最初に知るべき「AIは平気で間違える」という大前提",
+    "date": "2026-09-22",
+    "updated": "2026-09-22",
+    "category": "AI入門",
+    "excerpt": "AIは次の言葉を予測しているだけ。だから自然に話せるけれど、平気で間違える。正しく疑うための基礎知識です。",
+    "url": "blog/what-is-generative-ai/",
+    "eyecatch": "blog/what-is-generative-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "hallucination-countermeasures",
+    "title": "AIの「もっともらしい嘘」を防ぐ頼み方｜医療職のハルシネーション対策",
+    "date": "2026-09-21",
+    "updated": "2026-09-21",
+    "category": "AI入門",
+    "excerpt": "ハルシネーションはゼロにならない。だから頼み方で減らし、裏取りで防ぐ。医療職のための具体的な対策です。",
+    "url": "blog/hallucination-countermeasures/",
+    "eyecatch": "blog/hallucination-countermeasures/eyecatch.jpg"
+  },
+  {
+    "slug": "afraid-of-ai-medical",
+    "title": "「AIが怖い」と感じる医療職へ｜その不安は正しい。だから最初にこれだけ守る",
+    "date": "2026-09-20",
+    "updated": "2026-09-20",
+    "category": "AI入門",
+    "excerpt": "医療職が慎重なのは当たり前。不安の正体を整理して、4つの鉄則と小さな一歩から始めましょう。",
+    "url": "blog/afraid-of-ai-medical/",
+    "eyecatch": "blog/afraid-of-ai-medical/eyecatch.jpg"
   }
 ]

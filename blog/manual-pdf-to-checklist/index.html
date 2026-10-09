@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="院内マニュアルのPDFを読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表までAIに作らせる方法を、MAT第3回勉強会の実演から紹介。指示文と、マニュアルにないことを足させないコツを解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/manual-pdf-to-checklist/">
+<meta property="og:title" content="院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="院内マニュアルのPDFを読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表までAIに作らせる方法を、MAT第3回勉強会の実演から紹介。指示文と、マニュアルにないことを足させないコツを解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/manual-pdf-to-checklist/">
+<meta property="og:image" content="https://mediaiteam.com/blog/manual-pdf-to-checklist/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-27">
+<meta property="article:modified_time" content="2026-09-27">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演", "description": "院内マニュアルのPDFを読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表までAIに作らせる方法を、MAT第3回勉強会の実演から紹介。指示文と、マニュアルにないことを足させないコツを解説します。", "image": ["https://mediaiteam.com/blog/manual-pdf-to-checklist/eyecatch.jpg"], "datePublished": "2026-09-27", "dateModified": "2026-09-27", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/manual-pdf-to-checklist/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演", "item": "https://mediaiteam.com/blog/manual-pdf-to-checklist/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=勉強会・マニュアル">勉強会・マニュアル</a><span>公開日 <time datetime="2026-09-27">2026.09.27</time></span></p>
+      <h1 class="article-title">院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/manual-pdf-to-checklist/eyecatch.jpg" alt="院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">実演の準備</a></li><li class="toc-h2"><a href="#sec-2">実演で使った指示文</a></li><li class="toc-h2"><a href="#sec-3">AIが聞き返してきたこと</a></li><li class="toc-h2"><a href="#sec-4">結果：約10分で3点セット</a></li><li class="toc-h3"><a href="#sec-5">Excelへの転記も一言で</a></li><li class="toc-h2"><a href="#sec-6">チェックリストの質を上げるコツ</a></li><li class="toc-h2"><a href="#sec-7">使う前に必ず確認すること</a></li><li class="toc-h2"><a href="#sec-8">次は「スキル」にして、毎回の指示もなくす</a></li><li class="toc-h2"><a href="#sec-9">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>新人さんが入ってくる時期、教育担当の方はマニュアルをもとにチェックリストを作ったり、勉強会の準備をしたりと大忙しです。</p>
+<p>MATの第3回勉強会では、<strong>院内マニュアルのPDFから、新人用のチェックリスト・勉強会スライド・Excelのチェック表をまとめて作る</strong>実演を行いました。この記事では、そのときの指示文と流れ、注意点を紹介します。</p>
+<p>※実演で使ったマニュアルは、デモ用に作った架空の「末梢静脈カテーテル管理マニュアル」です。機能は2026年8月時点のものです。</p>
+
+<h2 id="sec-1">実演の準備</h2>
+<p>パソコンのデスクトップに「新人教育」というフォルダを作り、その中にマニュアルのPDFを入れておきました。フォルダはAIに作らせることもできますが、谷口は「フォルダーぐらいは自分で作りましょう」と話しています。</p>
+<p>使ったのは、パソコンの中のファイルを扱えるAIのアプリ（ClaudeのCowork）です。どのフォルダを使って仕事をするのかを、最初にAIに指定します。</p>
+
+<h2 id="sec-2">実演で使った指示文</h2>
+<blockquote><p>デスクトップの「新人教育」フォルダにあるマニュアルPDFを読んで、新人看護師用のチェックリストと、勉強会スライドの原稿を作ってください。あわせて、空の「新人技術チェック表.xlsx」も作ってください。できたファイルも、同じフォルダに保存してください。</p></blockquote>
+<p>「何を読んで」「何を作って」「どこに保存するか」まで、ひとつの指示に入っているのがポイントです。</p>
+
+<h2 id="sec-3">AIが聞き返してきたこと</h2>
+<p>作業の途中で、AIはこんな確認をしてきました。</p>
+<ul>
+  <li>勉強会のスライド原稿は、WordとPowerPointのどちらで作りますか？</li>
+  <li>チェックリストは、どのくらいの粒度にしますか？</li>
+</ul>
+<p>実演では「両方で」「推奨の粒度で」と答えました。迷ったときにAIの推奨に任せるのも一つの方法です。</p>
+
+<h2 id="sec-4">結果：約10分で3点セット</h2>
+<p>しばらく待つと、フォルダの中にPowerPointのスライド（約15枚）、勉強会資料のPDF、Wordのチェックリスト、Excelのチェック表が保存されていました。谷口はこう話しています。</p>
+<blockquote><p>「たかが3枚のPDFからこれだけのものができたってことですね」</p></blockquote>
+<blockquote><p>「僕その間何もやってないですよね。一気通貫でできたわけです」</p></blockquote>
+<p>かかった時間は10分ほど。同じものを手で作れば数日かかってもおかしくない量です。</p>
+
+<h3 id="sec-5">Excelへの転記も一言で</h3>
+<p>続けて「チェックリストの項目を行として追加してください」とだけ伝えると、AIがExcelのチェック表に項目と入力欄を作ってくれました。コピーして貼る作業が、まるごとなくなります。</p>
+
+<h2 id="sec-6">チェックリストの質を上げるコツ</h2>
+<p>MATで配布している「スキル設計テンプレ」では、マニュアルからチェックリストを作るときの文例を紹介しています。ポイントは次のとおりです。</p>
+<ul>
+  <li>表の形にする：「順番／確認すること／できたら／根拠・注意点」</li>
+  <li><strong>マニュアルにないことは足さない</strong></li>
+  <li>補足したいことは、本文とは別枠で書く</li>
+</ul>
+<div class="point-box"><p class="pb-head">POINT</p><p>AIは「親切心」から、マニュアルに書いていない手順や注意点を付け足すことがあります。院内の手順と違う内容が混ざると、新人さんが混乱してしまいます。「マニュアルにないことは足さない」は必ず入れておきましょう。</p></div>
+
+<h2 id="sec-7">使う前に必ず確認すること</h2>
+<ul>
+  <li>手順の順番や内容が、院内マニュアルと一致しているか</li>
+  <li>数値や物品名が正しいか</li>
+  <li>マニュアルに患者情報が含まれていないか（含まれる資料はAIに渡さない）</li>
+  <li>院内の資料をAIで扱ってよいか、職場のルールを確認したか</li>
+</ul>
+<p>チェックリストは新人さんの技術の評価にも関わるものです。最終的な内容は、教育担当のあなたや部署で確認してから使ってください。</p>
+
+<h2 id="sec-8">次は「スキル」にして、毎回の指示もなくす</h2>
+<p>実演では、この一連の流れを「これをスキルにして」と頼み、スキルとして保存しました。その後、部署も様式も違う「転倒転落防止」のマニュアルで「チェックリストを作って」とだけ伝えると、同じ形式で3点セットができあがりました。詳しくは<a href="../ai-skills-explained/">AIのスキルとは？の記事</a>で紹介しています。</p>
+
+<h2 id="sec-9">まとめ</h2>
+<ul>
+  <li>「何を読んで・何を作って・どこに保存するか」を一つの指示に入れる</li>
+  <li>約10分で、スライド・チェックリスト・Excelのチェック表ができた</li>
+  <li>「マニュアルにないことは足さない」を必ず入れ、内容は部署で確認</li>
+</ul>
+<p>教育担当の仕事は、資料作りよりも、新人さんと向き合う時間に使いたいもの。MATでは、メンバーそれぞれの職場の教育資料の工夫を共有しています。あなたの部署のマニュアルでも、一緒に試してみませんか。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/study-session-slides-ai/" data-cat="勉強会・マニュアル">
+      <div class="pc-thumb"><img src="../../blog/study-session-slides-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">勉強会・マニュアル</span><time datetime="2026-10-02">2026.10.02</time></p>
+        <h3 class="pc-title">病棟勉強会のスライドをAIで作る｜心不全10枚の実演プロンプト</h3>
+        <p class="pc-ex">「新人向け・10枚・背景白・足りない情報は先に質問して」。数分で10枚できた実演プロンプトを紹介します。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/prompt-writing-three-tags/" data-cat="プロンプト">
+      <div class="pc-thumb"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">プロンプト</span><time datetime="2026-10-08">2026.10.08</time></p>
+        <h3 class="pc-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h3>
+        <p class="pc-ex">心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演",
+  "description": "院内マニュアルのPDFを読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表までAIに作らせる方法を、MAT第3回勉強会の実演から紹介。指示文と、マニュアルにないことを足させないコツを解説します。",
+  "excerpt": "PDF3ページから、チェックリスト・スライド・Excelまで。実演の指示文と、使うときの注意点をまとめました。",
+  "date": "2026-09-27",
+  "updated": "2026-09-27",
+  "category": "勉強会・マニュアル",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

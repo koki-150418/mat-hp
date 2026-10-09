@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/ask-me-questions-prompt/">
+<meta property="og:title" content="「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/ask-me-questions-prompt/">
+<meta property="og:image" content="https://mediaiteam.com/blog/ask-me-questions-prompt/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-24">
+<meta property="article:modified_time" content="2026-09-24">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する", "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。", "image": ["https://mediaiteam.com/blog/ask-me-questions-prompt/eyecatch.jpg"], "datePublished": "2026-09-24", "dateModified": "2026-09-24", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/ask-me-questions-prompt/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する", "item": "https://mediaiteam.com/blog/ask-me-questions-prompt/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=プロンプト">プロンプト</a><span>公開日 <time datetime="2026-09-24">2026.09.24</time></span></p>
+      <h1 class="article-title">「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/ask-me-questions-prompt/eyecatch.jpg" alt="「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">なぜAIは「ずれた答え」を返すのか</a></li><li class="toc-h2"><a href="#sec-2">実演：勉強会スライドで聞き返された3つの質問</a></li><li class="toc-h2"><a href="#sec-3">医療職のための使いどころ</a></li><li class="toc-h3"><a href="#sec-4">手書きメモを読ませるとき</a></li><li class="toc-h3"><a href="#sec-5">マニュアルや資料を作るとき</a></li><li class="toc-h3"><a href="#sec-6">申し送りや報告の下書きを作るとき</a></li><li class="toc-h2"><a href="#sec-7">言い方のバリエーション</a></li><li class="toc-h2"><a href="#sec-8">他のコツと組み合わせる</a></li><li class="toc-h2"><a href="#sec-9">よくある質問</a></li><li class="toc-h3"><a href="#sec-10">Q. 質問に答えるのが面倒なときは？</a></li><li class="toc-h2"><a href="#sec-11">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>AIに頼んだら、思っていたのと全然違うものが返ってきた。作り直しを頼んでも、また微妙にずれている。そんな経験はありませんか。</p>
+<p>MATの第1回勉強会で、谷口が「ほとんどの人が知らない」と紹介したコツがあります。それが、指示の最後に添える<strong>「足りない情報があれば、先に質問して」</strong>という一言です。</p>
+
+<h2 id="sec-1">なぜAIは「ずれた答え」を返すのか</h2>
+<p>AIは、次に来る言葉を予測しながら文章を作ります。情報が足りないと、足りない部分を推測で埋めて、そのまま最後まで書き切ってしまいます。推測の上に推測を重ねるので、結果として的外れな答えや、もっともらしい嘘（ハルシネーション）が生まれやすくなります。</p>
+<p>「足りない情報があれば、先に質問して」と添えると、AIは推測で埋める前に、まずあなたに確認するようになります。<strong>推論の積み重ねを、最初の段階で止める</strong>ことができるのです。</p>
+
+<h2 id="sec-2">実演：勉強会スライドで聞き返された3つの質問</h2>
+<p>第1回勉強会では、次のプロンプトで心不全の勉強会スライドを作りました。</p>
+<blockquote><p>心不全の勉強会を行います。スライドを作ってください。<br>・新人看護師向け<br>・難しい言葉を使わない<br>・パワーポイントで10枚<br>・背景白でシンプルに<br>・足りない情報があれば先に質問して</p></blockquote>
+<p>するとAIは、作り始める前にこう聞いてきました。</p>
+<ol>
+  <li>心不全の基礎・観察・看護ケアのどれを中心にしますか？</li>
+  <li>急性期・慢性期のどちらを想定しますか？</li>
+  <li>発表用の説明（スピーカーノート）を付けますか？</li>
+</ol>
+<p>どれも、言われてみれば大事なポイントです。これに答えてから作ってもらうことで、一発で使える形に近づきます。</p>
+
+<h2 id="sec-3">医療職のための使いどころ</h2>
+<h3 id="sec-4">手書きメモを読ませるとき</h3>
+<p>第2回勉強会では、手書きメモの写真を読ませるときに「自信がないところは1行ずつ聞いて」と指示しました。読み取れない字を勝手に推測されるより、確認してもらったほうが安全です。詳しくは<a href="../handwritten-memo-ai/">手書きメモをAIに読ませる記事</a>へ。</p>
+<h3 id="sec-5">マニュアルや資料を作るとき</h3>
+<p>マニュアル作成のプロンプトの最後にも「わからないところは聞いて」と入れました。谷口は、こんなふうに話しています。</p>
+<blockquote><p>「箇条書きでいいので、頭に浮かんだものをボンボンと貼って、最後に『わからないところを聞いて』」</p></blockquote>
+<p>きれいな指示文を考えなくても、思いついたことを並べて、最後にこの一言を添えるだけでいい。これなら、忙しい中でもすぐに使えます。</p>
+<h3 id="sec-6">申し送りや報告の下書きを作るとき</h3>
+<p>「血圧の値は？」「いつからの症状？」とAIに聞かれることで、自分の観察や記録の抜けに気づくこともあります。AIの質問が、ちょっとしたダブルチェックの役割を果たしてくれるのです。</p>
+
+<div class="point-box"><p class="pb-head">POINT</p><p>AIに質問されても、患者さんの氏名やIDなど個人が特定できる情報は答えないでください。「70代男性」「A氏」のように匿名化して答えれば十分です。</p></div>
+
+<h2 id="sec-7">言い方のバリエーション</h2>
+<ul>
+  <li>「足りない情報があれば、先に質問して」</li>
+  <li>「作り始める前に、確認したいことを3つまで質問して」</li>
+  <li>「わからないところは聞いて」</li>
+  <li>「自信がないところは1行ずつ聞いて」</li>
+</ul>
+<p>質問が多すぎて大変なときは「3つまで」と数を決めると、要点だけ聞いてくれます。</p>
+
+<h2 id="sec-8">他のコツと組み合わせる</h2>
+<p>逆質問は、MATで紹介している「差がつく4つのコツ」のひとつです。</p>
+<ol>
+  <li>一回で終わらせない、会話で育てる</li>
+  <li>ゼロから書かせない、材料を渡す</li>
+  <li><strong>AIに逆質問させる</strong></li>
+  <li>AIは下書き、仕上げはあなた</li>
+</ol>
+<p>「#書き手 #読み手 #出力形式」の3つの型（<a href="../prompt-writing-three-tags/">プロンプトの書き方の記事</a>）と組み合わせれば、さらに精度が上がります。</p>
+
+<h2 id="sec-9">よくある質問</h2>
+<h3 id="sec-10">Q. 質問に答えるのが面倒なときは？</h3>
+<p>「質問は3つまで」と数を決めるか、「分からないところは一般的な想定で進めて、最後に前提を一覧にして」と頼む方法もあります。後から前提を確認できるので、ずれていればそこだけ直せます。</p>
+<h2 id="sec-11">まとめ</h2>
+<ul>
+  <li>AIは足りない情報を推測で埋めてしまう</li>
+  <li>「足りない情報があれば、先に質問して」で、推測の前に確認させる</li>
+  <li>質問に答えるときも、個人情報は入れない</li>
+</ul>
+<p>一言添えるだけの小さなコツですが、効果は大きいもの。こうした小さなコツを持ち寄り、共有し合えるのも、仲間と一緒に学ぶ良さです。MATでは、メンバーが見つけた頼み方の工夫を日々交換しています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/prompt-writing-three-tags/" data-cat="プロンプト">
+      <div class="pc-thumb"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">プロンプト</span><time datetime="2026-10-08">2026.10.08</time></p>
+        <h3 class="pc-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h3>
+        <p class="pc-ex">心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/nursing-record-soap-ai/" data-cat="看護記録・申し送り">
+      <div class="pc-thumb"><img src="../../blog/nursing-record-soap-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">看護記録・申し送り</span><time datetime="2026-10-07">2026.10.07</time></p>
+        <h3 class="pc-title">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</h3>
+        <p class="pc-ex">手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する",
+  "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。",
+  "excerpt": "ほとんどの人が知らないコツ。一言添えるだけで、AIが確認してから作業するようになります。",
+  "date": "2026-09-24",
+  "updated": "2026-09-24",
+  "category": "プロンプト",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>
