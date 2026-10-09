@@ -395,3 +395,4 @@ a.post-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.
 }
 .blog-empty{max-width:640px;margin:0 auto;text-align:center;padding:40px 24px;border:1.5px dashed #ccc;background:#fafafa;color:#777;font-family:var(--mincho);font-size:16px;line-height:2}
 .blog-list .blog-empty{background:#fff}
+.post-grid .blog-empty{grid-column:1/-1;width:100%}
