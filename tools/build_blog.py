@@ -10,7 +10,10 @@ MATブログ ビルドスクリプト（Python 3 標準ライブラリのみ・�
   2. 各記事ページを最新のテンプレート（ヘッダー・目次・著者・関連記事・フッター等）で作り直す
   3. blog/index.html（記事一覧）と blog/posts.json を作り直す
   4. トップページ index.html の「ブログ」欄（最新記事カード）を更新する
-  5. index.html / tokushoho.html を含む全ページのヘッダー・フッターを共通テンプレートで揃える
+  5. index.html（と、あれば tokushoho.html）のヘッダー・フッターを共通テンプレートで揃える
+  6. sitemap.xml を作り直す（トップ・ブログ一覧・公開中の記事。下書きは含めない）
+
+  ※ "draft": true の記事は一覧・トップ・関連記事・sitemap に出ず、ページに noindex が付きます。
 """
 import html, json, os, re, sys
 from datetime import date
@@ -21,7 +24,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL   = "https://mediaiteam.com"     # 本番ドメイン（canonical / OGP に使用）
 SITE_NAME  = "MEDI-AI TEAM"
 LINE_URL   = "https://lin.ee/r1UDzpD"
-NOINDEX    = True                          # プレビュー中は True。本番公開時に False にする
+NOINDEX    = False                         # True にすると全ブログページに noindex（公開前プレビュー用）
+TOKUSHOHO_LINK = ""  # 特商法ページ公開時は ' / <a href="{root}tokushoho.html">特定商取引法に基づく表記</a>' を入れる
 TOP_CARDS  = 3                             # トップページに出す最新記事の数
 DEFAULT_EYECATCH = "img/blog-default.jpg"  # アイキャッチ未設定時の画像（サイトルートからのパス）
 AUTHOR = {
@@ -84,7 +88,7 @@ def footer(root):
     <div><p class="f-head">メニュー</p><ul><li><a href="{r}">ホーム</a></li><li><a href="{root}#host">主催者</a></li><li><a href="{root}#faq">よくある質問</a></li><li><a {LINE_ATTR}>公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p><a href="#">プライバシーポリシー</a> / <a href="{root}tokushoho.html">特定商取引法に基づく表記</a></p>
+    <p><a href="#">プライバシーポリシー</a>{TOKUSHOHO_LINK.format(root=root)}</p>
     <p>© {date.today().year} MEDI-AI TEAM All Rights Reserved.</p>
   </div>
 </footer>
@@ -101,8 +105,8 @@ def replace_block(s, name, new):
         sys.exit(f"{name} が見つかりません")
     return pat2.sub(lambda m: new, s, count=1)
 
-def head(title, desc, canonical, og_image, og_type, root, extra=""):
-    robots = '<meta name="robots" content="noindex,nofollow">\n' if NOINDEX else ""
+def head(title, desc, canonical, og_image, og_type, root, extra="", noindex=False):
+    robots = '<meta name="robots" content="noindex,nofollow">\n' if (NOINDEX or noindex) else ""
     return f'''<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -227,7 +231,7 @@ def build_article(p, posts):
                    if p.get("sample") else "")
     updated = (f'<span class="ah-upd">更新日 <time datetime="{p["updated"]}">{fmt_date(p["updated"])}</time></span>'
                if p["updated"] != p["date"] else "")
-    return f'''{head(title, p["description"], url, img_abs, "article", root, extra)}
+    return f'''{head(title, p["description"], url, img_abs, "article", root, extra, noindex=p["draft"])}
 <body class="page-blog">
 
 {header(root, "blog")}
@@ -281,7 +285,10 @@ def build_list(posts):
     tags += "".join('<button class="cat-btn" data-cat="%s">%s<span>%d</span></button>'
                     % (E(c), E(c), sum(1 for p in listed if p["category"] == c)) for c in cats)
     cards = "\n".join(card(p, root) for p in listed)
-    if len(listed) < 3: cards += "\n" + coming_soon(3 - len(listed))
+    if not listed:
+        tags = ""
+        cards = '    <p class="blog-empty">記事は順次公開予定です。<br>公開まで、もうしばらくお待ちください。</p>'
+    elif len(listed) < 3: cards += "\n" + coming_soon(3 - len(listed))
     url = SITE_URL + "/blog/"
     desc = "医療職のためのAI実践チーム「MEDI-AI TEAM（MAT）」のブログ。AIを使い始めたい医療職のための情報を発信しています。"
     return f'''{head("MATブログ｜" + SITE_NAME, desc, url, SITE_URL + "/" + DEFAULT_EYECATCH, "website", root)}
@@ -296,7 +303,7 @@ def build_list(posts):
   <p class="bh-lead">AIを使ったことがない医療職が、明日から一歩を踏み出すための情報を発信していきます。<br class="pc">教わるのではなく、一緒に使う。そのためのヒントをまとめています。</p>
 </section>
 <section class="sec blog-list">
-  <div class="cat-tags" role="group" aria-label="カテゴリー">{tags}</div>
+  {'<div class="cat-tags" role="group" aria-label="カテゴリー">' + tags + '</div>' if tags else ''}
   <div class="post-grid" id="post-grid">
 {cards}
   </div>
@@ -334,16 +341,31 @@ def main():
     # トップページ
     idx = os.path.join(ROOT, "index.html"); s = read(idx)
     latest = [p for p in posts if not p["draft"]][:TOP_CARDS]
-    cards = "\n".join(card(p, "") for p in latest) + ("\n" + coming_soon(TOP_CARDS - len(latest)) if len(latest) < TOP_CARDS else "")
-    block = f'<!-- BLOG-CARDS:START (自動生成) -->\n  <div class="post-grid">\n{cards}\n  </div>\n  <!-- BLOG-CARDS:END -->'
+    if latest:
+        cards = "\n".join(card(p, "") for p in latest) + ("\n" + coming_soon(TOP_CARDS - len(latest)) if len(latest) < TOP_CARDS else "")
+        inner = f'  <div class="post-grid">\n{cards}\n  </div>'
+    else:
+        inner = '  <p class="blog-empty">記事は順次公開予定です。</p>'
+    block = f'<!-- BLOG-CARDS:START (自動生成) -->\n{inner}\n  <!-- BLOG-CARDS:END -->'
     if "<!-- BLOG-CARDS:START" not in s: sys.exit("index.html に BLOG-CARDS マーカーがありません")
     s = re.sub(r"<!-- BLOG-CARDS:START.*?<!-- BLOG-CARDS:END -->", lambda m: block, s, flags=re.S)
     s = replace_block(s, "HEADER", header("", "home")); s = replace_block(s, "FOOTER", footer(""))
     write(idx, s)
-    tk = os.path.join(ROOT, "tokushoho.html"); t = read(tk)
-    t = replace_block(t, "HEADER", header("./", None)); t = replace_block(t, "FOOTER", footer("./"))
-    write(tk, t)
-    print("  ✓ index.html（最新記事・ヘッダー・フッター）, tokushoho.html（ヘッダー・フッター）")
+    print("  ✓ index.html（最新記事・ヘッダー・フッター）")
+    tk = os.path.join(ROOT, "tokushoho.html")
+    if os.path.isfile(tk):
+        t = read(tk)
+        t = replace_block(t, "HEADER", header("./", None)); t = replace_block(t, "FOOTER", footer("./"))
+        write(tk, t); print("  ✓ tokushoho.html（ヘッダー・フッター）")
+    # sitemap.xml
+    urls = [(SITE_URL + "/", None), (SITE_URL + "/blog/", None)]
+    urls += [(f"{SITE_URL}/blog/{p['slug']}/", p["updated"]) for p in posts if not p["draft"]]
+    sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for u, lm in urls:
+        sm += f"  <url><loc>{u}</loc>" + (f"<lastmod>{lm}</lastmod>" if lm else "") + "</url>\n"
+    sm += "</urlset>\n"
+    write(os.path.join(ROOT, "sitemap.xml"), sm)
+    print(f"  ✓ sitemap.xml（{len(urls)} URL）")
     print("完了しました。")
 
 if __name__ == "__main__":
