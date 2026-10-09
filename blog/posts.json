@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "slug": "ai-beginner-guide-nurses",
+    "title": "看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩",
+    "date": "2026-10-09",
+    "updated": "2026-10-09",
+    "category": "AI入門",
+    "excerpt": "AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。",
+    "url": "blog/ai-beginner-guide-nurses/",
+    "eyecatch": "blog/ai-beginner-guide-nurses/eyecatch.jpg"
+  },
+  {
+    "slug": "prompt-writing-three-tags",
+    "title": "看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる",
+    "date": "2026-10-08",
+    "updated": "2026-10-08",
+    "category": "プロンプト",
+    "excerpt": "心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。",
+    "url": "blog/prompt-writing-three-tags/",
+    "eyecatch": "blog/prompt-writing-three-tags/eyecatch.jpg"
+  },
+  {
+    "slug": "nursing-record-soap-ai",
+    "title": "看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点",
+    "date": "2026-10-07",
+    "updated": "2026-10-07",
+    "category": "看護記録・申し送り",
+    "excerpt": "手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。",
+    "url": "blog/nursing-record-soap-ai/",
+    "eyecatch": "blog/nursing-record-soap-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "incident-report-ai",
+    "title": "インシデントレポートをAIで書く｜「文章3つだけ」任せて判断は自分で握る方法",
+    "date": "2026-10-06",
+    "updated": "2026-10-06",
+    "category": "インシデント・医療安全",
+    "excerpt": "チェック項目は10秒、時間がかかるのは文章3つ。そこだけAIに任せて、判断は自分で握るプロンプトを全文紹介。",
+    "url": "blog/incident-report-ai/",
+    "eyecatch": "blog/incident-report-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-initial-settings-medical",
+    "title": "医療職のためのChatGPT初期設定｜今日やる7つ・触らない4つ・便利にする7つ",
+    "date": "2026-10-05",
+    "updated": "2026-10-05",
+    "category": "安全設定・個人情報",
+    "excerpt": "情報漏洩が心配な医療職のためのChatGPT初期設定。今日やる7つ・触らない4つ・便利にする7つで整理しました。",
+    "url": "blog/chatgpt-initial-settings-medical/",
+    "eyecatch": "blog/chatgpt-initial-settings-medical/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-patient-info-delete",
+    "title": "ChatGPTに患者情報をうっかり入れてしまったら｜消す場所4か所＋共有リンク",
+    "date": "2026-10-04",
+    "updated": "2026-10-04",
+    "category": "安全設定・個人情報",
+    "excerpt": "アーカイブは「隠すだけ」。会話・メモリ・ローカルメモリ・共有リンク、消す場所をあらかじめ知っておきましょう。",
+    "url": "blog/chatgpt-patient-info-delete/",
+    "eyecatch": "blog/chatgpt-patient-info-delete/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-gemini-claude-difference",
+    "title": "ChatGPT・Gemini・Claudeの違いは？医療職はどれから使えばいいか",
+    "date": "2026-10-03",
+    "updated": "2026-10-03",
+    "category": "AI入門",
+    "excerpt": "迷ったらChatGPT、文章ならClaude、Googleサービス派はGemini。医療職向けに3大AIの選び方をまとめました。",
+    "url": "blog/chatgpt-gemini-claude-difference/",
+    "eyecatch": "blog/chatgpt-gemini-claude-difference/eyecatch.jpg"
+  },
+  {
+    "slug": "study-session-slides-ai",
+    "title": "病棟勉強会のスライドをAIで作る｜心不全10枚の実演プロンプト",
+    "date": "2026-10-02",
+    "updated": "2026-10-02",
+    "category": "勉強会・マニュアル",
+    "excerpt": "「新人向け・10枚・背景白・足りない情報は先に質問して」。数分で10枚できた実演プロンプトを紹介します。",
+    "url": "blog/study-session-slides-ai/",
+    "eyecatch": "blog/study-session-slides-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "personal-ai-how-to-make",
+    "title": "自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法",
+    "date": "2026-10-01",
+    "updated": "2026-10-01",
+    "category": "自分専用AI",
+    "excerpt": "毎回の説明をやめて、一度だけ覚えさせる。役割・様式・禁止事項・トーン・自部署ルールで作る自分専用AI。",
+    "url": "blog/personal-ai-how-to-make/",
+    "eyecatch": "blog/personal-ai-how-to-make/eyecatch.jpg"
+  },
+  {
+    "slug": "sbar-handoff-prompt",
+    "title": "走り書きメモを「SBAR」の申し送りに整えるAIプロンプト",
+    "date": "2026-09-30",
+    "updated": "2026-09-30",
+    "category": "看護記録・申し送り",
+    "excerpt": "メモだけ渡すとAIも迷う。書き手・読み手・SBARを指定すると、抜け漏れのない申し送りの形になります。",
+    "url": "blog/sbar-handoff-prompt/",
+    "eyecatch": "blog/sbar-handoff-prompt/eyecatch.jpg"
+  }
+]

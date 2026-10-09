@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>走り書きメモを「SBAR」の申し送りに整えるAIプロンプト｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="「血圧高め／頭痛あり／夜眠れていない」だけではAIも迷います。書き手・読み手・SBARの形式を指定して、走り書きメモから抜け漏れのない申し送りの下書きを作るプロンプトを紹介します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/sbar-handoff-prompt/">
+<meta property="og:title" content="走り書きメモを「SBAR」の申し送りに整えるAIプロンプト｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="「血圧高め／頭痛あり／夜眠れていない」だけではAIも迷います。書き手・読み手・SBARの形式を指定して、走り書きメモから抜け漏れのない申し送りの下書きを作るプロンプトを紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/sbar-handoff-prompt/">
+<meta property="og:image" content="https://mediaiteam.com/blog/sbar-handoff-prompt/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "走り書きメモを「SBAR」の申し送りに整えるAIプロンプト", "description": "「血圧高め／頭痛あり／夜眠れていない」だけではAIも迷います。書き手・読み手・SBARの形式を指定して、走り書きメモから抜け漏れのない申し送りの下書きを作るプロンプトを紹介します。", "image": ["https://mediaiteam.com/blog/sbar-handoff-prompt/eyecatch.jpg"], "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/sbar-handoff-prompt/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "走り書きメモを「SBAR」の申し送りに整えるAIプロンプト", "item": "https://mediaiteam.com/blog/sbar-handoff-prompt/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">走り書きメモを「SBAR」の申し送りに整えるAIプロンプト</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=看護記録・申し送り">看護記録・申し送り</a><span>公開日 <time datetime="2026-09-30">2026.09.30</time></span></p>
+      <h1 class="article-title">走り書きメモを「SBAR」の申し送りに整えるAIプロンプト</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/sbar-handoff-prompt/eyecatch.jpg" alt="走り書きメモを「SBAR」の申し送りに整えるAIプロンプト"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">SBARとは</a></li><li class="toc-h2"><a href="#sec-2">Before：メモだけ渡すとAIも迷う</a></li><li class="toc-h2"><a href="#sec-3">After：書き手・読み手・SBARを指定する</a></li><li class="toc-h2"><a href="#sec-4">使うときに必ず確認したいこと</a></li><li class="toc-h3"><a href="#sec-5">①AIは足りない情報を「それらしく」埋めることがある</a></li><li class="toc-h3"><a href="#sec-6">②評価（A）と提案（R）は、あなたの判断</a></li><li class="toc-h3"><a href="#sec-7">③個人情報は入れない</a></li><li class="toc-h2"><a href="#sec-8">会話で育てる</a></li><li class="toc-h2"><a href="#sec-9">申し送り以外にも使える</a></li><li class="toc-h2"><a href="#sec-10">よくある質問</a></li><li class="toc-h3"><a href="#sec-11">Q. 口頭の申し送りにも使える？</a></li><li class="toc-h3"><a href="#sec-12">Q. 記録にそのまま使っていい？</a></li><li class="toc-h2"><a href="#sec-13">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>申し送りの前、走り書きのメモを見ながら「何から話そう」と頭の中で整理する時間。急いでいると、大事なことが抜けてしまう不安もありますよね。</p>
+<p>MATの第1回勉強会では、<strong>走り書きのメモをSBARの形に整える</strong>プロンプトを紹介しました。この記事ではその内容と、使うときの注意点をまとめます。</p>
+
+<h2 id="sec-1">SBARとは</h2>
+<p>SBARは、情報を伝えるときの型のひとつです。</p>
+<ul>
+  <li><strong>S（Situation）状況</strong>：今、何が起きているか</li>
+  <li><strong>B（Background）背景</strong>：これまでの経過</li>
+  <li><strong>A（Assessment）評価</strong>：自分はどう考えているか</li>
+  <li><strong>R（Recommendation）提案</strong>：何をしてほしいか</li>
+</ul>
+<p>型に沿って話すと、聞き手が必要な情報を受け取りやすく、抜け漏れも防げます。</p>
+
+<h2 id="sec-2">Before：メモだけ渡すとAIも迷う</h2>
+<blockquote><p>これを申し送りにして：血圧高め／頭痛あり／夜眠れていない</p></blockquote>
+<p>勉強会の実演では、AIは「これはご自身の記録ですか？」と迷うような反応をしました。<strong>誰が誰に向けて、どんな形で</strong>伝えたいのかが分からないからです。</p>
+
+<h2 id="sec-3">After：書き手・読み手・SBARを指定する</h2>
+<blockquote><p>#書き手＝病棟看護師<br>#読み手＝次の勤務の看護師<br>#出力形式＝SBAR（状況・背景・評価・提案）<br>以下のメモを申し送りにしてください。<br>血圧高め／頭痛あり／夜眠れていない</p></blockquote>
+<p>こう頼むと、メモの内容が状況・背景・評価・提案に振り分けられ、抜け漏れなく伝わる形の下書きになります。これがMATで紹介している「#書き手 #読み手 #出力形式」の3つの型です。詳しくは<a href="../prompt-writing-three-tags/">プロンプトの書き方の記事</a>へ。</p>
+
+<h2 id="sec-4">使うときに必ず確認したいこと</h2>
+<h3 id="sec-5">①AIは足りない情報を「それらしく」埋めることがある</h3>
+<p>メモに書いていない数値や経過を、AIが推測で補ってしまうことがあります。プロンプトに「メモにない情報は推測で書かず『確認が必要』と書いて」と添えておくと安心です。</p>
+<h3 id="sec-6">②評価（A）と提案（R）は、あなたの判断</h3>
+<p>SBARのAとRは、患者さんの状態をどう見て、何をしてほしいかという臨床判断そのものです。AIの下書きは言葉を整える材料として使い、中身はあなたが決めてください。</p>
+<h3 id="sec-7">③個人情報は入れない</h3>
+<p>氏名・ID・病室番号などは入力しません。「A氏」「70代男性」などに置き換えるか、そもそも書かずに状態だけを渡しましょう。</p>
+<div class="point-box"><p class="pb-head">POINT</p><p>「足りない情報があれば、先に質問して」と添えると、AIが「血圧の値は？」「頭痛の程度は？」などと聞き返してくれます。聞かれることで、自分の観察の抜けに気づけることもあります。</p></div>
+
+<h2 id="sec-8">会話で育てる</h2>
+<p>一度で完璧を目指す必要はありません。</p>
+<ul>
+  <li>「もっと短く。口頭で30秒で伝えられる長さに」</li>
+  <li>「次の勤務で観察してほしいことを最後に1行で」</li>
+  <li>「専門用語は病棟で普段使う略語に合わせて」</li>
+</ul>
+<p>こうして会話を重ねるうちに、あなたの病棟に合った形が見えてきます。うまくいった形は、<a href="../personal-ai-how-to-make/">自分専用AI</a>として覚えさせておけば、次からはメモを渡すだけで済みます。</p>
+
+<h2 id="sec-9">申し送り以外にも使える</h2>
+<p>SBARは、医師への報告や、他職種への相談のときにも使える型です。「#読み手＝当直の医師」「#読み手＝リハビリスタッフ」のように読み手を変えるだけで、伝え方が変わります。ただし、報告の内容と緊急度の判断は、必ずあなた自身で行ってください。</p>
+
+<h2 id="sec-10">よくある質問</h2>
+<h3 id="sec-11">Q. 口頭の申し送りにも使える？</h3>
+<p>使えます。「口頭で30秒で伝えられる長さに」と頼めば、話すための原稿になります。読み上げる前に、自分の言葉で言い直してみると、より伝わる申し送りになります。勉強会のスライドでは「AIが8割。最後の2割で、あなたの仕事になる」とお伝えしました。</p>
+<h3 id="sec-12">Q. 記録にそのまま使っていい？</h3>
+<p>記録は法的な文書なので、AIの出力をそのまま写すのは避けましょう。内容が事実どおりかを確認し、職場の記載基準に合わせて、あなたの責任で記載してください。</p>
+
+<h2 id="sec-13">まとめ</h2>
+<ul>
+  <li>メモだけ渡すとAIも迷う。書き手・読み手・SBARを指定する</li>
+  <li>推測で埋めさせない・評価と提案は自分で決める・個人情報は入れない</li>
+  <li>うまくいった形は専用AIに覚えさせて、次から時短</li>
+</ul>
+<p>申し送りの型は、病棟ごとに少しずつ違います。MATでは、メンバーがそれぞれの職場で工夫した頼み方を共有しています。あなたの病棟に合う形も、一緒に探していきましょう。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/nursing-record-soap-ai/" data-cat="看護記録・申し送り">
+      <div class="pc-thumb"><img src="../../blog/nursing-record-soap-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">看護記録・申し送り</span><time datetime="2026-10-07">2026.10.07</time></p>
+        <h3 class="pc-title">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</h3>
+        <p class="pc-ex">手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/prompt-writing-three-tags/" data-cat="プロンプト">
+      <div class="pc-thumb"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">プロンプト</span><time datetime="2026-10-08">2026.10.08</time></p>
+        <h3 class="pc-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h3>
+        <p class="pc-ex">心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "走り書きメモを「SBAR」の申し送りに整えるAIプロンプト",
+  "description": "「血圧高め／頭痛あり／夜眠れていない」だけではAIも迷います。書き手・読み手・SBARの形式を指定して、走り書きメモから抜け漏れのない申し送りの下書きを作るプロンプトを紹介します。",
+  "excerpt": "メモだけ渡すとAIも迷う。書き手・読み手・SBARを指定すると、抜け漏れのない申し送りの形になります。",
+  "date": "2026-09-30",
+  "updated": "2026-09-30",
+  "category": "看護記録・申し送り",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "走り書きメモを「SBAR」の申し送りに整えるAIプロンプト",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

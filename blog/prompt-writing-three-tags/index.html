@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="AIへの頼み方（プロンプト）は「#書き手 #読み手 #出力形式」の3つを足すだけで変わります。心不全・減塩指導のBefore/After実例つきで、看護師・医療職向けにやさしく解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/prompt-writing-three-tags/">
+<meta property="og:title" content="看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="AIへの頼み方（プロンプト）は「#書き手 #読み手 #出力形式」の3つを足すだけで変わります。心不全・減塩指導のBefore/After実例つきで、看護師・医療職向けにやさしく解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/prompt-writing-three-tags/">
+<meta property="og:image" content="https://mediaiteam.com/blog/prompt-writing-three-tags/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-10-08">
+<meta property="article:modified_time" content="2026-10-08">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる", "description": "AIへの頼み方（プロンプト）は「#書き手 #読み手 #出力形式」の3つを足すだけで変わります。心不全・減塩指導のBefore/After実例つきで、看護師・医療職向けにやさしく解説します。", "image": ["https://mediaiteam.com/blog/prompt-writing-three-tags/eyecatch.jpg"], "datePublished": "2026-10-08", "dateModified": "2026-10-08", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/prompt-writing-three-tags/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる", "item": "https://mediaiteam.com/blog/prompt-writing-three-tags/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=プロンプト">プロンプト</a><span>公開日 <time datetime="2026-10-08">2026.10.08</time></span></p>
+      <h1 class="article-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">プロンプトとは「AIへの頼み方」</a></li><li class="toc-h2"><a href="#sec-2">3つの型：#書き手 #読み手 #出力形式</a></li><li class="toc-h2"><a href="#sec-3">Before/After①：心不全の観察ポイント</a></li><li class="toc-h3"><a href="#sec-4">Before</a></li><li class="toc-h3"><a href="#sec-5">After</a></li><li class="toc-h2"><a href="#sec-6">Before/After②：患者さんへの減塩指導</a></li><li class="toc-h3"><a href="#sec-7">Before</a></li><li class="toc-h3"><a href="#sec-8">After</a></li><li class="toc-h2"><a href="#sec-9">さらに精度を上げる3つのひと工夫</a></li><li class="toc-h2"><a href="#sec-10">よくある疑問：毎回3つも書くのは面倒？</a></li><li class="toc-h2"><a href="#sec-11">応用例：申し送り・新人指導にも使える</a></li><li class="toc-h2"><a href="#sec-12">よくある質問</a></li><li class="toc-h3"><a href="#sec-13">Q. 「#」は必ず付けないといけない？</a></li><li class="toc-h3"><a href="#sec-14">Q. 書き手に「医師」と書いてもいい？</a></li><li class="toc-h2"><a href="#sec-15">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>ChatGPTに質問してみたけれど、なんだか教科書みたいな答えしか返ってこない。現場では使いにくい。そんな経験はありませんか？</p>
+<p>それはあなたの使い方が悪いのではなく、<strong>AIに必要な情報が足りていない</strong>だけかもしれません。この記事では、MATの第1回勉強会でお伝えした「3つの型」を、医療現場の実例と一緒に紹介します。</p>
+
+<h2 id="sec-1">プロンプトとは「AIへの頼み方」</h2>
+<p>プロンプトとは、AIに入力する指示文のことです。前置きなしにいきなり頼む形は「ゼロショットプロンプト」と呼ばれます。手軽ですが、AIは「誰が」「誰に向けて」「どんな形で」書けばいいのかを知らないまま、平均的な答えを返します。</p>
+<p>MAT主催の谷口は、勉強会でこう話しています。</p>
+<blockquote><p>「どんなにAIが頭良くなっても、誰が誰に向けてどうやって書かなきゃいけないかを言ってあげないといけない」</p></blockquote>
+
+<h2 id="sec-2">3つの型：#書き手 #読み手 #出力形式</h2>
+<ul>
+  <li><strong>#書き手</strong>：誰として書いてほしいか（例：循環器病棟の看護師、先輩の臨床工学技士）</li>
+  <li><strong>#読み手</strong>：誰が読むのか（例：新人、70代の患者さん、次の勤務の看護師）</li>
+  <li><strong>#出力形式</strong>：どんな形で欲しいか（例：箇条書き5つ、結論3行→注意点3つ、SBAR）</li>
+</ul>
+<p>「#」で区切るとAIが理解しやすくなりますが、点や箇条書きでも問題ありません。大切なのは、この3つの情報が入っていることです。</p>
+
+<h2 id="sec-3">Before/After①：心不全の観察ポイント</h2>
+<h3 id="sec-4">Before</h3>
+<blockquote><p>心不全について教えて</p></blockquote>
+<p>→ 定義や原因など、教科書的な説明が返ってきます。間違いではありませんが、新人指導にそのまま使うには長く、焦点がぼやけています。</p>
+<h3 id="sec-5">After</h3>
+<blockquote><p>#書き手＝循環器の先輩看護師<br>#読み手＝新人<br>#出力形式＝箇条書き5つ<br>心不全の観察ポイントを教えて</p></blockquote>
+<p>→ 勉強会の実演では、体重・呼吸状態・水分・バイタルなど、観察ポイントが5つに絞られ、新人にも伝わるやさしい言葉で返ってきました。</p>
+
+<h2 id="sec-6">Before/After②：患者さんへの減塩指導</h2>
+<h3 id="sec-7">Before</h3>
+<blockquote><p>減塩について教えて</p></blockquote>
+<p>→ 一般論の説明になりがちです。</p>
+<h3 id="sec-8">After</h3>
+<blockquote><p>#書き手＝循環器病棟の看護師<br>#読み手＝70代の高血圧の患者さん<br>#出力形式＝やさしい言葉で箇条書き5つ<br>減塩のコツを教えて</p></blockquote>
+<p>→ 「だしを効かせる」「醤油は"かける"より"つける"」「麺類の汁は残す」など、患者さんが今日から試せる具体的な工夫が返ってきました。同じテーマでも、読み手を決めるだけでここまで変わります。</p>
+<div class="point-box"><p class="pb-head">POINT</p><p>患者さん向けの文章は、AIの出力をそのまま渡さず、必ず内容を確認してから使いましょう。病状や指示内容は患者さんごとに違います。最終的に何を伝えるかを決めるのは、あなたです。</p></div>
+
+<h2 id="sec-9">さらに精度を上げる3つのひと工夫</h2>
+<ol>
+  <li><strong>一回で終わらせない</strong>：「もっと短く」「専門用語を減らして」「具体例を1つ」と会話で育てる。</li>
+  <li><strong>材料を渡す</strong>：メモや過去資料を渡すと、ゼロから書かせるより的確になります（貼る前に個人情報は消す）。</li>
+  <li><strong>逆質問させる</strong>：最後に「足りない情報があれば、先に質問して」と添える。</li>
+</ol>
+<p>3つ目は意外と知られていないコツです。詳しくは<a href="../ask-me-questions-prompt/">逆質問させるプロンプトの記事</a>をご覧ください。</p>
+
+<h2 id="sec-10">よくある疑問：毎回3つも書くのは面倒？</h2>
+<p>最初は少し手間に感じるかもしれません。でも、同じ種類の仕事を何度も頼むなら、その前提をAIに<strong>一度だけ覚えさせる</strong>方法があります。それが「自分専用AI（プロジェクト機能）」です。詳しくは<a href="../personal-ai-how-to-make/">自分専用AIの作り方</a>で紹介しています。</p>
+
+<h2 id="sec-11">応用例：申し送り・新人指導にも使える</h2>
+<p>3つの型は、どんな場面にも応用できます。勉強会では、次のような例も紹介しました。</p>
+<ul>
+  <li><strong>申し送り</strong>：#書き手＝病棟看護師 #読み手＝次の勤務の看護師 #出力形式＝SBAR（状況・背景・評価・提案）。詳しくは<a href="../sbar-handoff-prompt/">SBARの記事</a>へ。</li>
+  <li><strong>新人への説明</strong>：#書き手＝循環器の先輩看護師 #読み手＝入職1年目の新人 #出力形式＝まず結論を3行→注意点を箇条書き3つ。</li>
+</ul>
+<p>谷口は「この3つさえ書いてあれば」大きくぶれない、と繰り返し伝えています。迷ったら、まずこの3つを思い出してください。</p>
+
+<h2 id="sec-12">よくある質問</h2>
+<h3 id="sec-13">Q. 「#」は必ず付けないといけない？</h3>
+<p>必須ではありません。「#」で区切るとAIが項目を理解しやすくなりますが、「書き手は〜、読み手は〜」と普通の文章で書いても伝わります。自分が書きやすい形で大丈夫です。</p>
+<h3 id="sec-14">Q. 書き手に「医師」と書いてもいい？</h3>
+<p>役割を伝えるための指定なので、書くこと自体はできます。ただし、AIが医師として答えても、それは診断や指示ではありません。出てきた内容を臨床判断の代わりにしないことが大前提です。</p>
+
+<h2 id="sec-15">まとめ</h2>
+<ul>
+  <li>プロンプトは「#書き手 #読み手 #出力形式」の3つを足すだけで変わる</li>
+  <li>読み手を決めると、同じテーマでも中身が具体的になる</li>
+  <li>会話で育てる・材料を渡す・逆質問させる、でさらに精度が上がる</li>
+</ul>
+<p>勉強会では、参加者のみなさんがその場で同じプロンプトを打って、答えの違いを体験しました。一人で試すより、誰かと一緒に「こう変わったね」と言い合えると、ぐっと身につきます。MATでは、そんな試し合いを毎日のように続けています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/nursing-record-soap-ai/" data-cat="看護記録・申し送り">
+      <div class="pc-thumb"><img src="../../blog/nursing-record-soap-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">看護記録・申し送り</span><time datetime="2026-10-07">2026.10.07</time></p>
+        <h3 class="pc-title">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</h3>
+        <p class="pc-ex">手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/incident-report-ai/" data-cat="インシデント・医療安全">
+      <div class="pc-thumb"><img src="../../blog/incident-report-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">インシデント・医療安全</span><time datetime="2026-10-06">2026.10.06</time></p>
+        <h3 class="pc-title">インシデントレポートをAIで書く｜「文章3つだけ」任せて判断は自分で握る方法</h3>
+        <p class="pc-ex">チェック項目は10秒、時間がかかるのは文章3つ。そこだけAIに任せて、判断は自分で握るプロンプトを全文紹介。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる",
+  "description": "AIへの頼み方（プロンプト）は「#書き手 #読み手 #出力形式」の3つを足すだけで変わります。心不全・減塩指導のBefore/After実例つきで、看護師・医療職向けにやさしく解説します。",
+  "excerpt": "心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。",
+  "date": "2026-10-08",
+  "updated": "2026-10-08",
+  "category": "プロンプト",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

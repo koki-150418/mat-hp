@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="毎回同じ説明をAIにしていませんか？役割・様式・禁止事項・トーン・自部署ルールを一度だけ覚えさせる「自分専用AI（プロジェクト機能）」の作り方を、MAT第2回勉強会の内容から解説します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/personal-ai-how-to-make/">
+<meta property="og:title" content="自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="毎回同じ説明をAIにしていませんか？役割・様式・禁止事項・トーン・自部署ルールを一度だけ覚えさせる「自分専用AI（プロジェクト機能）」の作り方を、MAT第2回勉強会の内容から解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/personal-ai-how-to-make/">
+<meta property="og:image" content="https://mediaiteam.com/blog/personal-ai-how-to-make/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-10-01">
+<meta property="article:modified_time" content="2026-10-01">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法", "description": "毎回同じ説明をAIにしていませんか？役割・様式・禁止事項・トーン・自部署ルールを一度だけ覚えさせる「自分専用AI（プロジェクト機能）」の作り方を、MAT第2回勉強会の内容から解説します。", "image": ["https://mediaiteam.com/blog/personal-ai-how-to-make/eyecatch.jpg"], "datePublished": "2026-10-01", "dateModified": "2026-10-01", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/personal-ai-how-to-make/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法", "item": "https://mediaiteam.com/blog/personal-ai-how-to-make/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=自分専用AI">自分専用AI</a><span>公開日 <time datetime="2026-10-01">2026.10.01</time></span></p>
+      <h1 class="article-title">自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/personal-ai-how-to-make/eyecatch.jpg" alt="自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">チャットは毎回「新人」に教えている状態</a></li><li class="toc-h2"><a href="#sec-2">覚えさせる5つ</a></li><li class="toc-h2"><a href="#sec-3">そのまま使える組み立て文テンプレート</a></li><li class="toc-h3"><a href="#sec-4">様式を再現させる3つのルール</a></li><li class="toc-h2"><a href="#sec-5">プロジェクトにする方法は「一言」でいい</a></li><li class="toc-h2"><a href="#sec-6">うまくいかないときは</a></li><li class="toc-h2"><a href="#sec-7">どんな仕事が向いている？</a></li><li class="toc-h2"><a href="#sec-8">よくある質問</a></li><li class="toc-h3"><a href="#sec-9">Q. 無料版でも作れる？</a></li><li class="toc-h3"><a href="#sec-10">Q. どのAIでも同じ？</a></li><li class="toc-h2"><a href="#sec-11">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>AIに記録の下書きを頼むたびに、「様式はこう」「各項目3行以内で」「事実はOに」と同じ説明を打っていませんか。</p>
+<p>MATの第2回勉強会のテーマは<strong>「毎回頼むのをやめて、一度だけ覚えさせる」</strong>こと。この記事では、病院の様式のまま記録が返ってくる「自分専用AI」の作り方を紹介します。</p>
+
+<h2 id="sec-1">チャットは毎回「新人」に教えている状態</h2>
+<p>普通のチャットは、新しく開くたびにまっさらです。谷口はこれを、毎回新人さんに一から教えている状態にたとえました。一方、様式もルールも覚えた専用AIは、いわば「専門のナース」。</p>
+<p>勉強会のスライドでは、BEFORE/AFTERをこう整理しました。</p>
+<ul>
+  <li>毎回前提を説明し直す → <strong>一度だけ覚えさせる</strong></li>
+  <li>人によって指示がバラバラ → <strong>誰がやっても同じ品質</strong></li>
+  <li>出力が安定しない → <strong>安定する</strong></li>
+  <li>結局自分で大きく直す → <strong>放り込むだけで完成に近い</strong></li>
+</ul>
+
+<h2 id="sec-2">覚えさせる5つ</h2>
+<ol>
+  <li><strong>役割</strong>：あなたは何者か（例：病棟の看護記録を整える担当）</li>
+  <li><strong>書式</strong>：様式を「貼る」。見出しや項目をそのまま渡す</li>
+  <li><strong>禁止事項</strong>：やってはいけないこと（推測で埋めない、など）</li>
+  <li><strong>トーン</strong>：言葉づかい。友達への手紙と職場の文章では違いますよね</li>
+  <li><strong>自部署ルール＋文字数</strong>：略語、院内基準、各項目の行数など</li>
+</ol>
+
+<h2 id="sec-3">そのまま使える組み立て文テンプレート</h2>
+<p>MATで配布している「専用AI設計テンプレ」の組み立て文です。【　】の中を埋めて使います。</p>
+<blockquote><p>あなたは【役割】です。次のルールを守って文章を作ってください。<br>■出力の様式（これを一字一句そのまま使う）<br>【様式を貼る】<br>■様式のルール<br>・上の見出しと順番を必ず守る。項目を増減しない<br>・情報がない項目は「記載なし」と書く<br>■守ること【禁止事項】<br>■口調・文体【トーン】<br>■自部署のルール【略語・院内基準など】<br>■文字数・分量【各項目◯行以内／全体◯字程度】<br>この設定を覚えておいてください。</p></blockquote>
+
+<h3 id="sec-4">様式を再現させる3つのルール</h3>
+<ul>
+  <li>見出しと順番を変えさせない</li>
+  <li>項目を増減させない</li>
+  <li>空欄は「記載なし」と書かせる（AIが想像で埋めないように）</li>
+</ul>
+<div class="point-box"><p class="pb-head">POINT</p><p>貼るのは<strong>記入前の「空の様式」</strong>です。記入済みの様式には患者情報が入っているので、絶対に貼らないでください。</p></div>
+
+<h2 id="sec-5">プロジェクトにする方法は「一言」でいい</h2>
+<p>設定文ができたら、AIの「プロジェクト」機能に保存します。普通の会話は毎回まっさらですが、プロジェクトは設定を"箱"に保存し、その中で話すだけで毎回効くしくみです。</p>
+<p>手順としては「新規作成して名前をつける→指示欄に設定文を貼る→その中でメモを渡す」の3ステップ。でも谷口の本音はこうでした。</p>
+<blockquote><p>「プロジェクトにして、って一言言うだけです」</p></blockquote>
+<p>うまくいった会話の最後に「これプロジェクトにして」と頼めば、AIが設定の文章を整えてくれます。ChatGPTの場合、チャットから直接プロジェクトが作られるのではなく指示文が返ってくることがあるので、それをプロジェクトの指示欄に貼ればOKです。詳しくは<a href="../chatgpt-projects-how-to/">ChatGPTのプロジェクト機能の記事</a>で紹介しています。</p>
+
+<h2 id="sec-6">うまくいかないときは</h2>
+<p>ずれたところだけを直させて、「これを今後の標準にして」と伝えます。最初から完璧を目指さず、使いながら育てていくのがコツです。</p>
+<p>もうひとつの近道は、設定文そのものをAIに書かせること。「今のやり取りを、プロジェクトの指示欄に貼る指示文にまとめて。役割・様式・禁止事項・トーン・文字数の5項目で」と頼めば、5つが整理された設定文が返ってきます。</p>
+
+<h2 id="sec-7">どんな仕事が向いている？</h2>
+<p>判定基準は「毎回おなじ前提で、中身だけ変わる」仕事。勉強会のスライドでは「毎回コピペしている指示は、プロジェクトに『引っ越す』サイン」と書きました。看護記録、インシデントレポート、退院・看護サマリー、勉強会資料などが代表例です。</p>
+
+<h2 id="sec-8">よくある質問</h2>
+<h3 id="sec-9">Q. 無料版でも作れる？</h3>
+<p>第3回勉強会のスライドでは、会話・文章、画像やPDFの読み取り、専用AI（プロジェクト）の作成までは無料でもできる範囲として紹介しました（2026年8月時点）。まずは無料で1つ作ってみて、便利さを実感してから考えても遅くありません。</p>
+<h3 id="sec-10">Q. どのAIでも同じ？</h3>
+<p>呼び名が違うだけで、考え方は同じです。Claude・ChatGPTでは「プロジェクト」、Geminiでは「Gem」。設定文を作る→保存→その中で話す、という流れはどれも共通です。</p>
+
+<h2 id="sec-11">まとめ</h2>
+<ul>
+  <li>毎回の説明をやめて、役割・様式・禁止事項・トーン・自部署ルールを一度だけ覚えさせる</li>
+  <li>貼るのは空の様式だけ。空欄は「記載なし」</li>
+  <li>「これプロジェクトにして」の一言で十分</li>
+</ul>
+<p>谷口は、プロジェクト化を「これが仕組み化の第一歩です」と表現しています。どの業務から始めるか迷ったら、MATの仲間に相談してみてください。同じ職種のメンバーの工夫が、きっとヒントになります。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/prompt-writing-three-tags/" data-cat="プロンプト">
+      <div class="pc-thumb"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">プロンプト</span><time datetime="2026-10-08">2026.10.08</time></p>
+        <h3 class="pc-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h3>
+        <p class="pc-ex">心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/nursing-record-soap-ai/" data-cat="看護記録・申し送り">
+      <div class="pc-thumb"><img src="../../blog/nursing-record-soap-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">看護記録・申し送り</span><time datetime="2026-10-07">2026.10.07</time></p>
+        <h3 class="pc-title">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</h3>
+        <p class="pc-ex">手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法",
+  "description": "毎回同じ説明をAIにしていませんか？役割・様式・禁止事項・トーン・自部署ルールを一度だけ覚えさせる「自分専用AI（プロジェクト機能）」の作り方を、MAT第2回勉強会の内容から解説します。",
+  "excerpt": "毎回の説明をやめて、一度だけ覚えさせる。役割・様式・禁止事項・トーン・自部署ルールで作る自分専用AI。",
+  "date": "2026-10-01",
+  "updated": "2026-10-01",
+  "category": "自分専用AI",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "自分専用AIの作り方｜病院の様式のまま記録が返ってくる「一度だけ覚えさせる」方法",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>

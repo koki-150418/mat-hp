@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="手書きメモの写真からSOAP形式の看護記録の下書きをAIで作る方法を紹介。「各項目3行以内」「事実はO、評価はA」など実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。">
+<link rel="canonical" href="https://mediaiteam.com/blog/nursing-record-soap-ai/">
+<meta property="og:title" content="看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="手書きメモの写真からSOAP形式の看護記録の下書きをAIで作る方法を紹介。「各項目3行以内」「事実はO、評価はA」など実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/nursing-record-soap-ai/">
+<meta property="og:image" content="https://mediaiteam.com/blog/nursing-record-soap-ai/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-10-07">
+<meta property="article:modified_time" content="2026-10-07">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点", "description": "手書きメモの写真からSOAP形式の看護記録の下書きをAIで作る方法を紹介。「各項目3行以内」「事実はO、評価はA」など実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。", "image": ["https://mediaiteam.com/blog/nursing-record-soap-ai/eyecatch.jpg"], "datePublished": "2026-10-07", "dateModified": "2026-10-07", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/nursing-record-soap-ai/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点", "item": "https://mediaiteam.com/blog/nursing-record-soap-ai/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=看護記録・申し送り">看護記録・申し送り</a><span>公開日 <time datetime="2026-10-07">2026.10.07</time></span></p>
+      <h1 class="article-title">看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/nursing-record-soap-ai/eyecatch.jpg" alt="看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">前提：記録はあなたの責任で書くもの</a></li><li class="toc-h2"><a href="#sec-2">実演で使ったプロンプト</a></li><li class="toc-h3"><a href="#sec-3">①「4つだけ」と枠を決める</a></li><li class="toc-h3"><a href="#sec-4">②「各項目3行以内」で長さを合わせる</a></li><li class="toc-h3"><a href="#sec-5">③「事実はO、評価はA」と振り分けのルールを伝える</a></li><li class="toc-h2"><a href="#sec-6">出力イメージ（架空例）</a></li><li class="toc-h2"><a href="#sec-7">全部をAIに任せなくていい</a></li><li class="toc-h2"><a href="#sec-8">手書きメモはそのまま写真で渡せる</a></li><li class="toc-h2"><a href="#sec-9">毎回同じ指示を打つなら「専用AI」に</a></li><li class="toc-h2"><a href="#sec-10">うまくいかないときの直し方</a></li><li class="toc-h2"><a href="#sec-11">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>勤務の終わりに残る看護記録。ポケットのメモを見ながら、S・O・A・Pに振り分けて入力していく作業に、毎日どれくらい時間を使っているでしょうか。</p>
+<p>MATの第2回勉強会では、<strong>手書きのメモからSOAP形式の看護記録の下書きをAIに作らせる</strong>実演を行いました。この記事では、そのときのプロンプトと、医療職として必ず守りたい注意点をまとめます。</p>
+
+<h2 id="sec-1">前提：記録はあなたの責任で書くもの</h2>
+<p>最初に大切なことをお伝えします。看護記録は法的な文書です。AIが作るのはあくまで<strong>下書き</strong>で、内容の確認・修正・最終的な記載はあなたが行います。また、所属先のルールでAIの利用が認められているかを必ず確認してください。</p>
+<p>そして、AIには<strong>患者さんの氏名・ID・生年月日など個人が特定できる情報を入れない</strong>こと。メモに書かれている場合は、消すか「A氏」などに置き換えてから使います。</p>
+
+<h2 id="sec-2">実演で使ったプロンプト</h2>
+<p>勉強会では、メモの写真（架空の内容）を貼ったうえで、次のように頼みました。</p>
+<blockquote><p>メモ紙から看護記録を S/O/A/P の4つ"だけ"で書いてください。<br>・各項目は3行以内（カルテの入力欄に収めるため）<br>・事実はO、評価はA。私が渡すメモを各項目に振り分けてください。</p></blockquote>
+<p>ポイントは3つです。</p>
+<h3 id="sec-3">①「4つだけ」と枠を決める</h3>
+<p>何も言わないと、AIは親切心から項目を増やしたり、まとめの文章を足したりします。「S/O/A/Pの4つだけ」と言い切ることで、記録の形に収まります。</p>
+<h3 id="sec-4">②「各項目3行以内」で長さを合わせる</h3>
+<p>電子カルテの入力欄の幅を見て、行数を決めました。<strong>様式に「長さ」まで合わせる</strong>のがコツです。この一言で、カルテの欄からあふれない記録になります。</p>
+<h3 id="sec-5">③「事実はO、評価はA」と振り分けのルールを伝える</h3>
+<p>SOAPで迷いやすいのが、OとAの境目です。ルールを最初に伝えておくと、AIが振り分けを間違えにくくなります。</p>
+
+<h2 id="sec-6">出力イメージ（架空例）</h2>
+<p>勉強会のスライドで紹介した架空の出力例は、次のような形でした。</p>
+<ul>
+  <li><strong>S</strong>：「夜はよく眠れた」と発言…</li>
+  <li><strong>O</strong>：体温36.5℃、BP128/76、SpO2 98%…</li>
+  <li><strong>A</strong>：睡眠・食事・バイタルは安定…</li>
+  <li><strong>P</strong>：継続観察。変化があれば再評価し医師へ報告。</li>
+</ul>
+<p>この下書きを見ながら、事実と違うところ、言い回しが職場の基準と違うところを直して完成させます。</p>
+
+<h2 id="sec-7">全部をAIに任せなくていい</h2>
+<p>勉強会では、こんな話もしました。定型の選択肢で速く入力できる部分は、わざわざAIに頼む必要はありません。<strong>時間がかかるのはA（アセスメント）とP（計画）の文章</strong>。そこだけ下書きを作らせる、という使い方も十分ありです。</p>
+<p>また、電子カルテがインターネットにつながっていない職場も多いと思います。その場合は「スマホで下書き→それを見ながらカルテに入力」という現実的な運用になります。</p>
+<div class="point-box"><p class="pb-head">POINT</p><p>AIは「書く作業」を手伝う道具です。アセスメントの中身、つまり患者さんをどう見立てるかは、あなたの臨床判断そのもの。AIの下書きは、あなたの判断を言葉に整えるための材料として使いましょう。</p></div>
+
+<h2 id="sec-8">手書きメモはそのまま写真で渡せる</h2>
+<p>谷口は勉強会でこう話しています。</p>
+<blockquote><p>「メモ紙ごと読ませればいいんです」</p></blockquote>
+<p>走り書きや略語まじりでも、AIはかなり読み取ってくれます。ただし万能ではありません。読みにくい字は「自信がないところは1行ずつ聞いて」と添えると、AIが確認してくれます。写真を撮るときは、<strong>患者さんの名前など個人情報が写り込んでいないか</strong>を必ず確認してください。詳しくは<a href="../handwritten-memo-ai/">手書きメモをAIに読ませる方法</a>で紹介しています。</p>
+
+<h2 id="sec-9">毎回同じ指示を打つなら「専用AI」に</h2>
+<p>このプロンプトを毎回打つのは手間ですよね。様式やルールを一度だけ覚えさせておけば、あとはメモを渡すだけで同じ形の下書きが返ってきます。作り方は<a href="../personal-ai-how-to-make/">自分専用AIの作り方</a>をご覧ください。</p>
+
+<h2 id="sec-10">うまくいかないときの直し方</h2>
+<p>最初から思いどおりの形になるとは限りません。そんなときは、ずれたところだけを具体的に伝えて直してもらいます。</p>
+<ul>
+  <li>「Aに事実が混ざっています。事実はOに移してください」</li>
+  <li>「Pは観察計画と報告基準の2点に絞ってください」</li>
+  <li>「職場の略語に合わせて、◯◯は◯◯と書いてください」</li>
+</ul>
+<p>うまくいった形ができたら「これを今後の標準にして」と伝えておくと、同じチャットの中では形が安定します。また、情報がない項目をAIが想像で埋めないよう「情報がない項目は『記載なし』と書く」と添えておくのもおすすめです。</p>
+
+<h2 id="sec-11">まとめ</h2>
+<ul>
+  <li>「4つだけ」「各項目3行以内」「事実はO、評価はA」で記録の形に収める</li>
+  <li>時間がかかるA・Pだけ下書きさせる使い方もあり</li>
+  <li>個人情報は入れない・最終確認と記載はあなた</li>
+</ul>
+<p>記録の時短は、多くの医療職が一番求めていることのひとつです。MATでは、職場ごとの様式に合わせた頼み方を、メンバー同士で持ち寄りながら一緒に工夫しています。</p>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/sbar-handoff-prompt/" data-cat="看護記録・申し送り">
+      <div class="pc-thumb"><img src="../../blog/sbar-handoff-prompt/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">看護記録・申し送り</span><time datetime="2026-09-30">2026.09.30</time></p>
+        <h3 class="pc-title">走り書きメモを「SBAR」の申し送りに整えるAIプロンプト</h3>
+        <p class="pc-ex">メモだけ渡すとAIも迷う。書き手・読み手・SBARを指定すると、抜け漏れのない申し送りの形になります。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/ai-beginner-guide-nurses/" data-cat="AI入門">
+      <div class="pc-thumb"><img src="../../blog/ai-beginner-guide-nurses/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">AI入門</span><time datetime="2026-10-09">2026.10.09</time></p>
+        <h3 class="pc-title">看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩</h3>
+        <p class="pc-ex">AIの正体と、医療職が最初に守る4つの鉄則。ChatGPTを「定時に帰るための道具」にする最初の一歩をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/prompt-writing-three-tags/" data-cat="プロンプト">
+      <div class="pc-thumb"><img src="../../blog/prompt-writing-three-tags/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">プロンプト</span><time datetime="2026-10-08">2026.10.08</time></p>
+        <h3 class="pc-title">看護師のプロンプトの書き方｜「#書き手 #読み手 #出力形式」の3つで答えが変わる</h3>
+        <p class="pc-ex">心不全・減塩指導のBefore/After実例で解説。誰が・誰に・どんな形で、を足すだけでAIの答えは変わります。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点",
+  "description": "手書きメモの写真からSOAP形式の看護記録の下書きをAIで作る方法を紹介。「各項目3行以内」「事実はO、評価はA」など実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。",
+  "excerpt": "手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。",
+  "date": "2026-10-07",
+  "updated": "2026-10-07",
+  "category": "看護記録・申し送り",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "看護記録をAIで時短｜手書きメモからSOAPを作るプロンプトと注意点",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>
