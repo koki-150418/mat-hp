@@ -299,3 +299,5 @@ h1,h2,h3,.goal-text,.hero-sub,.price-lead,.cc-body,.cc-head{word-break:auto-phra
 .join-price{font-size:16px}
 .entry-lead{font-family:var(--mincho);font-weight:700;font-size:clamp(18px,2vw,22px);line-height:1.8;margin:14px 0 20px}
 .join-price{font-size:16px}
+.btn-line{white-space:nowrap}
+@media(max-width:640px){.btn-line,.btn-line.btn-xl{padding-left:18px;padding-right:18px;letter-spacing:.03em;font-size:15px}}
