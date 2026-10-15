@@ -1,5 +1,115 @@
 [
   {
+    "slug": "why-learn-ai-as-team",
+    "title": "AIはチームで学ぶほうが続く｜MATが「教わる場所」ではなく「一緒に使うチーム」である理由",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "MATについて",
+    "excerpt": "「一人でやると、だいたい挫折します。だから、チームを作りました」。AIを今から始めるなら、チームがいちばん近道な理由。",
+    "url": "blog/why-learn-ai-as-team/",
+    "eyecatch": "blog/why-learn-ai-as-team/eyecatch.jpg"
+  },
+  {
+    "slug": "taniguchi-soshi-profile",
+    "title": "谷口総志とは｜元臨床工学技士、心電図の書籍4冊がAmazon1位、AIで一人法人を回す実践者",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "MATについて",
+    "excerpt": "人工心肺の現場から心電図教育、そしてAIへ。「教える」ではなく「伸ばす」をモットーにする谷口総志のプロフィール。",
+    "url": "blog/taniguchi-soshi-profile/",
+    "eyecatch": "blog/taniguchi-soshi-profile/eyecatch.jpg"
+  },
+  {
+    "slug": "side-job-banned-nurse-ai",
+    "title": "副業禁止の病院でもできる｜「院内でAIを教える人」というキャリアの取り方",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "キャリア・副業",
+    "excerpt": "院内でAIを仕組みまで作れる人は、まだほとんどいない。副業禁止の人にこそ開いている道。",
+    "url": "blog/side-job-banned-nurse-ai/",
+    "eyecatch": "blog/side-job-banned-nurse-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "nurse-side-job-ai",
+    "title": "看護師のAI副業、何から始める？｜「週2時間で月5万」という現実的な物差し",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "キャリア・副業",
+    "excerpt": "週2時間は机に向かう時間ではなく、スマホに話す時間。「稼げます」とは言わないAI副業の始め方。",
+    "url": "blog/nurse-side-job-ai/",
+    "eyecatch": "blog/nurse-side-job-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "nurse-blog-start-ai",
+    "title": "看護師がAIでブログを始める｜車の中で5分話すと下書きができる",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "キャリア・副業",
+    "excerpt": "書く時間がなくても、話す時間ならある。7〜8年前の記事がいまも読まれる、ブログという「溜まる」資産の始め方。",
+    "url": "blog/nurse-blog-start-ai/",
+    "eyecatch": "blog/nurse-blog-start-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "medical-side-job-types",
+    "title": "医療職のマネタイズ方法25種類｜発信・売る・受託の3つに分けて向き不向きを整理",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "キャリア・副業",
+    "excerpt": "ブログは「最強」、SNSは入口、LINEとメルマガは必須。25種類のうち19個を実践した谷口のコメントつき一覧。",
+    "url": "blog/medical-side-job-types/",
+    "eyecatch": "blog/medical-side-job-types/eyecatch.jpg"
+  },
+  {
+    "slug": "hospital-accreditation-ai",
+    "title": "病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "勉強会・マニュアル",
+    "excerpt": "プロンプトに「病院機能評価でも出せるレベルで」と一言。AIが詳しく聞き返してきて、構成から下書きまで進みます。",
+    "url": "blog/hospital-accreditation-ai/",
+    "eyecatch": "blog/hospital-accreditation-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "discharge-summary-ai",
+    "title": "退院・看護サマリーをAIで下書き｜空の様式を“貼って”覚えさせるやり方",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "看護記録・申し送り",
+    "excerpt": "様式は記入前の“空のもの”を貼る。重要な変化点を省略しないルールを入れて、自分専用のサマリーAIに。",
+    "url": "blog/discharge-summary-ai/",
+    "eyecatch": "blog/discharge-summary-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "clinical-engineer-career-ai",
+    "title": "臨床工学技士がAIで広げるキャリア｜人工心肺の現場から、AIで一人法人を回すまで",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "キャリア・副業",
+    "excerpt": "機械と向き合ってきた臨床工学技士は、AIで仕組みを作る側に回りやすい。元臨床工学技士の谷口とメンバーの事例から。",
+    "url": "blog/clinical-engineer-career-ai/",
+    "eyecatch": "blog/clinical-engineer-career-ai/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-temporary-chat",
+    "title": "ChatGPTの一時チャットの使い方｜「一時チャットなら患者情報OK」ではない理由",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "安全設定・個人情報",
+    "excerpt": "一時チャットは「残したくない会話」と「自分を知らないAIの答え」がほしいときに。ただし患者情報OKの場所ではありません。",
+    "url": "blog/chatgpt-temporary-chat/",
+    "eyecatch": "blog/chatgpt-temporary-chat/eyecatch.jpg"
+  },
+  {
+    "slug": "chatgpt-custom-instructions-medical",
+    "title": "ChatGPTのカスタム指示 記入例（看護師・臨床工学技士版）｜「患者情報を書いたら指摘して」が肝",
+    "date": "2026-10-16",
+    "updated": "2026-10-16",
+    "category": "自分専用AI",
+    "excerpt": "コピペで使える看護師版・臨床工学技士3行版の文例。最後の1行が、初期設定講座の肝です。",
+    "url": "blog/chatgpt-custom-instructions-medical/",
+    "eyecatch": "blog/chatgpt-custom-instructions-medical/eyecatch.jpg"
+  },
+  {
     "slug": "ai-beginner-guide-nurses",
     "title": "看護師のためのAI入門｜ChatGPTを「怖い」から「定時に帰る道具」に変える最初の一歩",
     "date": "2026-10-09",

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法｜MATブログ｜MEDI-AI TEAM</title>
+<meta name="description" content="病院機能評価の準備で増えるマニュアル・手順書づくりにAIを使う方法。MATの第2回勉強会で実演した「病院機能評価でも出せるレベルで」と書くプロンプトと、インシデントからマニュアルを作る流れ、注意点を紹介します。">
+<link rel="canonical" href="https://mediaiteam.com/blog/hospital-accreditation-ai/">
+<meta property="og:title" content="病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法｜MATブログ｜MEDI-AI TEAM">
+<meta property="og:description" content="病院機能評価の準備で増えるマニュアル・手順書づくりにAIを使う方法。MATの第2回勉強会で実演した「病院機能評価でも出せるレベルで」と書くプロンプトと、インシデントからマニュアルを作る流れ、注意点を紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mediaiteam.com/blog/hospital-accreditation-ai/">
+<meta property="og:image" content="https://mediaiteam.com/blog/hospital-accreditation-ai/eyecatch.jpg">
+<meta property="og:site_name" content="MEDI-AI TEAM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<meta property="article:published_time" content="2026-10-16">
+<meta property="article:modified_time" content="2026-10-16">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法", "description": "病院機能評価の準備で増えるマニュアル・手順書づくりにAIを使う方法。MATの第2回勉強会で実演した「病院機能評価でも出せるレベルで」と書くプロンプトと、インシデントからマニュアルを作る流れ、注意点を紹介します。", "image": ["https://mediaiteam.com/blog/hospital-accreditation-ai/eyecatch.jpg"], "datePublished": "2026-10-16", "dateModified": "2026-10-16", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/hospital-accreditation-ai/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法", "item": "https://mediaiteam.com/blog/hospital-accreditation-ai/"}]}</script>
+</head>
+<body class="page-blog">
+
+<!-- HEADER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<header class="site-header" id="top">
+  <div class="header-top">
+    <a href="../../" class="logo">
+      <span class="logo-name">MEDI-AI TEAM</span>
+      <svg class="logo-pulse" viewBox="0 0 60 14" aria-hidden="true"><path d="M0 8 H22 L25 3 L28 12 L31 1 L34 8 H60"/></svg>
+      <span class="logo-sub">医療職のためのAI実践チーム</span>
+    </a>
+    <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="header-join">公式LINE</a>
+    <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="../../">ホーム</a>
+    <a href="../../#about">MATとは</a>
+    <a href="../../#host">主催者</a>
+    <a href="../../#activities">活動内容</a>
+    <a href="../../#entry">参加方法</a>
+    <a href="../../#voices">参加者の声</a>
+    <a href="../../blog/" class="current">ブログ</a>
+    <a href="../../#faq">よくある質問</a>
+  </nav>
+</header>
+<!-- HEADER:END -->
+
+<main class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../../">ホーム</a><span>›</span><a href="../../blog/">ブログ</a><span>›</span><span aria-current="page">病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法</span></nav>
+  <article class="article">
+    <header class="article-head">
+      <p class="ah-meta"><a class="pc-cat" href="../../blog/#cat=勉強会・マニュアル">勉強会・マニュアル</a><span>公開日 <time datetime="2026-10-16">2026.10.16</time></span></p>
+      <h1 class="article-title">病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法</h1>
+    </header>
+    <figure class="eyecatch"><img src="../../blog/hospital-accreditation-ai/eyecatch.jpg" alt="病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法"></figure>
+    
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">ポイントは「病院機能評価でも出せるレベルで」の一言</a></li><li class="toc-h2"><a href="#sec-2">「わからないところは聞いて」で精度が上がる</a></li><li class="toc-h2"><a href="#sec-3">Word・PowerPointで出してもらう</a></li><li class="toc-h2"><a href="#sec-4">インシデント→マニュアル→勉強会と横に広げる</a></li><li class="toc-h2"><a href="#sec-5">注意点</a></li><li class="toc-h2"><a href="#sec-6">まとめ</a></li></ol></nav>
+    <div class="article-body">
+<!-- BODY:START -->
+<p>病院機能評価の準備では、マニュアルや手順書の整備、見直しに多くの時間がかかります。日々の業務の合間に作るのは大変です。</p>
+<p>この記事では、MATの第2回勉強会（2026年7月17日）で実演した内容をもとに、<strong>病院機能評価を意識したマニュアル・手順書をAIで下書きする方法</strong>を紹介します。</p>
+
+<h2 id="sec-1">ポイントは「病院機能評価でも出せるレベルで」の一言</h2>
+<p>第2回勉強会では、架空のインシデント事例から病棟向けのマニュアルを作る流れを実演しました。そのときのプロンプトに入れたのが、この一言です。</p>
+<blockquote><p>上記の内容から病棟看護師向け「配薬エラー防止対策」のマニュアルを作ります。まずはPDFの構成案を出してください<br>
+・新人にも分かる優しい言葉で書く<br>
+・A4のWordで5枚程度<br>
+・図解多め<br>
+・最後のページには「明日からできる行動3つ」で締める<br>
+・病院機能評価でも出せるレベルで<br>
+・写真を後で入れるので、どのような写真が必要かWordに明示<br>
+わからないところは聞いて</p></blockquote>
+<p>「どのレベルの資料が必要か」をAIに伝えると、AIはそれに合わせて内容を詳しくしようとします。実演では、AIが医療安全のガイドラインを参照しながら構成案を出し、Wordのマニュアルを作りました。写真を入れる位置と「どんな写真が必要か」まで指示が入っていました。</p>
+
+<h2 id="sec-2">「わからないところは聞いて」で精度が上がる</h2>
+<p>最後の「わからないところは聞いて」も大事です。AIは足りない情報を先に質問してくるので、思い込みで作られるズレが減ります（<a href="../ask-me-questions-prompt/">AIに逆質問させるコツ</a>）。</p>
+<p>谷口は実演のあと、このプロンプトについて「適当に…頭に浮かんだものを直接打った」と話しています。きれいな文章でなくても、箇条書きで条件を並べて最後に「わからないところを聞いて」と書けば十分です。</p>
+
+<h2 id="sec-3">Word・PowerPointで出してもらう</h2>
+<p>後から自分で直したいなら、PDFより<strong>WordやPowerPoint</strong>で出してもらうのがおすすめです（第2回勉強会）。病院機能評価の資料は、院内の様式に合わせたり、委員会で修正が入ったりすることが多いので、編集できる形が便利です。</p>
+
+<h2 id="sec-4">インシデント→マニュアル→勉強会と横に広げる</h2>
+<p>勉強会では、インシデントレポートを書いた同じチャットの続きでマニュアルを作りました。マニュアルができれば、そこから新人用のチェックリストや勉強会スライドにも広げられます。</p>
+<ul>
+  <li><a href="../incident-to-manual/">インシデントからマニュアルを作る</a></li>
+  <li><a href="../manual-pdf-to-checklist/">マニュアルPDFから新人用チェックリストを作る</a></li>
+  <li><a href="../study-session-slides-ai/">勉強会スライドをAIで作る</a></li>
+</ul>
+<p>第2回勉強会では、インシデントレポートについて「管理者はいっぱい出すように言われている…病院機能評価にもつながる」という現場の本音も話題になりました。報告から改善、教育までを一つの流れにできるのがAIの強みです。</p>
+
+<h2 id="sec-5">注意点</h2>
+<div class="point-box"><p class="pb-head">POINT</p><p>マニュアルのもとにする事例は、患者さんや職員が特定できない形にしてください（勉強会の事例もすべて架空です）。AIが参照したガイドラインや数値・薬剤名は、必ず原典で確認します。AIは「もっともらしい間違い」をすることがあります（<a href="../hallucination-countermeasures/">ハルシネーション対策</a>）。最終的な内容の判断と承認は、院内の担当者・委員会で行ってください。</p></div>
+
+<h2 id="sec-6">まとめ</h2>
+<ul>
+  <li>プロンプトに「病院機能評価でも出せるレベルで」と書く</li>
+  <li>条件は箇条書きでいい。最後に「わからないところは聞いて」</li>
+  <li>後で直せるようにWord・PowerPointで出してもらう</li>
+  <li>インシデント→マニュアル→チェックリスト→勉強会と横に広げる</li>
+  <li>事例は匿名化し、根拠は原典で確認。判断は人が行う</li>
+</ul>
+<!-- BODY:END -->
+    </div>
+    <aside class="author-box">
+      <img src="../../img/portrait-sitting.jpg" alt="谷口 総志" loading="lazy">
+      <div><p class="ab-label">この記事を書いた人</p><p class="ab-name">谷口 総志<span>MEDI-AI TEAM 主催</span></p><p class="ab-bio">元・臨床工学技士。長年にわたり循環器の現場に立ち、2008年からは心電図のセミナー講師として活動。出版した著書4冊はすべてAmazonランキング1位を獲得。「教える」ではなく「伸ばす」をモットーに、医療職のためのAI実践チーム「MEDI-AI TEAM」を主催している。</p><a href="../../#host" class="ab-link">プロフィールを見る</a></div>
+    </aside>
+  </article>
+  <section class="line-cta">
+  <p class="lc-small">MEDI-AI TEAM 公式LINE</p>
+  <p class="lc-big">AIを、谷口総志と一緒に使い始めよう。</p>
+  <p class="lc-text">参加費や申し込み方法は、公式LINEでご案内しています。</p>
+  <a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener" class="btn-red btn-line">公式LINEで詳しい案内を受け取る</a>
+</section>
+  <section class="related">
+    <h2 class="h-center">関連記事</h2>
+    <div class="post-grid">
+    <a class="post-card" href="../../blog/study-session-slides-ai/" data-cat="勉強会・マニュアル">
+      <div class="pc-thumb"><img src="../../blog/study-session-slides-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">勉強会・マニュアル</span><time datetime="2026-10-02">2026.10.02</time></p>
+        <h3 class="pc-title">病棟勉強会のスライドをAIで作る｜心不全10枚の実演プロンプト</h3>
+        <p class="pc-ex">「新人向け・10枚・背景白・足りない情報は先に質問して」。数分で10枚できた実演プロンプトを紹介します。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/manual-pdf-to-checklist/" data-cat="勉強会・マニュアル">
+      <div class="pc-thumb"><img src="../../blog/manual-pdf-to-checklist/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">勉強会・マニュアル</span><time datetime="2026-09-27">2026.09.27</time></p>
+        <h3 class="pc-title">院内マニュアルPDFから新人用チェックリストをAIで作る｜一言で3点セットができた実演</h3>
+        <p class="pc-ex">PDF3ページから、チェックリスト・スライド・Excelまで。実演の指示文と、使うときの注意点をまとめました。</p>
+      </div>
+    </a>
+    <a class="post-card" href="../../blog/nursing-manual-ai/" data-cat="勉強会・マニュアル">
+      <div class="pc-thumb"><img src="../../blog/nursing-manual-ai/eyecatch.jpg" alt="" loading="lazy"></div>
+      <div class="pc-body">
+        <p class="pc-meta"><span class="pc-cat">勉強会・マニュアル</span><time datetime="2026-09-04">2026.09.04</time></p>
+        <h3 class="pc-title">看護手順書・マニュアルをAIで作る｜Word5枚・図解多め・写真の指示まで</h3>
+        <p class="pc-ex">対象・分量・形式・締め方を決めて頼む。後から直せるWordで、写真の差し込み位置まで指示させるコツ。</p>
+      </div>
+    </a>
+    </div>
+    <div class="center"><a href="../../blog/" class="btn-dark">ブログ一覧へ</a></div>
+  </section>
+</main>
+
+<!-- FOOTER:START (tools/build_blog.py が自動生成。直接編集しないでください) -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div><p class="f-head">MEDI-AI TEAM</p><p class="f-text">医療職のためのAI実践チーム<br>主催：谷口総志</p></div>
+    <div><p class="f-head">コンテンツ</p><ul><li><a href="../../#about">MATとは</a></li><li><a href="../../#activities">活動内容</a></li><li><a href="../../#entry">参加方法</a></li><li><a href="../../blog/">ブログ</a></li></ul></div>
+    <div><p class="f-head">メニュー</p><ul><li><a href="../../">ホーム</a></li><li><a href="../../#host">主催者</a></li><li><a href="../../#faq">よくある質問</a></li><li><a href="https://lin.ee/r1UDzpD" target="_blank" rel="noopener">公式LINE</a></li><li><a href="#">お問い合わせ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p><a href="#">プライバシーポリシー</a></p>
+    <p>© 2026 MEDI-AI TEAM All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+<script type="application/json" id="post-meta">
+{
+  "title": "病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法",
+  "description": "病院機能評価の準備で増えるマニュアル・手順書づくりにAIを使う方法。MATの第2回勉強会で実演した「病院機能評価でも出せるレベルで」と書くプロンプトと、インシデントからマニュアルを作る流れ、注意点を紹介します。",
+  "excerpt": "プロンプトに「病院機能評価でも出せるレベルで」と一言。AIが詳しく聞き返してきて、構成から下書きまで進みます。",
+  "date": "2026-10-16",
+  "updated": "2026-10-16",
+  "category": "勉強会・マニュアル",
+  "eyecatch": "eyecatch.jpg",
+  "eyecatch_alt": "病院機能評価の準備にAIを使う｜マニュアル・手順書を「出せるレベル」で下書きする方法",
+  "sample": false,
+  "draft": false
+}
+</script>
+</body>
+</html>
