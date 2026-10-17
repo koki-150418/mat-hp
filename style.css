@@ -1,8 +1,8 @@
 :root{
-  --red:#b3121c; --red-d:#8f0d15;
+  --red:#0e8fa1; --red-d:#0b6f82;
   --text:#333; --muted:#777; --line:#ddd;
-  --gray:#f4f4f4; --footer:#424242;
-  --navy:#1a364d;
+  --gray:#f4f4f4; --footer:#02254e;
+  --navy:#02254e;
   --mincho:"Shippori Mincho B1",serif;
   --sans:"Noto Sans JP",sans-serif;
 }
@@ -82,7 +82,7 @@ ul{list-style:none}
 .c2{background:#f2f2f2;color:#111}
 .c2 .cover-title{color:var(--navy)}
 .c3{background:var(--red);color:#fff}
-.c4{background:linear-gradient(160deg,var(--navy),#2f5878);color:#fff}
+.c4{background:linear-gradient(160deg,var(--navy),#0e8fa1);color:#fff}
 
 /* message */
 .message{max-width:1040px;margin:0 auto}
@@ -136,7 +136,7 @@ details p{padding:0 32px 22px 56px;font-size:14px}
   radial-gradient(circle at 85% 30%,rgba(255,255,255,.6),transparent 40%),linear-gradient(120deg,#16324a,#2e5c80);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.2)}
 .jb-small{font-size:14px;letter-spacing:.15em}
 .jb-big{font-family:var(--mincho);font-weight:800;font-size:clamp(26px,3.6vw,42px);line-height:1.4;margin:8px 0}
-.jb-name{font-family:var(--mincho);font-weight:700;letter-spacing:.3em;color:#f6d36b}
+.jb-name{font-family:var(--mincho);font-weight:700;letter-spacing:.3em;color:#5fd3e0}
 .cta-cards{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .cta-card{position:relative;aspect-ratio:4/5;padding:26px 20px;display:flex;flex-direction:column;gap:22px;box-shadow:0 4px 12px rgba(0,0,0,.25);background:linear-gradient(170deg,#1e3b33,#0f2422);color:#fff;transition:.25s}
 .cta-card:hover{transform:translateY(-3px)}
@@ -144,7 +144,7 @@ details p{padding:0 32px 22px 56px;font-size:14px}
 .cta-card.red{background:linear-gradient(170deg,#fff 0 55%,#c8202a 55%);color:#111}
 .cc-head{font-family:var(--mincho);font-weight:700;font-size:clamp(17px,1.8vw,22px);line-height:1.5;border-left:2px solid currentColor;padding-left:10px}
 .cc-body{font-family:var(--mincho);font-weight:800;font-size:clamp(18px,2vw,24px);line-height:1.5;text-align:center;margin-top:auto;margin-bottom:auto}
-.cta-card:not(.light):not(.red) .cc-body{color:#f6d36b}
+.cta-card:not(.light):not(.red) .cc-body{color:#5fd3e0}
 .cta-card.red .cc-body{color:#fff;margin-bottom:24px;margin-top:auto}
 .badge{position:absolute;right:-12px;bottom:-12px;width:78px;height:78px;border-radius:50%;background:var(--red);color:#fff;font-size:10px;line-height:1.35;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 3px 8px rgba(0,0,0,.3);border:2px solid #fff}
 
@@ -322,7 +322,7 @@ a.post-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.
 .blog .post-grid{margin-bottom:12px}
 /* list page */
 .blog-hero{background:var(--navy);color:#fff;text-align:center;padding:64px 24px 58px}
-.bh-en{font-size:12px;letter-spacing:.3em;color:#f6d36b}
+.bh-en{font-size:12px;letter-spacing:.3em;color:#5fd3e0}
 .bh-title{font-family:var(--mincho);font-weight:800;font-size:clamp(28px,3.4vw,40px);letter-spacing:.1em;margin:8px 0 16px}
 .bh-lead{font-size:14px;line-height:2;opacity:.9;word-break:auto-phrase}
 .blog-list{background:var(--gray,#f4f4f4)}
