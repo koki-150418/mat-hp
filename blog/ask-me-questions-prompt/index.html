@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する｜MATブログ｜MEDI-AI TEAM</title>
-<meta name="description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。">
+<meta name="description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。実例とともに、医療職向けの使い方を解説します。">
 <link rel="canonical" href="https://mediaiteam.com/blog/ask-me-questions-prompt/">
 <meta property="og:title" content="「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する｜MATブログ｜MEDI-AI TEAM">
-<meta property="og:description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。">
+<meta property="og:description" content="AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。実例とともに、医療職向けの使い方を解説します。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mediaiteam.com/blog/ask-me-questions-prompt/">
 <meta property="og:image" content="https://mediaiteam.com/blog/ask-me-questions-prompt/eyecatch.jpg">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../style.css">
 <meta property="article:published_time" content="2026-09-24">
 <meta property="article:modified_time" content="2026-09-24">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する", "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。", "image": ["https://mediaiteam.com/blog/ask-me-questions-prompt/eyecatch.jpg"], "datePublished": "2026-09-24", "dateModified": "2026-09-24", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/ask-me-questions-prompt/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する", "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。実例とともに、医療職向けの使い方を解説します。", "image": ["https://mediaiteam.com/blog/ask-me-questions-prompt/eyecatch.jpg"], "datePublished": "2026-09-24", "dateModified": "2026-09-24", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/ask-me-questions-prompt/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する", "item": "https://mediaiteam.com/blog/ask-me-questions-prompt/"}]}</script>
 </head>
 <body class="page-blog">
@@ -58,18 +58,18 @@
     </header>
     <figure class="eyecatch"><img src="../../blog/ask-me-questions-prompt/eyecatch.jpg" alt="「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する"></figure>
     
-    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">なぜAIは「ずれた答え」を返すのか</a></li><li class="toc-h2"><a href="#sec-2">実演：勉強会スライドで聞き返された3つの質問</a></li><li class="toc-h2"><a href="#sec-3">医療職のための使いどころ</a></li><li class="toc-h3"><a href="#sec-4">手書きメモを読ませるとき</a></li><li class="toc-h3"><a href="#sec-5">マニュアルや資料を作るとき</a></li><li class="toc-h3"><a href="#sec-6">申し送りや報告の下書きを作るとき</a></li><li class="toc-h2"><a href="#sec-7">言い方のバリエーション</a></li><li class="toc-h2"><a href="#sec-8">他のコツと組み合わせる</a></li><li class="toc-h2"><a href="#sec-9">よくある質問</a></li><li class="toc-h3"><a href="#sec-10">Q. 質問に答えるのが面倒なときは？</a></li><li class="toc-h2"><a href="#sec-11">つまずきやすいポイントQ&amp;amp;A</a></li><li class="toc-h3"><a href="#sec-12">Q. AIからの質問が多すぎるときは？</a></li><li class="toc-h3"><a href="#sec-13">Q. 質問に答えるとき、患者さんのことを書いてしまいそうです</a></li><li class="toc-h2"><a href="#sec-14">まとめ</a></li></ol></nav>
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">なぜAIは「ずれた答え」を返すのか</a></li><li class="toc-h2"><a href="#sec-2">実例：勉強会スライドで聞き返された3つの質問</a></li><li class="toc-h2"><a href="#sec-3">医療職のための使いどころ</a></li><li class="toc-h3"><a href="#sec-4">手書きメモを読ませるとき</a></li><li class="toc-h3"><a href="#sec-5">マニュアルや資料を作るとき</a></li><li class="toc-h3"><a href="#sec-6">申し送りや報告の下書きを作るとき</a></li><li class="toc-h2"><a href="#sec-7">言い方のバリエーション</a></li><li class="toc-h2"><a href="#sec-8">他のコツと組み合わせる</a></li><li class="toc-h2"><a href="#sec-9">よくある質問</a></li><li class="toc-h3"><a href="#sec-10">Q. 質問に答えるのが面倒なときは？</a></li><li class="toc-h2"><a href="#sec-11">つまずきやすいポイントQ&amp;amp;A</a></li><li class="toc-h3"><a href="#sec-12">Q. AIからの質問が多すぎるときは？</a></li><li class="toc-h3"><a href="#sec-13">Q. 質問に答えるとき、患者さんのことを書いてしまいそうです</a></li><li class="toc-h2"><a href="#sec-14">まとめ</a></li></ol></nav>
     <div class="article-body">
 <!-- BODY:START -->
 <p>AIに頼んだら、思っていたのと全然違うものが返ってきた。作り直しを頼んでも、また微妙にずれている。そんな経験はありませんか。</p>
-<p>MATの第1回勉強会で、谷口が「ほとんどの人が知らない」と紹介したコツがあります。それが、指示の最後に添える<strong>「足りない情報があれば、先に質問して」</strong>という一言です。</p>
+<p>ほとんどの人が知らないコツがあります。それが、指示の最後に添える<strong>「足りない情報があれば、先に質問して」</strong>という一言です。</p>
 
 <h2 id="sec-1">なぜAIは「ずれた答え」を返すのか</h2>
 <p>AIは、次に来る言葉を予測しながら文章を作ります。情報が足りないと、足りない部分を推測で埋めて、そのまま最後まで書き切ってしまいます。推測の上に推測を重ねるので、結果として的外れな答えや、もっともらしい嘘（ハルシネーション）が生まれやすくなります。</p>
 <p>「足りない情報があれば、先に質問して」と添えると、AIは推測で埋める前に、まずあなたに確認するようになります。<strong>推論の積み重ねを、最初の段階で止める</strong>ことができるのです。</p>
 
-<h2 id="sec-2">実演：勉強会スライドで聞き返された3つの質問</h2>
-<p>第1回勉強会では、次のプロンプトで心不全の勉強会スライドを作りました。</p>
+<h2 id="sec-2">実例：勉強会スライドで聞き返された3つの質問</h2>
+<p>たとえば、次のプロンプトで心不全の勉強会スライドを作ってみます。</p>
 <blockquote><p>心不全の勉強会を行います。スライドを作ってください。<br>・新人看護師向け<br>・難しい言葉を使わない<br>・パワーポイントで10枚<br>・背景白でシンプルに<br>・足りない情報があれば先に質問して</p></blockquote>
 <p>するとAIは、作り始める前にこう聞いてきました。</p>
 <ol>
@@ -81,10 +81,10 @@
 
 <h2 id="sec-3">医療職のための使いどころ</h2>
 <h3 id="sec-4">手書きメモを読ませるとき</h3>
-<p>第2回勉強会では、手書きメモの写真を読ませるときに「自信がないところは1行ずつ聞いて」と指示しました。読み取れない字を勝手に推測されるより、確認してもらったほうが安全です。詳しくは<a href="../handwritten-memo-ai/">手書きメモをAIに読ませる記事</a>へ。</p>
+<p>手書きメモの写真を読ませるときは、「自信がないところは1行ずつ聞いて」と指示します。読み取れない字を勝手に推測されるより、確認してもらったほうが安全です。詳しくは<a href="../handwritten-memo-ai/">手書きメモをAIに読ませる記事</a>へ。</p>
 <h3 id="sec-5">マニュアルや資料を作るとき</h3>
-<p>マニュアル作成のプロンプトの最後にも「わからないところは聞いて」と入れました。谷口は、こんなふうに話しています。</p>
-<blockquote><p>「箇条書きでいいので、頭に浮かんだものをボンボンと貼って、最後に『わからないところを聞いて』」</p></blockquote>
+<p>マニュアル作成のプロンプトの最後にも「わからないところは聞いて」と入れます。</p>
+<p>箇条書きでいいので、頭に浮かんだものをボンボンと貼って、最後に「わからないところを聞いて」と書く。それで十分です。</p>
 <p>きれいな指示文を考えなくても、思いついたことを並べて、最後にこの一言を添えるだけでいい。これなら、忙しい中でもすぐに使えます。</p>
 <h3 id="sec-6">申し送りや報告の下書きを作るとき</h3>
 <p>「血圧の値は？」「いつからの症状？」とAIに聞かれることで、自分の観察や記録の抜けに気づくこともあります。AIの質問が、ちょっとしたダブルチェックの役割を果たしてくれるのです。</p>
@@ -187,7 +187,7 @@
 <script type="application/json" id="post-meta">
 {
   "title": "「足りない情報があれば先に質問して」｜AIに逆質問させるだけでズレが激減する",
-  "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。MAT勉強会の実演例とともに、医療職向けの使い方を解説します。",
+  "description": "AIへの指示の最後に「足りない情報があれば、先に質問して」と一言添えるだけで、的外れな答えやハルシネーションが減ります。実例とともに、医療職向けの使い方を解説します。",
   "excerpt": "ほとんどの人が知らないコツ。一言添えるだけで、AIが確認してから作業するようになります。",
   "date": "2026-09-24",
   "updated": "2026-09-24",

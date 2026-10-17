@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ｜MATブログ｜MEDI-AI TEAM</title>
-<meta name="description" content="Claudeのスキル機能の作り方を、MAT第3回勉強会の実演から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。">
+<meta name="description" content="Claudeのスキル機能の作り方を、実例から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。">
 <link rel="canonical" href="https://mediaiteam.com/blog/claude-skill-how-to/">
 <meta property="og:title" content="Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ｜MATブログ｜MEDI-AI TEAM">
-<meta property="og:description" content="Claudeのスキル機能の作り方を、MAT第3回勉強会の実演から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。">
+<meta property="og:description" content="Claudeのスキル機能の作り方を、実例から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mediaiteam.com/blog/claude-skill-how-to/">
 <meta property="og:image" content="https://mediaiteam.com/blog/claude-skill-how-to/eyecatch.jpg">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../style.css">
 <meta property="article:published_time" content="2026-08-29">
 <meta property="article:modified_time" content="2026-08-29">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ", "description": "Claudeのスキル機能の作り方を、MAT第3回勉強会の実演から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。", "image": ["https://mediaiteam.com/blog/claude-skill-how-to/eyecatch.jpg"], "datePublished": "2026-08-29", "dateModified": "2026-08-29", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/claude-skill-how-to/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ", "description": "Claudeのスキル機能の作り方を、実例から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。", "image": ["https://mediaiteam.com/blog/claude-skill-how-to/eyecatch.jpg"], "datePublished": "2026-08-29", "dateModified": "2026-08-29", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/claude-skill-how-to/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ", "item": "https://mediaiteam.com/blog/claude-skill-how-to/"}]}</script>
 </head>
 <body class="page-blog">
@@ -62,19 +62,19 @@
     <div class="article-body">
 <!-- BODY:START -->
 <p>「スキルって便利そうだけど、作るのは難しそう」。そう思っている方に、いちばんお伝えしたいのは、<strong>スキルは自分で書かなくていい</strong>ということです。</p>
-<p>この記事では、MATの第3回勉強会で実演した、Claudeでスキルを作る流れを紹介します。スキルの考え方そのものは<a href="../ai-skills-explained/">AIのスキルとは？の記事</a>をご覧ください。</p>
+<p>この記事では、Claudeでスキルを作る流れを紹介します。スキルの考え方そのものは<a href="../ai-skills-explained/">AIのスキルとは？の記事</a>をご覧ください。</p>
 <p>※画面や機能の名前は2026年8月時点のものです。スキルの保存には、Claudeのアプリ版（Cowork）と有料プランが必要でした。</p>
 
 <h2 id="sec-1">ステップ1：まず普通に作業する</h2>
 <p>最初からスキルを作ろうとしなくて大丈夫です。まずは、いつもの作業をAIと一緒にやってみます。</p>
-<p>勉強会では、デスクトップの「新人教育」フォルダに入れたマニュアルPDF（デモ用の架空のもの）を読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表を作らせました。この実演は<a href="../manual-pdf-to-checklist/">マニュアルPDFからチェックリストを作る記事</a>で紹介しています。</p>
+<p>たとえば、デスクトップの「新人教育」フォルダに入れたマニュアルPDF（説明用の架空のもの）を読ませて、新人用チェックリスト・勉強会スライド・Excelのチェック表を作らせます。この流れは<a href="../manual-pdf-to-checklist/">マニュアルPDFからチェックリストを作る記事</a>で紹介しています。</p>
 <p>出来上がったものに直してほしいところがあれば、ここで伝えて直してもらいます。</p>
 
 <h2 id="sec-2">ステップ2：「これをスキルにして」</h2>
 <p>納得いく形になったら、同じ会話の中でこう頼みます。</p>
-<blockquote><p>「これをスキルにしてって言えばいいです」</p></blockquote>
-<p>谷口は勉強会でこう説明し、「AI全てが持っている機能なので、どのAI使っても同じです」と続けました。</p>
-<p>すると、AIがそれまでの作業の流れを、文字の手順書（スキル）にまとめてくれます。勉強会でも、スキルの中身は「全て文字」で、すべてAIが作ってくれました。保存ボタンを押せば完成です。Claudeでは「カスタマイズ」→「スキル」から、作ったスキルを確認できます。</p>
+<p>うまくいったら、「これをスキルにして」と言えばいいんです。</p>
+<p>これはAI全てが持っている機能なので、どのAIを使っても同じです。</p>
+<p>すると、AIがそれまでの作業の流れを、文字の手順書（スキル）にまとめてくれます。スキルの中身は全て文字で、すべてAIが作ってくれます。保存ボタンを押せば完成です。Claudeでは「カスタマイズ」→「スキル」から、作ったスキルを確認できます。</p>
 
 <h2 id="sec-3">ステップ3：5つの項目で点検する</h2>
 <p>AIが書いたスキルを開いて、次の5つが入っているかを確認します。</p>
@@ -85,20 +85,20 @@
   <li><strong>出力の形</strong>：どんな形で仕上げるか</li>
   <li><strong>確認項目</strong>：仕上げる前に何をチェックするか</li>
 </ol>
-<p>勉強会のスライドでは、この5つは「自分で書くため」ではなく、<strong>AIが書いたものを点検するための枠組み</strong>だとお伝えしました。特に5番目の確認項目が大切です。AIは分からないところを埋めてしまうことがあるので、「直した箇所を必ず報告する」と入っているかを見てください。</p>
+<p>この5つは「自分で書くため」ではなく、<strong>AIが書いたものを点検するための枠組み</strong>です。特に5番目の確認項目が大切です。AIは分からないところを埋めてしまうことがあるので、「直した箇所を必ず報告する」と入っているかを見てください。</p>
 
 <div class="point-box"><p class="pb-head">POINT</p><p>スキルの中に、患者情報・病院名・職員名が入っていないかも必ず確認しましょう。スキルは使うたびにAIに読み込まれます。書くのは様式と手順だけです。</p></div>
 
 <h2 id="sec-4">ステップ4：別の資料でテストする</h2>
-<p>勉強会では、保存したスキルをテストするために、部署も様式も書き方も違う「転倒転落防止」のマニュアル（これもデモ用）を同じフォルダに入れ、あえてアバウトにこう頼みました。</p>
+<p>保存したスキルをテストするために、部署も様式も書き方も違う「転倒転落防止」のマニュアル（これも説明用）を同じフォルダに入れ、あえてアバウトにこう頼んでみました。</p>
 <blockquote><p>同じフォルダに入れたもう1本のPDFでチェックリストを作って</p></blockquote>
-<p>すると、スキルを使うよう指示していないのに、AIが自分でスキルを読み込み、同じ形式でチェックリスト・スライド・Excelを作って保存しました。谷口はこう話しています。</p>
-<blockquote><p>「一度教えていけば、あとはもう呼べば終わっている」</p></blockquote>
+<p>すると、スキルを使うよう指示していないのに、AIが自分でスキルを読み込み、同じ形式でチェックリスト・スライド・Excelを作って保存しました。</p>
+<p>一度教えておけば、あとはもう呼べば終わっている。これがスキルです。</p>
 <p>AIが書いたスキルの中には、「マニュアルや手順書のPDFを渡されて、教育資料やチェックリストを求められたら、このスキルを使う」という<strong>使うタイミング</strong>まで書かれていました。だから、アバウトな指示でも反応したのです。</p>
 <p>確実に動かしたいときは、「転倒転落防止マニュアルを読んで、3点セットを作って」のように、具体的に頼めば大丈夫です。</p>
 
 <h2 id="sec-5">小さく作って、つなげる</h2>
-<p>勉強会では3つの成果物を一度に作りましたが、1つずつスキルにしてもかまいません。チェックリストのスキル、勉強会資料のスキル、と分けて作り、あとから組み合わせることもできます。</p>
+<p>ここでは3つの成果物を一度に作りましたが、1つずつスキルにしてもかまいません。チェックリストのスキル、勉強会資料のスキル、と分けて作り、あとから組み合わせることもできます。</p>
 
 <h2 id="sec-6">よくある質問</h2>
 <h3 id="sec-7">Q. スキルを作るのに有料プランは必要ですか？</h3>
@@ -115,7 +115,7 @@
   <li>5項目（特に確認項目）と、個人情報が入っていないかを点検</li>
   <li>別の資料でテストして、同じように動くか確かめる</li>
 </ul>
-<p>谷口は「1本目作らないと分からない」「小さな成功体験を作っていきましょう」と話しています。最初の1本を一緒に作る仲間がいると心強いもの。MATでは、スキル作りの相談もメンバー同士で行っています。</p>
+<p>1本目を作らないと分かりません。小さな成功体験を作っていきましょう。最初の1本を一緒に作る仲間がいると心強いもの。MATでは、スキル作りの相談もメンバー同士で行っています。</p>
 <!-- BODY:END -->
     </div>
     <aside class="author-box">
@@ -177,7 +177,7 @@
 <script type="application/json" id="post-meta">
 {
   "title": "Claudeでスキルを作る｜「これをスキルにして」と頼んで5項目を点検するだけ",
-  "description": "Claudeのスキル機能の作り方を、MAT第3回勉強会の実演から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。",
+  "description": "Claudeのスキル機能の作り方を、実例から紹介。うまくいった作業の最後に「これをスキルにして」と頼み、目的・渡すもの・手順・出力の形・確認項目の5つで点検する方法と、テストのやり方を解説します。",
   "excerpt": "スキルは自分で書かなくていい。「これをスキルにして」と頼み、5項目で点検し、別の資料でテストするだけ。",
   "date": "2026-08-29",
   "updated": "2026-08-29",

@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演｜MATブログ｜MEDI-AI TEAM</title>
-<meta name="description" content="ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実演を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。">
+<meta name="description" content="ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実例を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。">
 <link rel="canonical" href="https://mediaiteam.com/blog/claude-cowork-demo/">
 <meta property="og:title" content="Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演｜MATブログ｜MEDI-AI TEAM">
-<meta property="og:description" content="ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実演を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。">
+<meta property="og:description" content="ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実例を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mediaiteam.com/blog/claude-cowork-demo/">
 <meta property="og:image" content="https://mediaiteam.com/blog/claude-cowork-demo/eyecatch.jpg">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../style.css">
 <meta property="article:published_time" content="2026-08-28">
 <meta property="article:modified_time" content="2026-08-28">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演", "description": "ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実演を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。", "image": ["https://mediaiteam.com/blog/claude-cowork-demo/eyecatch.jpg"], "datePublished": "2026-08-28", "dateModified": "2026-08-28", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/claude-cowork-demo/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演", "description": "ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実例を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。", "image": ["https://mediaiteam.com/blog/claude-cowork-demo/eyecatch.jpg"], "datePublished": "2026-08-28", "dateModified": "2026-08-28", "author": {"@type": "Person", "name": "谷口総志", "url": "https://mediaiteam.com/#host"}, "publisher": {"@type": "Organization", "name": "MEDI-AI TEAM", "url": "https://mediaiteam.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mediaiteam.com/blog/claude-cowork-demo/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mediaiteam.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mediaiteam.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演", "item": "https://mediaiteam.com/blog/claude-cowork-demo/"}]}</script>
 </head>
 <body class="page-blog">
@@ -58,18 +58,18 @@
     </header>
     <figure class="eyecatch"><img src="../../blog/claude-cowork-demo/eyecatch.jpg" alt="Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演"></figure>
     
-    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">Coworkとは</a></li><li class="toc-h2"><a href="#sec-2">実演の流れ</a></li><li class="toc-h3"><a href="#sec-3">①フォルダを用意する</a></li><li class="toc-h3"><a href="#sec-4">②Coworkで作業フォルダを指定する</a></li><li class="toc-h3"><a href="#sec-5">③指示文を1つ送る</a></li><li class="toc-h3"><a href="#sec-6">④AIの質問に答える</a></li><li class="toc-h3"><a href="#sec-7">⑤待つ</a></li><li class="toc-h2"><a href="#sec-8">Claude Codeとの違い</a></li><li class="toc-h2"><a href="#sec-9">Coworkを安全に使うために</a></li><li class="toc-h2"><a href="#sec-10">トークンと利用制限</a></li><li class="toc-h2"><a href="#sec-11">任せている間は、ほかのことを</a></li><li class="toc-h2"><a href="#sec-12">よくある質問</a></li><li class="toc-h3"><a href="#sec-13">Q. Coworkは何ができるのですか？</a></li><li class="toc-h3"><a href="#sec-14">Q. パソコンのファイルを触らせて大丈夫ですか？</a></li><li class="toc-h3"><a href="#sec-15">Q. Claude Codeとの違いは？</a></li><li class="toc-h2"><a href="#sec-16">まとめ</a></li></ol></nav>
+    <nav class="toc" aria-label="目次"><p class="toc-head">目次</p><ol><li class="toc-h2"><a href="#sec-1">Coworkとは</a></li><li class="toc-h2"><a href="#sec-2">実際の流れ</a></li><li class="toc-h3"><a href="#sec-3">①フォルダを用意する</a></li><li class="toc-h3"><a href="#sec-4">②Coworkで作業フォルダを指定する</a></li><li class="toc-h3"><a href="#sec-5">③指示文を1つ送る</a></li><li class="toc-h3"><a href="#sec-6">④AIの質問に答える</a></li><li class="toc-h3"><a href="#sec-7">⑤待つ</a></li><li class="toc-h2"><a href="#sec-8">Claude Codeとの違い</a></li><li class="toc-h2"><a href="#sec-9">Coworkを安全に使うために</a></li><li class="toc-h2"><a href="#sec-10">トークンと利用制限</a></li><li class="toc-h2"><a href="#sec-11">任せている間は、ほかのことを</a></li><li class="toc-h2"><a href="#sec-12">よくある質問</a></li><li class="toc-h3"><a href="#sec-13">Q. Coworkは何ができるのですか？</a></li><li class="toc-h3"><a href="#sec-14">Q. パソコンのファイルを触らせて大丈夫ですか？</a></li><li class="toc-h3"><a href="#sec-15">Q. Claude Codeとの違いは？</a></li><li class="toc-h2"><a href="#sec-16">まとめ</a></li></ol></nav>
     <div class="article-body">
 <!-- BODY:START -->
-<p>Claudeには、パソコンの中のファイルを読んだり、作ったり、保存したりできる「Cowork（コワーク）」というアプリの機能があります。MAT主催の谷口は、仕事の多くをこのCoworkで行っています。</p>
-<blockquote><p>「本当に僕はほとんど90%ぐらいはコワークで仕事をしています」</p></blockquote>
-<p>この記事では、第3回勉強会で実演した、Coworkで新人教育の資料を作る流れを紹介します。</p>
+<p>Claudeには、パソコンの中のファイルを読んだり、作ったり、保存したりできる「Cowork（コワーク）」というアプリの機能があります。私は、仕事の多くをこのCoworkで行っています。</p>
+<p>本当に、ほとんど90%ぐらいはCoworkで仕事をしています。</p>
+<p>この記事では、Coworkで新人教育の資料を作る流れを紹介します。</p>
 <p>※機能や画面は2026年8月時点のものです。Coworkの利用には、Claudeのアプリ版と有料プランが必要でした。</p>
 
 <h2 id="sec-1">Coworkとは</h2>
-<p>普通のチャットは、答えを文章で返すだけです。返ってきた文章をコピーしてファイルに貼り、保存するのは人の仕事でした。Coworkは、<strong>指定したフォルダの中で、AIがファイルを開いて読み、新しいファイルを作って保存する</strong>ところまで行います。勉強会のスライドでは「隣の席に座って、実際に手を動かすもう一人の人」と表現しました。</p>
+<p>普通のチャットは、答えを文章で返すだけです。返ってきた文章をコピーしてファイルに貼り、保存するのは人の仕事でした。Coworkは、<strong>指定したフォルダの中で、AIがファイルを開いて読み、新しいファイルを作って保存する</strong>ところまで行います。隣の席に座って、実際に手を動かすもう一人の人。そんなイメージです。</p>
 
-<h2 id="sec-2">実演の流れ</h2>
+<h2 id="sec-2">実際の流れ</h2>
 <h3 id="sec-3">①フォルダを用意する</h3>
 <p>デスクトップに「新人教育」フォルダを作り、デモ用の架空のマニュアルPDF（末梢静脈カテーテル管理）を入れました。</p>
 <h3 id="sec-4">②Coworkで作業フォルダを指定する</h3>
@@ -82,7 +82,7 @@
 <p>約10分後、フォルダの中にPowerPointのスライド、勉強会資料のPDF、Wordのチェックリスト、Excelのチェック表が保存されていました。</p>
 
 <h2 id="sec-8">Claude Codeとの違い</h2>
-<p>Claudeには、Claude Codeという開発者向けのツールもあります。谷口の説明はこうです。</p>
+<p>Claudeには、Claude Codeという開発者向けのツールもあります。違いはこうです。</p>
 <ul>
   <li>CoworkとClaude Codeは「ほぼ同じ」</li>
   <li>Coworkは非エンジニア向け</li>
@@ -99,19 +99,19 @@
 </ul>
 
 <h2 id="sec-10">トークンと利用制限</h2>
-<p>Coworkは、ファイルを読んだり書いたりするたびに「トークン」というデータ量を使います。勉強会では、AIには「5時間制限と1週間制限が別々に設けられている」と説明しました。どちらかの上限に達すると、時間が経つまで使えなくなります。</p>
+<p>Coworkは、ファイルを読んだり書いたりするたびに「トークン」というデータ量を使います。AIには「5時間制限」と「1週間制限」が別々に設けられています。どちらかの上限に達すると、時間が経つまで使えなくなります。</p>
 <p>毎回同じ作業をするなら、手順を<a href="../ai-skills-explained/">スキル</a>にしておくと、やり取りが減ってトークンの節約にもなります。</p>
 
 <h2 id="sec-11">任せている間は、ほかのことを</h2>
-<p>谷口は、作業を任せている間について「食事に行ってもいいし遊びに行ってもいい」と話しています。パソコンが起動していれば、スマホから自宅のパソコンに指示を出すこともできます（そのためにパソコンをスリープさせない設定にしている、とのことでした）。</p>
+<p>作業を任せている間は、食事に行ってもいいし、遊びに行ってもいい。パソコンが起動していれば、スマホから自宅のパソコンに指示を出すこともできます（私はそのために、パソコンをスリープさせない設定にしています）。</p>
 
 <h2 id="sec-12">よくある質問</h2>
 <h3 id="sec-13">Q. Coworkは何ができるのですか？</h3>
-<p>パソコンの中のファイルを読んだり作ったりしながら、作業を進めてくれる機能です。第3回勉強会では、資料作りなどの実演をしました。</p>
+<p>パソコンの中のファイルを読んだり作ったりしながら、作業を進めてくれる機能です。資料作りなどに向いています。</p>
 <h3 id="sec-14">Q. パソコンのファイルを触らせて大丈夫ですか？</h3>
 <p>作業用のフォルダを作り、AIに触らせるのはその中だけにするのがおすすめです。大事なファイルや個人情報が入ったフォルダは、作業場所に含めないでください。</p>
 <h3 id="sec-15">Q. Claude Codeとの違いは？</h3>
-<p>勉強会では「コワークとクロードコードはほぼ同じ」と話しました。Coworkは普段の画面から使える、ターミナルに慣れていない人向けの入口です。</p>
+<p>CoworkとClaude Codeは、ほぼ同じです。Coworkは普段の画面から使える、ターミナルに慣れていない人向けの入口です。</p>
 
 <h2 id="sec-16">まとめ</h2>
 <ul>
@@ -182,7 +182,7 @@
 <script type="application/json" id="post-meta">
 {
   "title": "Claude Coworkでフォルダの資料から書類を自動作成｜新人教育の実演",
-  "description": "ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実演を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。",
+  "description": "ClaudeのCoworkを使って、フォルダに入れたマニュアルPDFから新人教育の資料一式を自動作成した実例を紹介。フォルダの指定、指示文の書き方、Claude Codeとの違い、安全に使うための注意点を解説します。",
   "excerpt": "フォルダを指定して、指示文を1つ。読む・作る・保存するまでAIが動きました。Coworkの使い方と注意点。",
   "date": "2026-08-28",
   "updated": "2026-08-28",

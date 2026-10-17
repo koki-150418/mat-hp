@@ -55,7 +55,7 @@
     "date": "2026-10-16",
     "updated": "2026-10-16",
     "category": "キャリア・副業",
-    "excerpt": "ブログは「最強」、SNSは入口、LINEとメルマガは必須。25種類のうち19個を実践した谷口のコメントつき一覧。",
+    "excerpt": "ブログは「最強」、SNSは入口、LINEとメルマガは必須。25種類のうち19個を実践している私のコメントつき一覧。",
     "url": "blog/medical-side-job-types/",
     "eyecatch": "blog/medical-side-job-types/eyecatch.jpg"
   },
@@ -85,7 +85,7 @@
     "date": "2026-10-16",
     "updated": "2026-10-16",
     "category": "キャリア・副業",
-    "excerpt": "機械と向き合ってきた臨床工学技士は、AIで仕組みを作る側に回りやすい。元臨床工学技士の谷口とメンバーの事例から。",
+    "excerpt": "機械と向き合ってきた臨床工学技士は、AIで仕組みを作る側に回りやすい。元臨床工学技士の私とメンバーの事例から。",
     "url": "blog/clinical-engineer-career-ai/",
     "eyecatch": "blog/clinical-engineer-career-ai/eyecatch.jpg"
   },
@@ -105,7 +105,7 @@
     "date": "2026-10-16",
     "updated": "2026-10-16",
     "category": "自分専用AI",
-    "excerpt": "コピペで使える看護師版・臨床工学技士3行版の文例。最後の1行が、初期設定講座の肝です。",
+    "excerpt": "コピペで使える看護師版・臨床工学技士3行版の文例。最後の1行が肝です。",
     "url": "blog/chatgpt-custom-instructions-medical/",
     "eyecatch": "blog/chatgpt-custom-instructions-medical/eyecatch.jpg"
   },
@@ -135,7 +135,7 @@
     "date": "2026-10-07",
     "updated": "2026-10-07",
     "category": "看護記録・申し送り",
-    "excerpt": "手書きメモ→SOAPの下書きをAIで。実演で使ったプロンプトと、個人情報・最終確認の注意点をまとめました。",
+    "excerpt": "手書きメモ→SOAPの下書きをAIで。使うプロンプトと、個人情報・最終確認の注意点をまとめました。",
     "url": "blog/nursing-record-soap-ai/",
     "eyecatch": "blog/nursing-record-soap-ai/eyecatch.jpg"
   },
@@ -185,7 +185,7 @@
     "date": "2026-10-02",
     "updated": "2026-10-02",
     "category": "勉強会・マニュアル",
-    "excerpt": "「新人向け・10枚・背景白・足りない情報は先に質問して」。数分で10枚できた実演プロンプトを紹介します。",
+    "excerpt": "「新人向け・10枚・背景白・足りない情報は先に質問して」。数分で10枚できたプロンプトを紹介します。",
     "url": "blog/study-session-slides-ai/",
     "eyecatch": "blog/study-session-slides-ai/eyecatch.jpg"
   },
@@ -215,7 +215,7 @@
     "date": "2026-09-29",
     "updated": "2026-09-29",
     "category": "安全設定・個人情報",
-    "excerpt": "初期設定講座で「今日一番重要なところ」と強調した設定。オフにしても不具合はなく、履歴削除とは別のしくみです。",
+    "excerpt": "私がいちばん重要だと考えている設定。オフにしても不具合はなく、履歴削除とは別のしくみです。",
     "url": "blog/chatgpt-model-improvement-off/",
     "eyecatch": "blog/chatgpt-model-improvement-off/eyecatch.jpg"
   },
@@ -235,7 +235,7 @@
     "date": "2026-09-27",
     "updated": "2026-09-27",
     "category": "勉強会・マニュアル",
-    "excerpt": "PDF3ページから、チェックリスト・スライド・Excelまで。実演の指示文と、使うときの注意点をまとめました。",
+    "excerpt": "PDF3ページから、チェックリスト・スライド・Excelまで。使った指示文と、使うときの注意点をまとめました。",
     "url": "blog/manual-pdf-to-checklist/",
     "eyecatch": "blog/manual-pdf-to-checklist/eyecatch.jpg"
   },
@@ -315,7 +315,7 @@
     "date": "2026-09-19",
     "updated": "2026-09-19",
     "category": "AI入門",
-    "excerpt": "1日30分の雑務は年120時間、まる5日分。勉強会で実演した時短の実例と、取り戻した時間の使い方を考えます。",
+    "excerpt": "1日30分の雑務は年120時間、まる5日分。実際にやってみた時短の実例と、取り戻した時間の使い方を考えます。",
     "url": "blog/ai-leave-on-time/",
     "eyecatch": "blog/ai-leave-on-time/eyecatch.jpg"
   },
@@ -455,7 +455,7 @@
     "date": "2026-09-05",
     "updated": "2026-09-05",
     "category": "インシデント・医療安全",
-    "excerpt": "レポートで終わらせず、教育につなげる。同じ会話の続きで、新人にも分かる防止マニュアルを作った実演です。",
+    "excerpt": "レポートで終わらせず、教育につなげる。同じ会話の続きで、新人にも分かる防止マニュアルを作る方法です。",
     "url": "blog/incident-to-manual/",
     "eyecatch": "blog/incident-to-manual/eyecatch.jpg"
   },
@@ -545,7 +545,7 @@
     "date": "2026-08-27",
     "updated": "2026-08-27",
     "category": "スキル・自動化",
-    "excerpt": "いちばん時間がかかるのに、何も生まない「運ぶ」作業。AIがExcelへの転記まで行う実演と注意点です。",
+    "excerpt": "いちばん時間がかかるのに、何も生まない「運ぶ」作業。AIがExcelへの転記まで行う実例と注意点です。",
     "url": "blog/excel-transcription-ai/",
     "eyecatch": "blog/excel-transcription-ai/eyecatch.jpg"
   },
